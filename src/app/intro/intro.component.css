@@ -1,6 +1,6 @@
 @font-face {
-  src: url("src\assets\fonts\POKERINOCTOBERDEMO-DXM3.OTF");
-  font-family: "Poker Numbers";
+  src: url("src\assets\fonts\Blackpearl-vPxA.ttf");
+  font-family: "Piate Game";
 }
 
 @keyframes slidein {
@@ -52,11 +52,11 @@
 html {
  background-color: black;
  background-size: cover;
- cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
+ cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
  width: 1335px;
  height: 735px;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  cursor: wait;
 }
@@ -65,7 +65,7 @@ body {
  width: 1335px !important;
  height: 735px !important;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
 }
 
@@ -74,7 +74,7 @@ body {
  width: 1335px;
  height: 735px;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  position: relative;
 }
@@ -82,7 +82,7 @@ body {
 .intro-text {
  display: inline-flex;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  top: 260px;
  left: 350px;
@@ -95,7 +95,7 @@ body {
 .word-1 {
  opacity: 0%;
 font-size: 68px;
-font-family: "Poker Numbers";
+font-family: "Piate Game";
 color: gold;
 animation-duration: 10s;
 animation-delay: 0.5s;
@@ -106,7 +106,7 @@ padding-left: 350px;
 .word-2 {
  opacity: 0%;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  animation-duration: 10s;
 animation-delay: 0.9s;
@@ -117,7 +117,7 @@ animation-name: slidein;
 .word-3{
  opacity: 0%;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  animation-duration: 10s;
 animation-delay: 1.3s;
@@ -128,7 +128,7 @@ animation-name: slidein;
 .word-4 {
  opacity: 0%;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  animation-duration: 10s;
 animation-delay: 1.7s;
@@ -139,7 +139,7 @@ animation-name: slidein;
 .word-5 {
  opacity: 0%;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  animation-duration: 10s;
  animation-delay: 2.1s;
@@ -149,7 +149,7 @@ animation-name: slidein;
 .word-6 {
  opacity: 0%;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  animation-duration: 10s;
 animation-delay: 2.5s;
@@ -160,7 +160,7 @@ animation-name: slidein;
 .word-7 {
  opacity: 0%;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  animation-duration: 10s;
 animation-delay: 2.9s;
@@ -172,7 +172,7 @@ animation-name: slidein;
  opacity: 0%;
  padding-left: 50px;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  animation-duration: 10s;
 animation-delay: 3.2s;
@@ -183,7 +183,7 @@ animation-name: slidein;
 .word-9 {
  opacity: 0%;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  animation-duration: 10s;
 animation-delay: 3.7s;
@@ -194,7 +194,7 @@ animation-name: slidein;
  opacity: 0%;
  padding-left: 50px;
  font-size: 68px;
- font-family: "Poker Numbers";
+ font-family: "Piate Game";
  color: gold;
  animation-duration: 10s;
 animation-delay: 4.5s;

@@ -1,10 +1,10 @@
 @font-face {
-  src: url("src\assets\fonts\POKERKINGSREGULAR-36K8.TTF");
-  font-family: "Poker";
+  src: url("src\assets\fonts\TreasureMapDeadhand-yLA3.ttf");
+  font-family: "Pirate Menu";
  }
  @font-face {
-   src: url("src\assets\fonts\POKERINOCTOBERDEMO-DXM3.OTF");
-   font-family: "Poker Numbers";
+   src: url("src\assets\fonts\Blackpearl-vPxA.ttf");
+   font-family: "Pirate Game";
  }
 
  .cursor-in {
@@ -26,12 +26,12 @@
   border: solid;
   border-width: 7px;
   padding-top: 10px;
-  cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
+  cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
 }
 
 .panel-title {
   font-size: 35px;
-  font-family: "Poker";
+  font-family: "Pirate Menu";
   font-style: italic;
 }
 
@@ -89,7 +89,7 @@ display: inline-flex;
   border-color: black;
   font-style: italic;
   font-size: 20px;
-  font-family: "Poker";
+  font-family: "Pirate Menu";
   padding-left: 60px;
   margin-top: 10px;
 }
@@ -101,7 +101,7 @@ display: inline-flex;
     height: 295px;
     padding: 0px 10px 0px 10px;
     color: darkred;
-    font-family: "Poker Numbers";
+    font-family: "Pirate Game";
     font-size: 30px;
     background-color: lightslategray;
     border-radius: 30px;
@@ -115,7 +115,7 @@ display: inline-flex;
   margin-left: 250px;
   height: 40px;
   width: 500px;
-  font-family: "Poker Numbers";
+  font-family: "Pirate Game";
   font-size: 50px;
   text-align: center;
 }

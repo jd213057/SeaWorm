@@ -16,12 +16,28 @@ export class MenuComponent implements OnInit {
   onInit = false;
   cursorClass = '';
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
+  oceanSound = new Audio('.\\assets\\sounds\\OceanTheme.mp3');
+  bubbleSound = new Audio('.\\assets\\sounds\\bulles.mp3');
 
   constructor(private gameService: GameService) { }
 
   ngOnInit() {
     this.onInit = true;
+    this.playBackgroundSound();
     this.getNavBarFocus();
+  }
+
+  playBackgroundSound(): void {
+    this.oceanSound.play();
+    this.bubbleSound.play();
+    this.oceanSound.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+  }, false);
+    this.bubbleSound.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
   }
 
   getBackgroundImg(): string {
@@ -36,14 +52,6 @@ getMusic(): string {
     return this.gameService.getThemeChoice();
   }
 
-cursorIn() {
-    this.cursorClass = '';
-  }
-
-cursorOut() {
-    this.cursorClass = 'cursor-out';
-  }
-
 getNavBarFocus() {
     const startButton = document.getElementById('start');
     const helpButton = document.getElementById('help');
@@ -52,7 +60,7 @@ getNavBarFocus() {
     const exitButton = document.getElementById('exit');
     startButton.addEventListener('mouseenter', ( event ) => {
     const e = event.target as HTMLElement;
-    e.style.backgroundColor = 'lightslategray';
+    e.style.backgroundColor = 'cyan';
     }, false);
     startButton.addEventListener('mouseleave', (event) => {
       const e = event.target as HTMLElement;
@@ -60,7 +68,7 @@ getNavBarFocus() {
     }, false);
     helpButton.addEventListener('mouseenter', ( event ) => {
       const e = event.target as HTMLElement;
-      e.style.backgroundColor  = 'lightslategray';
+      e.style.backgroundColor  = 'cyan';
     }, false);
     helpButton.addEventListener('mouseleave', (event) => {
       const e = event.target as HTMLElement;
@@ -68,7 +76,7 @@ getNavBarFocus() {
     }, false);
     configButton.addEventListener('mouseenter', ( event ) => {
       const e = event.target as HTMLElement;
-      e.style.backgroundColor  = 'lightslategray';
+      e.style.backgroundColor  = 'cyan';
     }, false);
     configButton.addEventListener('mouseleave', (event) => {
       const e = event.target as HTMLElement;
@@ -76,7 +84,7 @@ getNavBarFocus() {
     }, false);
     debugButton.addEventListener('mouseenter', ( event ) => {
       const e = event.target as HTMLElement;
-      e.style.backgroundColor  = 'lightslategray';
+      e.style.backgroundColor  = 'cyan';
     }, false);
     debugButton.addEventListener('mouseleave', (event) => {
       const e = event.target as HTMLElement;
@@ -84,7 +92,7 @@ getNavBarFocus() {
     }, false);
     exitButton.addEventListener('mouseenter', ( event ) => {
       const e = event.target as HTMLElement;
-      e.style.backgroundColor  = 'lightslategray';
+      e.style.backgroundColor  = 'cyan';
     }, false);
     exitButton.addEventListener('mouseleave', (event) => {
       const e = event.target as HTMLElement;

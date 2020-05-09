@@ -30,11 +30,11 @@ setAudio(valueInput: string): void {
 getThemeChoice(): string {
   switch (this.themeChoice) {
     case 'jazz':
-      return '.\\assets\\sounds\\GameMusic.mp3';
+      return '.\\assets\\sounds\\Disney Pixar Lava Short Film (karaoke Instrumental with Lyrics).mp3';
     case 'western':
-      return '.\\assets\\sounds\\westernTheme.mp3';
+      return '.\\assets\\sounds\\Yo Ho A Pirate Life For Me - The Pirates Of The Caribbean (Full Ride Audio).mp3';
     case 'retro':
-      return '.\\assets\\sounds\\retroTheme.mp3';
+      return '.\\assets\\sounds\\Wind Waker Ocean Theme.mp3';
   }
 }
 
@@ -57,11 +57,11 @@ setNbRound(valueInput: number): void {
 getBackgroundImg(): string {
   switch (this.imgChoice) {
     case 'casino':
-      return './assets/Poker/pokerMenuPanel.jpg';
+      return './assets/images/background1.jpg';
     case 'saloon':
-      return './assets/Poker/poker_en_ligne_2.jpg';
+      return './assets/images/background2.png';
     case 'retro':
-      return './assets/Poker/mariocasino.jpg';
+      return './assets/images/background3.jpg';
   }
 }
 

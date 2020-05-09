@@ -1,12 +1,62 @@
 @font-face {
-  src: url("src\assets\fonts\POKERKINGSREGULAR-36K8.TTF");
-  font-family: "Poker";
+  src: url("src\assets\fonts\TreasureMapDeadhand-yLA3.ttf");
+  font-family: "Pirate Menu";
+
+ }
+
+ @keyframes floatToRight {
+  from {
+    opacity: 0%;
+    margin-left: -10%;
+  }
+
+  2.5% {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: 110%;
+  }
+ }
+
+ @keyframes floatToLeft {
+  from {
+    opacity: 0%;
+    margin-left: 110%;
+  }
+
+  2.5% {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: -10%;
+  }
+ }
+
+ @keyframes bubbleOut {
+  from {
+    opacity: 0%;
+    margin-bottom: 110%;
+  }
+
+  2.5% {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 100%;
+    margin-bottom: -10%;
+  }
  }
 
 html {
 background-size: cover;
 height: 735px;
-cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
+cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
+overflow: hidden;
 }
 
 .nav-bar {
@@ -15,26 +65,17 @@ cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
   margin-top: 10px;
 }
 
-.cursor-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 4 12, auto;
-  background-color: gold;
-}
-
-.cursor-out {
-  background-color: lightslategray;
-}
-
 .button-menu {
   display: inline-flex;
-  color: darkred;
+  color: black;
   width: 220px;
   height: 70px;;
   margin-left: 20px;
-  border-radius: 50% 20% / 10% 40%;
-  border-color: darkred;
-  font-style: oblique;
-  font-size: 20px;
-  font-family: "Poker";
+  border-radius: 50% 20% / 10% 90%;
+  border-color: darkblue;
+  font-size: 24px;
+  font-family: "Pirate Menu";
+  background-color: rgb(244, 226, 150);
   cursor: url("src\assets\Poker\Hand-Right.cur") 4 12, auto;
 }
 
@@ -42,35 +83,35 @@ cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
   width: 32px;
   height: 32px;
   margin-left: 10px;
-  background-image: url("src\assets\Poker\leisure-chip-poker-gamble-casino_108530.png");
+  background-image: url("src\assets\images\icons8-pirates-des-caraïbes-32.png");
 }
 
 .config-icon {
   width: 32px;
   height: 32px;
   margin-left: 10px;
-  background-image: url("src\assets\Poker\settings_icon_128522.png");
+  background-image: url("src\assets\images\icons8-gouvernail-de-bateau-32.png");
 }
 
 .help-icon {
   width: 32px;
   height: 32px;
   margin-left: 10px;
-  background-image: url("src\assets\Poker\iconfinder_info-alt_383122.png");
+  background-image: url("src\assets\images\icons8-carte-au-trésor-32.png");
 }
 
 .debug-icon {
   width: 32px;
   height: 32px;
   margin-left: 10px;
-  background-image: url("src\assets\Poker\debugMode_icon_128500.png");
+  background-image: url("src\assets\images\icons8-coffre-au-trésor-32.png");
 }
 
 .exit-icon {
   width: 32px;
   height: 32px;
   margin-left: 10px;
-  background-image: url("src\assets\Poker\Windows_Turn_Off_22528.png");
+  background-image: url("src\assets\images\icons8-pont-roulant-32.png");
 }
 
 .button-text {
@@ -79,11 +120,63 @@ cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
 }
 
 .party-panel{
+position: absolute;
+top: 100px;
+opacity: 70%;
 margin-left: 70px;
 margin-top: 40px;
 }
 
-.exit-dialog {
+.exit {
+position: absolute !important;
+top: 50px;
+opacity: 70%;
 margin-top: 200px;
 margin-left: 250px;
+}
+
+.yellow-fish {
+animation-iteration-count: infinite;
+animation-name: floatToRight;
+animation-duration: 30s;
+animation-delay: 0s;
+}
+
+.salmon-fish {
+animation-iteration-count: infinite;
+animation-name: floatToRight;
+animation-duration: 40s;
+animation-delay: 0s;
+}
+
+.blue-fish {
+opacity: 0%;
+animation-iteration-count: infinite;
+animation-name: floatToRight;
+animation-duration: 50s;
+animation-delay: 5s;
+}
+
+.normal-fish {
+height: 100px;
+width: 100px;
+opacity: 0%;
+animation-iteration-count: infinite;
+animation-name: floatToLeft;
+animation-duration: 50s;
+animation-delay: 0s;
+}
+
+.crab {
+height: 100px;
+width: 100px;
+opacity: 0%;
+animation-iteration-count: infinite;
+animation-name: floatToLeft;
+animation-duration: 30s;
+animation-delay: 10s;
+}
+
+.right {
+transform: scaleX(-1);
 }

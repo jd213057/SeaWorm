@@ -1,10 +1,6 @@
-@font-face {
-  src: url("src\assets\fonts\POKERKINGSREGULAR-36K8.TTF");
-  font-family: "Poker";
- }
  @font-face {
-   src: url("src\assets\fonts\POKERINOCTOBERDEMO-DXM3.OTF");
-   font-family: "Poker Numbers";
+   src: url("src\assets\fonts\Blackpearl-vPxA.ttf");
+   font-family: "Pirate Game";
  }
 
  .cursor-in {
@@ -26,12 +22,12 @@
   border: solid;
   border-width: 7px;
   padding-top: 10px;
-  cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
+  cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
 }
 
 .dialog-text {
   font-size: 35px;
-  font-family: "Poker Numbers";
+  font-family: "Pirate Game";
 }
 
 .button-exit {
@@ -43,7 +39,7 @@
   border-radius: 15px;
   border-color: black;
   font-size: 20px;
-  font-family: "Poker Numbers";
+  font-family: "Pirate Game";
   padding-left: 85px;
   margin-top: 10px;
 }
