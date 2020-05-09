@@ -1,0 +1,83 @@
+<div class="game-panel">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <span class="panel-title">Configuration</span> <br>
+  <div class="panel-text">
+<div class="box-1">
+    <label class="label-panel-1">Audio :</label><br>
+    <div class="section-1">
+    <div>
+      <input formControlName="audio" type="radio" id="audioOn" name="audio" value="audioOn"
+             ng-model="configInput">
+      <label for="audioOn"><span class="choice">Activer</span></label>
+    </div>
+    <div>
+      <input formControlName="audio" type="radio" id="audioOff" name="audio" value="audioOff" ng-model="configInput">
+      <label for="audioOff"><span class="choice">Desactiver</span></label>
+    </div>
+  </div>
+    <br>
+    <div class="section-2">
+    <label class="label-theme">Theme musicale :</label>
+    <div>
+      <input formControlName="themeChoice" type="radio" id="jazz" name="themeChoice" value="jazz"
+             ng-model="configInput">
+      <label for="jazzChoice"><span class="choice">Jazz</span></label>
+    </div>
+    <div>
+      <input formControlName="themeChoice" type="radio" id="western" name="themeChoice" value="western" ng-model="configInput">
+      <label for="western"><span class="choice">Western</span></label>
+    </div>
+    <div>
+      <input formControlName="themeChoice" type="radio" id="retro" name="themeChoice" value="retro" ng-model="configInput">
+      <label for="retro"><span class="choice">Retro</span></label>
+    </div>
+  </div>
+  </div>
+<div class="box-2">
+  <label class="label-panel-2">Manches :</label><br>
+  <div class="section-3">
+    <div>
+      <input formControlName="nbRound" type="radio" id="1" name="nbRound" value="1"
+             ng-model="configInput">
+      <label for="1"><span class="choice">1</span></label>
+    </div>
+    <div>
+      <input formControlName="nbRound" type="radio" id="3" name="nbRound" value="3" ng-model="configInput">
+      <label for="3"><span class="choice">3</span></label>
+    </div>
+    <div>
+      <input formControlName="nbRound" type="radio" id="5" name="nbRound" value="5" ng-model="configInput">
+      <label for="5"><span class="choice">5</span></label>
+    </div>
+  </div>
+<br><br>
+<div class="section-4">
+  <label class="label-theme">Fond d'ecran :</label>
+  <div>
+    <input formControlName="imgChoice" type="radio" id="casinoImgChoice" name="imgChoice" value="casino"
+           ng-model="configInput">
+    <label for="casinoImgChoice"><span class="choice">Casino</span></label>
+  </div>
+  <div>
+    <input formControlName="imgChoice" type="radio" id="saloonImgChoice" name="imgChoice" value="saloon" ng-model="configInput">
+    <label for="saloonImgChoice"><span class="choice">Saloon</span></label>
+  </div>
+  <div>
+    <input formControlName="imgChoice" type="radio" id="retroImgChoice" name="imgChoice" value="retro" ng-model="configInput">
+    <label for="retroImgChoice"><span class="choice">Retro</span></label>
+  </div>
+
+</div>
+
+</div>
+  </div>
+  <div class="button-line">
+  <button id="apply" class="button-exitConfig" type="button" [ngClass]="this.cursorApplyClass" (mouseout)="cursorApplyOut()" (mouseover)="cursorApplyIn()" (click)="onSubmit()">
+    <span>Appliquer</span>
+  </button>
+  <button id="exit" class="button-exitConfig" [ngClass]="this.cursorExitClass" (mouseout)="cursorExitOut()" (mouseover)="cursorExitIn()" (click)="exitConfig()">
+    <span>Quitter</span>
+  </button>
+</div>
+</form>
+</div>

@@ -1,0 +1,11 @@
+<div class="exit-dialog">
+  <span class="dialog-text">Voulez-vous vraiment quitter <b>?</b></span>
+  <div class="button-line">
+    <button id="exit" class="button-exit" [ngClass]="this.cursorExitClass" (mouseout)="cursorExitOut()" (mouseover)="cursorExitIn()" (click)="closeApp()">
+      <span>Oui</span>
+    </button>
+    <button id="cancel" class="button-exit" [ngClass]="this.cursorCancelClass" (mouseout)="cursorCancelOut()" (mouseover)="cursorCancelIn()" (click)="closeExitDialog()">
+      <span>Non</span>
+    </button>
+  </div>
+  </div>

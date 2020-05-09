@@ -1,0 +1,33 @@
+<div class="game-panel" [ngClass] = "getPanelClass()">
+  <span *ngIf="!displayEndMessage" class="panel-title">Game</span>
+  <span *ngIf="displayEndMessage" class = "result-title">{{getResultWording()}}</span>
+   <br>
+  <div *ngIf = "!displayEndMessage" class="game-subpanel">
+    <div class="score-box">
+      <label class="score-title">Joueur</label>
+      <span class="score-player">{{getPlayerInfo()}}</span>
+    </div>
+    <div *ngIf="displayCountdown" class="countdown">
+      {{getCount()}}
+      </div>
+    <div *ngIf="onGame" class="cards-deck">
+      <img [src]="getPlayerImgSource()">
+    <img [src]="getBotImgSource()">
+  </div>
+  <div class="score-box">
+    <label class="score-title">Bot</label>
+    <span class="score-bot">{{getBotInfo()}}</span>
+  </div>
+</div>
+ <br>
+<button [ngClass]="getPlayButtonClass()" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" *ngIf="displayPlayButton()" (click)="playGame()">
+  <span>{{getPlayButtonWording()}}</span>
+</button>
+<div class="iframe-panel">
+  <iframe id="1" src="https://giphy.com/embed/aqDXCH2M1ycEw" *ngIf="displayWinFrame()" (mouseover)="$event.stopPropagation()" frameBorder="0" class="giphy-embed"></iframe>
+  <iframe id="2" src="https://giphy.com/embed/kFkxuZM2qXhYI" *ngIf="displayLooseFrame()" (mouseover)="$event.stopPropagation()" frameBorder="0" class="giphy-embed"></iframe>
+</div>
+<button [ngClass]="getExitButtonClass()" (mouseout)="cursorOut()" (mouseover)="cursorIn()" *ngIf="displayExitButton()" (click)="exitGame()">
+  <span class = "exit-button-title">Quitter</span>
+</button>
+</div>

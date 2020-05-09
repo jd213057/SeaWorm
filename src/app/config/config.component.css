@@ -1,0 +1,125 @@
+@font-face {
+  src: url("src\assets\fonts\POKERKINGSREGULAR-36K8.TTF");
+  font-family: "Poker";
+ }
+ @font-face {
+   src: url("src\assets\fonts\POKERINOCTOBERDEMO-DXM3.OTF");
+   font-family: "Poker Numbers";
+ }
+
+ .cursor-in {
+  cursor: url("src\assets\Poker\Hand-Right.cur") 4 12, auto;
+  background-color: gold;
+}
+
+.no-focus {
+  background-color: none;
+}
+
+.game-panel {
+  text-align: center;
+  width: 1200px;
+  height: 450px;
+  background-color: lightslategray;
+  border-radius: 30px;
+  border-color: black;
+  border: solid;
+  border-width: 7px;
+  padding-top: 10px;
+  cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
+}
+
+.panel-title {
+  font-size: 35px;
+  font-family: "Poker";
+  font-style: italic;
+}
+
+.label-panel-1 {
+  color: darkred;
+  text-decoration: underline;
+}
+
+.label-panel-2 {
+  color: darkred;
+  text-decoration: underline;
+}
+
+.label-theme {
+text-decoration: underline;
+}
+
+.box-1 {
+  width: 345px;
+  padding-left: 160px;
+  border-color: black;
+  border-right-style: dashed;
+  border-width: 5px;
+}
+
+.box-2 {
+  padding-left: 140px;
+  padding-top: 15px;
+}
+
+.section-1 {
+
+}
+
+.section-2 {
+
+}
+
+.section-3 {
+display: inline-flex;
+}
+
+.choice {
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.button-exitConfig {
+  display: inline-flex;
+  color: black;
+  width: 220px;
+  height: 70px;;
+  margin-left: 20px;
+  border-radius: 15px;
+  border-color: black;
+  font-style: italic;
+  font-size: 20px;
+  font-family: "Poker";
+  padding-left: 60px;
+  margin-top: 10px;
+}
+
+.panel-text {
+  display: inline-flex;
+    text-align: left;
+    width: 1000px;
+    height: 295px;
+    padding: 0px 10px 0px 10px;
+    color: darkred;
+    font-family: "Poker Numbers";
+    font-size: 30px;
+    background-color: lightslategray;
+    border-radius: 30px;
+    border-color: black;
+    border-width: 4px;
+    border: solid;
+}
+
+.input {
+  margin-top: 40px;
+  margin-left: 250px;
+  height: 40px;
+  width: 500px;
+  font-family: "Poker Numbers";
+  font-size: 50px;
+  text-align: center;
+}
+
+.button-line {
+  display: inline-flex;
+}

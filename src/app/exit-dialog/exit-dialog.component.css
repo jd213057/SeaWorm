@@ -1,0 +1,49 @@
+@font-face {
+  src: url("src\assets\fonts\POKERKINGSREGULAR-36K8.TTF");
+  font-family: "Poker";
+ }
+ @font-face {
+   src: url("src\assets\fonts\POKERINOCTOBERDEMO-DXM3.OTF");
+   font-family: "Poker Numbers";
+ }
+
+ .cursor-in {
+  cursor: url("src\assets\Poker\Hand-Right.cur") 4 12, auto;
+  background-color: gold;
+}
+
+.no-focus {
+  background-color: white;
+}
+
+.exit-dialog {
+  text-align: center;
+  width: 800px;
+  height: 150px;
+  background-color: darkred;
+  border-radius: 30px;
+  border-color: black;
+  border: solid;
+  border-width: 7px;
+  padding-top: 10px;
+  cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
+}
+
+.dialog-text {
+  font-size: 35px;
+  font-family: "Poker Numbers";
+}
+
+.button-exit {
+  display: inline-flex;
+  color: darkred;
+  width: 220px;
+  height: 70px;;
+  margin-left: 20px;
+  border-radius: 15px;
+  border-color: black;
+  font-size: 20px;
+  font-family: "Poker Numbers";
+  padding-left: 85px;
+  margin-top: 10px;
+}

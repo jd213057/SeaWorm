@@ -1,0 +1,17 @@
+<div class="game-panel">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <span class="panel-title">DebugMode</span> <br>
+  <div class="panel-text">
+    <label class="label-panel">Entrer la combinaison :</label><br><br>
+<input id="inputValue" formControlName="inputValue" class="input" type="text" autocomplete="off" ng-model="debugInput">
+  </div>
+  <div class="button-line">
+  <button id="apply" class="button-exitDebug" type="submit" [ngClass]="this.cursorApplyClass" (mouseout)="cursorApplyOut()" (mouseover)="cursorApplyIn()" (click)="onSubmit()">
+    <span>Appliquer</span>
+  </button>
+  <button id="exit" class="button-exitDebug" [ngClass]="this.cursorExitClass" (mouseout)="cursorExitOut()" (mouseover)="cursorExitIn()" (click)="exitDebug()">
+    <span>Quitter</span>
+  </button>
+</div>
+</form>
+</div>

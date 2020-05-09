@@ -1,0 +1,153 @@
+@font-face {
+  src: url("src\assets\fonts\POKERKINGSREGULAR-36K8.TTF");
+  font-family: "Poker";
+ }
+ @font-face {
+   src: url("src\assets\fonts\POKERINOCTOBERDEMO-DXM3.OTF");
+   font-family: "Poker Numbers";
+ }
+
+ .cursor-in {
+  cursor: url("src\assets\Poker\Hand-Right.cur") 4 12, auto;
+  background-color: gold;
+}
+
+.no-focus {
+  background-color: lightslategray;
+}
+
+.loader {
+ cursor: wait  !important;
+}
+
+.game-panel {
+  text-align: center;
+  width: 1200px;
+  height: 450px;
+  background-color: darkred;
+  border-radius: 30px;
+  border-color: black;
+  border: solid;
+  border-width: 7px;
+  padding-top: 10px;
+  cursor: url("src\assets\Poker\poker.cur") 4 12, auto;
+}
+
+.panel-title {
+  font-size: 35px;
+  font-family: "Poker";
+  font-style: italic;
+}
+
+img {
+  height: 288px;
+  width: 213px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 18px;
+}
+
+.button-start {
+  display: inline-flex;
+  color: darkred;
+  width: 220px;
+  height: 70px;;
+  margin-left: 20px;
+  border-radius: 15px;
+  border-color: black;
+  font-style: italic;
+  font-size: 20px;
+  font-family: "Poker";
+  padding-left: 54px;
+  margin-top: 10px;
+}
+
+.button-play {
+  display: inline-flex;
+  color: darkred;
+  width: 220px;
+  height: 70px;;
+  margin-left: 20px;
+  border-radius: 15px;
+  border-color: black;
+  font-style: italic;
+  font-size: 20px;
+  font-family: "Poker";
+  padding-left: 35px;
+  margin-top: 10px;
+}
+
+.exit-button-title {
+  padding-left: 30px;
+}
+
+.cards-deck {
+}
+
+.countdown {
+  height: 288px;
+  width: 210px;
+  color: gold;
+  font-family: "Poker Numbers";
+  font-size: 68px;
+  padding-top: 110px;
+}
+
+.score-box {
+  height: 288px;
+  width: 210px;
+  border-radius: 15px;
+  border-color: lightslategray;
+  border-width: 4px;
+  border: solid;
+  color: gold;
+  font-size: 35px;
+  font-family: "Poker";
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.game-subpanel {
+  display: inline-flex;
+}
+
+.score-title {
+  position: relative;
+  left: 21px;
+}
+
+.score-player {
+  position: relative;
+  top: 100px;
+  right: 33%;
+  font-family: "Poker Numbers";
+  font-size: 68px;
+}
+
+.score-bot {
+  position: relative;
+  top: 100px;
+  right: 20%;
+  font-family: "Poker Numbers";
+  font-size: 68px;
+}
+
+.result-title {
+  position: relative;
+  font-family: "Poker Numbers";
+  font-size: 35px;
+}
+
+iframe {
+  border-radius: 30px;
+  border-color: black;
+  border: solid;
+  border-width: 7px;
+  width: 480px;
+  height: 249px;
+}
+
+.iframe-panel {
+}

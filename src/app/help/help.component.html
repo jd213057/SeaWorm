@@ -1,0 +1,16 @@
+<div class="game-panel">
+  <span class="panel-title">Mode d'emploi</span> <br>
+  <div class="panel-text">
+    <label class="label-panel">But du jeu :</label><br><br>
+<span>
+  La Bataille se joue a deux, avec 52 cartes et sur 10 tours.
+  Chaque joueur tire en meme temps une carte du paquet.
+  Celui qui tire la plus haute carte remporte un point.
+  Le premier qui empoche 10 points remporte la manche.
+  Celui qui remporte le plus de manches gagne la partie.
+</span>
+  </div>
+  <button class="button-exitHelp" [ngClass] = "this.cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="exitHelp()">
+    <span> J'ai compris !</span>
+  </button>
+  </div>

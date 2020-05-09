@@ -1,0 +1,38 @@
+<html [ngStyle]="{'background-image': 'url(' + getBackgroundImg() + ')'}">
+<head>
+<meta charset="utf-8">
+<title>Menu</title>
+</head>
+<body>
+<div id ="navBar" class="nav-bar">
+<button id = "start" class="button-menu" [ngClass]="this.cursorClass" (click)="startButton()">
+  <div id = "start" class="start-icon"></div>
+  <span id = 'start' class="button-text">Jouer</span>
+</button>
+<button id = "help" class="button-menu" [ngClass]="this.cursorClass" (click)="helpButton()">
+  <div class="help-icon"></div>
+  <span class="button-text">Mode d'emploi</span>
+</button>
+<button id = "config" class="button-menu" [ngClass]="this.cursorClass" (click)="configButton()">
+  <div class="config-icon"></div>
+  <span class="button-text">Configuration</span>
+</button>
+<button id = "debug" class="button-menu" [ngClass]="this.cursorClass" (click)="debugButton()" >
+  <div class="debug-icon"></div>
+  <span class="button-text">DebugMode</span>
+</button>
+<button id = "exit" class="button-menu" [ngClass]="this.cursorClass" (click)="exitButton()">
+  <div class="exit-icon"></div>
+  <span class="button-text">Fermer</span>
+</button>
+</div>
+<div class="party-panel" *ngIf="runningParty"> <app-party (displayParty)="displayParty()"></app-party> </div>
+<div class="party-panel" *ngIf="helpRequest"><app-help (displayHelp)="displayHelp()" ></app-help></div>
+<div class="party-panel" *ngIf="configRequest"><app-config (displayConfig)="displayConfig()" ></app-config></div>
+<div class="party-panel" *ngIf="debugRequest"><app-debug (displayDebug)="displayDebug()" ></app-debug></div>
+<div class="exit-dialog" *ngIf="exitDialog"><app-exit-dialog (displayExitGame)="shutdownGame()" (displayExitDialog)="displayExitDialog()" ></app-exit-dialog></div>
+</body>
+<footer>
+  <audio [src]="getMusic()" [muted]="getAudio()" autoplay loop></audio>
+</footer>
+</html>

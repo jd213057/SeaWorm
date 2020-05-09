@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SeaWorm';
+  showIntro = true;
+  showGame = false;
+
+constructor() {}
+
+displayApps() {
+this.showIntro = false;
+this.showGame = true;
+}
+
 }
