@@ -18,12 +18,14 @@ export class MenuComponent implements OnInit {
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   oceanSound = new Audio('.\\assets\\sounds\\OceanTheme.mp3');
   bubbleSound = new Audio('.\\assets\\sounds\\bulles.mp3');
+  normalFishSound = new Audio('.\\assets\\sounds\\sonar.mp3');
 
   constructor(private gameService: GameService) { }
 
   ngOnInit() {
     this.onInit = true;
     this.playBackgroundSound();
+    this.setAnimationBackground();
     this.getNavBarFocus();
   }
 
@@ -38,6 +40,18 @@ export class MenuComponent implements OnInit {
     this.currentTime = 0;
     this.play();
 }, false);
+  }
+
+  setAnimationBackground(): void {
+    const normalFishImg = document.getElementById('normalFish');
+    const crabImg = document.getElementById('crab');
+    const starfishImg = document.getElementById('starfish');
+    normalFishImg.addEventListener('click', () => {
+      this.normalFishSound.play();
+    });
+    normalFishImg.addEventListener('dblclick', () => {
+      this.normalFishSound.pause();
+    });
   }
 
   getBackgroundImg(): string {

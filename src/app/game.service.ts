@@ -5,14 +5,30 @@ import { Injectable } from '@angular/core';
 })
 export class GameService {
 audio = 'audioOn';
-themeChoice = 'jazz';
+themeChoice = 'lava';
 nbRound = 3;
-imgChoice = 'saloon';
+imgChoice = 'corail';
 YOUAREDEAD = false;
 AGAINSTALLODDS = false;
 NOBULLSHIT = false;
 
   constructor() {
+  }
+
+  getAudioPref(): string {
+    return this.audio;
+  }
+
+  getThemePref(): string {
+  return this.themeChoice;
+  }
+
+  getImgPref(): string {
+    return this.imgChoice;
+  }
+
+  getNbRoundPref() {
+    return this.nbRound;
   }
 
 getAudio(): boolean {
@@ -29,17 +45,17 @@ setAudio(valueInput: string): void {
 
 getThemeChoice(): string {
   switch (this.themeChoice) {
-    case 'jazz':
+    case 'lava':
       return '.\\assets\\sounds\\Disney Pixar Lava Short Film (karaoke Instrumental with Lyrics).mp3';
-    case 'western':
+    case 'pirate':
       return '.\\assets\\sounds\\Yo Ho A Pirate Life For Me - The Pirates Of The Caribbean (Full Ride Audio).mp3';
-    case 'retro':
+    case 'ocean':
       return '.\\assets\\sounds\\Wind Waker Ocean Theme.mp3';
   }
 }
 
 setThemeChoice(valueInput: string): void {
-  if (valueInput == 'jazz' || valueInput == 'western' || valueInput == 'retro') {
+  if (valueInput == 'lava' || valueInput == 'pirate' || valueInput == 'ocean') {
     this.themeChoice = valueInput;
   }
 }
@@ -56,17 +72,17 @@ setNbRound(valueInput: number): void {
 
 getBackgroundImg(): string {
   switch (this.imgChoice) {
-    case 'casino':
+    case 'sable':
       return './assets/images/background1.jpg';
-    case 'saloon':
+    case 'corail':
       return './assets/images/background2.png';
-    case 'retro':
+    case 'algue':
       return './assets/images/background3.jpg';
   }
 }
 
 setBackgroundImg(valueInput: string): void {
-  if (valueInput == 'casino' || valueInput == 'saloon' || valueInput == 'retro') {
+  if (valueInput == 'sable' || valueInput == 'corail' || valueInput == 'algue') {
     this.imgChoice = valueInput;
   }
 }

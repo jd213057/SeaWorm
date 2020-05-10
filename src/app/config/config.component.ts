@@ -16,10 +16,10 @@ export class ConfigComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder, private gameService: GameService) {
       this.checkoutForm = this.formBuilder.group({
-      audio: ['audioOn'],
-      themeChoice: ['jazz'],
-      nbRound: ['3'],
-      imgChoice: ['saloon']
+      audio: this.gameService.getAudioPref(),
+      themeChoice: this.gameService.getThemePref(),
+      nbRound: this.gameService.getNbRoundPref(),
+      imgChoice: this.gameService.getImgPref()
     }); }
 
     ngOnInit() {
