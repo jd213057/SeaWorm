@@ -356,7 +356,7 @@
     transform: scaleX(1);
   }
 
-  52.5% {
+  50.5% {
     transform: rotate(-10deg);
     transform: scaleX(-1);
   }

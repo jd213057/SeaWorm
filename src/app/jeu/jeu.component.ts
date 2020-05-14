@@ -16,6 +16,7 @@ export class JeuComponent implements OnInit {
   food: Food;
   score: number;
   displayRate;
+  wormSpeed = 500;
   clickStartSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   clickExitSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   buttonClass = 'no-focus';
@@ -83,7 +84,6 @@ for (let x = 0; x <= 9; x++) {
   this.grid.push(caseToAdd);
 }
 }
-    console.table(this.grid);
   }
 
   placeWorm(): void {
@@ -110,45 +110,60 @@ for (let x = 0; x <= 9; x++) {
     } while (restart == true);
     const foodPixel = new Case(State.food, positionX, positionY);
     this.food = new Food(foodPixel);
+    const foodCount = this.food.getCount();
+    this.food.setCount(foodCount);
+  }
+
+  placeAgainFood(): void {
+    let restart = false;
+    let positionX: number;
+    let positionY: number;
+    do {
+      positionX = Math.round(Math.random() * 9);
+      positionY = Math.round(Math.random() * 9);
+      const idToCheck = positionY.toString() + '-' + positionX.toString();
+      for (const pixel of this.seaWorm.getCases()) {
+        if (pixel.getId() == idToCheck) {
+          restart = true;
+        }
+      }
+    } while (restart == true);
+    this.food.getCase().setPositionX(positionX);
+    this.food.getCase().setPositionY(positionY);
+    this.food.setCount(this.food.getCount() + 1);
   }
 
   displayGame(): void {
     this.displayRate = setInterval(() => {
-      const consoleSeaWorm = this.seaWorm.getCases();
-      console.log(consoleSeaWorm);
       this.moveWorm(this.seaWorm);
       if (this.food.getCase().getId() == this.seaWorm.getCases()[0].getId()) {
-  this.placeFood();
+  this.placeAgainFood();
   this.growWorm();
-  this.food.setCount(this.food.getCount() + 1);
+  this.getScore();
+  this.increaseWormSpeed();
 }
       this.showPixels(this.seaWorm);
 /* for (const pixel of this.seaWorm.getCases()) {
-for (const pixelToCheck of this.seaWorm.getCases()) {
-  if (pixel.getId() == pixelToCheck.getId()) {
-  //  this.exitGame();
-  }
+if (this.seaWorm.getCases().indexOf(pixel) > 0 && this.seaWorm.getCases().lastIndexOf(pixel) > 0) {
+  this.exitGame();
 }
 } */
-}, 500);
+}, this.wormSpeed);
+  }
+
+  getScore(): number {
+  return this.food.getCount();
   }
 
   growWorm(): void {
     const bigWorm = this.seaWorm.getCases();
     let pixelToAdd;
     const lastPixelWorm = this.seaWorm.getCases()[this.seaWorm.getCases().length - 1];
-    console.log('seaworm before grow');
-    let consoleSeaWorm = this.seaWorm.getCases();
-    console.log(consoleSeaWorm);
     if (this.seaWorm.getCases().length > 1) {
       const beforeLastPixelWorm = this.seaWorm.getCases()[this.seaWorm.getCases().length - 2];
-      console.log(lastPixelWorm);
-      console.log(beforeLastPixelWorm);
       pixelToAdd = new Case(State.worm,
      lastPixelWorm.getPositionX() - (beforeLastPixelWorm.getPositionX() - lastPixelWorm.getPositionX()),
       lastPixelWorm.getPositionY() - (beforeLastPixelWorm.getPositionY() - lastPixelWorm.getPositionY()));
-      console.log('pixelToAdd lenght >1');
-      console.log(pixelToAdd);
     } else if (this.seaWorm.getCases().length == 1) {
       let positionX: number;
       let positionY: number;
@@ -171,24 +186,14 @@ case Direction.bas:
   break;
       }
       pixelToAdd = new Case(State.worm, positionX, positionY);
-      console.log('pixeToAdd length =1');
-      console.log(pixelToAdd);
     }
     bigWorm.push(pixelToAdd);
     this.seaWorm.setCases(bigWorm);
-    console.log('seaWorm after grow');
-    consoleSeaWorm = this.seaWorm.getCases();
-    console.log(consoleSeaWorm);
   }
 
 
   showPixels(worm: Worm): void {
     let pixelToShow;
-    if (this.food.getCount() == 1) {
-      console.log('showPixel after food');
-      const consoleSeaWorm = this.seaWorm.getCases();
-      console.log(consoleSeaWorm);
-      }
     for (const pixel of this.grid) {
     pixelToShow = document.getElementById(pixel.getId());
     pixelToShow.style.backgroundColor = 'cornflowerblue';
@@ -197,10 +202,7 @@ case Direction.bas:
     }
   }
     for (const wormPixel of this.seaWorm.getCases()) {
-     // console.log('showPixel');
-    //  console.log(this.seaWorm);
       pixelToShow = document.getElementById(wormPixel.getId());
-  //    console.log(wormPixel.getId());
       pixelToShow.style.backgroundColor = 'darkblue';
 }
   }
@@ -218,23 +220,34 @@ case Direction.bas:
         switch (this.seaWorm.getDirection()) {
     case Direction.gauche:
       positionX = newWormCase.getPositionX() - 1;
+      if (positionX <= -1) {
+        positionX = 9;
+      }
       pixelToMove = new Case (State.worm, positionX, newWormCase.getPositionY());
       break;
     case Direction.droite:
       positionX = newWormCase.getPositionX() + 1;
+      if (positionX >= 10) {
+        positionX = 0;
+      }
       pixelToMove = new Case (State.worm, positionX, newWormCase.getPositionY());
       break;
     case Direction.haut:
       positionY = newWormCase.getPositionY() - 1;
+      if (positionY <= -1) {
+        positionY = 9;
+      }
       pixelToMove = new Case (State.worm, newWormCase.getPositionX(), positionY);
       break;
     case Direction.bas:
       positionY = newWormCase.getPositionY() + 1;
+      if (positionY >= 10) {
+        positionY = 0;
+      }
       pixelToMove = new Case (State.worm, newWormCase.getPositionX(), positionY);
       break;
   }
 }
-
       if (i != 0) {
     newWormCase = wormCases[i - 1];
     pixelToMove = new Case (State.worm, newWormCase.getPositionX(), newWormCase.getPositionY());
@@ -242,6 +255,10 @@ case Direction.bas:
       newWormCases.push(pixelToMove);
 }
     this.seaWorm.setCases(newWormCases);
+  }
+
+  increaseWormSpeed(): void {
+    this.wormSpeed = this.wormSpeed - 0.05 * this.wormSpeed;
   }
 
   exitGame(): void {
