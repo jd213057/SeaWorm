@@ -451,6 +451,10 @@
     transform: scaleX(-1);
   }
 
+  99% {
+    transform: scaleX(-1);
+  }
+
   to {
     margin-left: 200%;
     transform: rotate(+10deg);
