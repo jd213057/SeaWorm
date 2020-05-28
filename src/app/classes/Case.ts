@@ -27,9 +27,7 @@ setPositionX(positionX: number): void {
   } else if (positionX >= 10) {
     this.positionX = 0;
   } else {
-    console.log('setPositionX avec' + positionX);
     this.positionX = positionX;
-    console.log(this.positionX);
   }
 }
 

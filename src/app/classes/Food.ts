@@ -2,11 +2,13 @@ import { Case } from './Case';
 
 export class Food {
   case: Case;
-  count = 0;
+  count: number;
+  bonus: boolean;
 
   constructor(caseFood: Case) {
 this.case =  caseFood;
 this.count = 0;
+this.bonus = false;
   }
 
   getCase(): Case {
@@ -23,5 +25,13 @@ this.count = 0;
 
   setCount(countFood) {
     this.count = countFood;
+  }
+
+  getBonus(): boolean {
+    return this.bonus;
+  }
+
+  setBonus(bonus: boolean): void {
+    this.bonus = bonus;
   }
 }
