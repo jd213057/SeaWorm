@@ -18,7 +18,7 @@ export class ConfigComponent implements OnInit {
       this.checkoutForm = this.formBuilder.group({
       audio: this.gameService.getAudioPref(),
       themeChoice: this.gameService.getThemePref(),
-      nbRound: this.gameService.getNbRoundPref(),
+      level: this.gameService.getLevelPref(),
       imgChoice: this.gameService.getImgPref()
     }); }
 
@@ -66,8 +66,9 @@ export class ConfigComponent implements OnInit {
       this.clickSound.play();
       this.gameService.setAudio(this.checkoutForm.get('audio').value);
       this.gameService.setThemeChoice(this.checkoutForm.get('themeChoice').value);
-      this.gameService.setNbRound(this.checkoutForm.get('nbRound').value);
+      this.gameService.setLevel(this.checkoutForm.get('level').value);
       this.gameService.setBackgroundImg(this.checkoutForm.get('imgChoice').value);
+      this.gameService.saveParamsInLocalStorage();
     }
 
     exitConfig(): void {

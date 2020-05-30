@@ -7,6 +7,10 @@
    font-family: "Pirate Game";
  }
 
+ input {
+  cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
+ }
+
  .cursor-in {
   cursor: url("src\assets\Poker\Hand-Right.cur") 4 12, auto;
   background-color: gold;
@@ -51,23 +55,15 @@ text-decoration: underline;
 
 .box-1 {
   width: 345px;
-  padding-left: 160px;
+  padding-left: 90px;
   border-color: black;
   border-right-style: dashed;
   border-width: 5px;
 }
 
 .box-2 {
-  padding-left: 140px;
+  padding-left: 50px;
   padding-top: 15px;
-}
-
-.section-1 {
-
-}
-
-.section-2 {
-
 }
 
 .section-3 {
@@ -88,8 +84,9 @@ display: inline-flex;
   border-radius: 15px;
   border-color: black;
   font-style: italic;
-  font-size: 20px;
+  font-size: 30px;
   font-family: "Pirate Menu";
+  padding-top: 13px;
   padding-left: 60px;
   margin-top: 10px;
 }
@@ -104,7 +101,7 @@ display: inline-flex;
     font-family: "Pirate Game";
     font-size: 30px;
     background-color: lightslategray;
-    border-radius: 30px;
+    border-radius: 25px;
     border-color: black;
     border-width: 4px;
     border: solid;

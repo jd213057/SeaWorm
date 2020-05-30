@@ -20,7 +20,7 @@
   text-align: center;
   width: 1200px;
   height: 450px;
-  background-color: purple;
+  background-color: black;
   border-radius: 30px;
   border-color: black;
   border: solid;
@@ -49,9 +49,10 @@
   border-radius: 15px;
   border-color: black;
   font-style: italic;
-  font-size: 20px;
+  font-size: 30px;
   font-family: "Pirate Menu";
   padding-left: 60px;
+  padding-top: 13px;
   margin-top: 10px;
 }
 
@@ -64,7 +65,7 @@
   color: gold;
   font-family: "Pirate Game";
   font-size: 30px;
-  background-color: purple;
+  background-color: black;
   border-radius: 30px;
   border-color: lightslategray;
   border-width: 4px;

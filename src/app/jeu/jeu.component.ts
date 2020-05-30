@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Worm, Direction } from '../classes/Worm';
 import { Food } from '../classes/Food';
 import { Case, State } from '../classes/Case';
+import { GameService } from '../game.service';
 
 
 @Component({
@@ -18,13 +19,13 @@ export class JeuComponent implements OnInit {
   isBitten = false;
   controlPressed = false;
   displayRate;
-  wormSpeed = 500;
+  wormSpeed = this.gameService.getLevel();
   clickStartSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   clickExitSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   buttonClass = 'no-focus';
 
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   ngOnInit() {
     this.buildGrid();
@@ -145,9 +146,9 @@ for (let x = 0; x <= 9; x++) {
   }
 
   displayGame(): void {
-    this.displayRate = setInterval(() => {
-     this.runGameCycle();
-}, this.wormSpeed);
+      this.displayRate = setInterval((run) => {
+          this.runGameCycle();
+     }, this.wormSpeed);
   }
 
   runGameCycle(): void {
@@ -157,11 +158,12 @@ for (let x = 0; x <= 9; x++) {
    if (this.food.getCase().getId() == this.seaWorm.getCases()[0].getId()) {
     this.food.getBonus() == true ? this.shrinkWorm() : this.growWorm();
     this.placeAgainFood();
-
     this.getScore();
     this.increaseWormSpeed();
 }
    this.showPixels(this.seaWorm);
+  } else {
+    this.storeScore();
   }
   }
 
@@ -294,11 +296,32 @@ case Direction.bas:
   }
 
   increaseWormSpeed(): void {
-    this.wormSpeed = this.wormSpeed - 0.5 * this.wormSpeed;
+    this.wormSpeed = this.wormSpeed - 0.05 * this.wormSpeed;
+  }
+
+  storeScore(): void {
+    let nbRecord = 0;
+    if (!!localStorage.getItem('nbRecord')) {
+        nbRecord = parseInt(JSON.parse(localStorage.getItem('nbRecord')), 10);
+        nbRecord ++;
+      }
+    console.log(nbRecord);
+    const saveDay = new Date();
+    const year = saveDay.getUTCFullYear().toString();
+    const month = saveDay.getUTCMonth().toString();
+    const day = saveDay.getUTCDay().toString();
+    const hour = saveDay.getUTCHours().toString();
+    const min = saveDay.getUTCMinutes().toString();
+    const sec = saveDay.getUTCSeconds().toString();
+    const fullDate = year + '/' + month + '/' + day + '-' + hour + ':' + min + ':' + sec;
+    const save = {time: fullDate , score:  this.food.getCount().toString()};
+    localStorage.setItem(nbRecord.toString(), JSON.stringify(save));
+    console.log(localStorage);
   }
 
   exitGame(): void {
   this.clickExitSound.play();
+  this.storeScore();
   clearInterval(this.displayRate);
   this.displayParty.emit();
   }

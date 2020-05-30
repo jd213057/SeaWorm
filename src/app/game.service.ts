@@ -4,15 +4,39 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GameService {
-audio = 'audioOn';
-themeChoice = 'lava';
-nbRound = 3;
-imgChoice = 'corail';
-YOUAREDEAD = false;
-AGAINSTALLODDS = false;
-NOBULLSHIT = false;
+audio: string;
+themeChoice: string;
+level: number;
+imgChoice: string;
+YOUAREDEAD: boolean;
+AGAINSTALLODDS: boolean;
+NOBULLSHIT: boolean;
 
   constructor() {
+    this.loadLocalStorageParam();
+  }
+
+  loadLocalStorageParam(): void {
+    if (localStorage.length >= 7) {
+      this.audio = localStorage.getItem('audio');
+      this.themeChoice = localStorage.getItem('themeChoice');
+      this.level = parseInt(localStorage.getItem('level'), 10);
+      this.imgChoice = localStorage.getItem('imgChoice');
+      let booleanString = localStorage.getItem('YOUAREDEAD');
+      this.YOUAREDEAD = booleanString == 'true' ? true : false;
+      booleanString = localStorage.getItem('AGAINSTALLODDS');
+      this.AGAINSTALLODDS = booleanString == 'true' ? true : false;
+      booleanString = localStorage.getItem('NOBULLSHIT');
+      this.NOBULLSHIT = booleanString == 'true' ? true : false;
+    } else {
+      this.audio = 'audioOn';
+      this.themeChoice = 'lava';
+      this.level = 500;
+      this.imgChoice = 'corail';
+      this.YOUAREDEAD = false;
+      this.AGAINSTALLODDS = false;
+      this.NOBULLSHIT = false;
+    }
   }
 
   getAudioPref(): string {
@@ -27,8 +51,8 @@ NOBULLSHIT = false;
     return this.imgChoice;
   }
 
-  getNbRoundPref() {
-    return this.nbRound;
+  getLevelPref() {
+    return this.level;
   }
 
 getAudio(): boolean {
@@ -60,13 +84,13 @@ setThemeChoice(valueInput: string): void {
   }
 }
 
-getNbRound(): number {
-  return this.nbRound;
+getLevel(): number {
+  return this.level;
 }
 
-setNbRound(valueInput: number): void {
-  if (valueInput == 1 || valueInput == 3 || valueInput == 5) {
-      this.nbRound = valueInput;
+setLevel(valueInput: number): void {
+  if (valueInput == 500 || valueInput == 250 || valueInput == 100) {
+      this.level = valueInput;
   }
 }
 
@@ -113,6 +137,16 @@ setCode3(valueInput: boolean): void {
     this.setCode2(false);
     this.setCode3(true);
   }
+}
+
+saveParamsInLocalStorage(): void {
+  localStorage.setItem('audio', this.audio);
+  localStorage.setItem('themeChoice', this.themeChoice);
+  localStorage.setItem('level', this.level.toString());
+  localStorage.setItem('imgChoice',  this.imgChoice);
+  this.YOUAREDEAD == true ? localStorage.setItem('YOUAREDEAD', 'true') : localStorage.setItem('YOUAREDEAD', 'false');
+  this.AGAINSTALLODDS == true ? localStorage.setItem('AGAINSTALLODDS', 'true') : localStorage.setItem('AGAINSTALLODDS', 'false');
+  this.NOBULLSHIT == true ? localStorage.setItem('NOBULLSHIT', 'true') : localStorage.setItem('NOBULLSHIT', 'false');
 }
 
 }

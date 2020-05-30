@@ -4,7 +4,7 @@
   <div class="panel-text">
 <div class="box-1">
     <label class="label-panel-1">Audio :</label><br>
-    <div class="section-1">
+    <div>
     <div>
       <input formControlName="audio" type="radio" id="audioOn" name="audio" value="audioOn"
              ng-model="configInput">
@@ -16,7 +16,7 @@
     </div>
   </div>
     <br>
-    <div class="section-2">
+    <div>
     <label class="label-theme">Theme musicale :</label>
     <div>
       <input formControlName="themeChoice" type="radio" id="lava" name="themeChoice" value="lava"
@@ -34,20 +34,20 @@
   </div>
   </div>
 <div class="box-2">
-  <label class="label-panel-2">Manches :</label><br>
+  <label class="label-panel-2">Niveau :</label><br>
   <div class="section-3">
     <div>
-      <input formControlName="nbRound" type="radio" id="1" name="nbRound" value=1
+      <input formControlName="level" type="radio" id="Facile" name="level" value=500
              ng-model="configInput">
-      <label for="1"><span class="choice">1</span></label>
+      <label for="Facile"><span class="choice">Facile</span></label>
     </div>
     <div>
-      <input formControlName="nbRound" type="radio" id="3" name="nbRound" value=3 ng-model="configInput">
-      <label for="3"><span class="choice">3</span></label>
+      <input formControlName="level" type="radio" id="Moyen" name="level" value=250 ng-model="configInput">
+      <label for="Moyen"><span class="choice">Moyen</span></label>
     </div>
     <div>
-      <input formControlName="nbRound" type="radio" id="5" name="nbRound" value=5 ng-model="configInput">
-      <label for="5"><span class="choice">5</span></label>
+      <input formControlName="level" type="radio" id="Difficile" name="level" value=100 ng-model="configInput">
+      <label for="Difficile"><span class="choice">Difficile</span></label>
     </div>
   </div>
 <br><br>

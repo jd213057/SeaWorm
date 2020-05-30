@@ -479,6 +479,8 @@ overflow: hidden !important;
 .button-menu {
   z-index: 30;
   display: inline-flex;
+  padding-top: 10px;
+  opacity: 80%;
   color: black;
   width: 220px;
   height: 70px;;
