@@ -4,7 +4,7 @@
   <div class="panel-text">
 <div class="box-1">
     <label class="label-panel-1">Audio :</label><br>
-    <div>
+    <div class="section-1">
     <div>
       <input formControlName="audio" type="radio" id="audioOn" name="audio" value="audioOn"
              ng-model="configInput">
@@ -16,7 +16,7 @@
     </div>
   </div>
     <br>
-    <div>
+    <div class="section-2">
     <label class="label-theme">Theme musicale :</label>
     <div>
       <input formControlName="themeChoice" type="radio" id="lava" name="themeChoice" value="lava"
@@ -50,33 +50,33 @@
       <label for="Difficile"><span class="choice">Difficile</span></label>
     </div>
   </div>
-<br><br>
+<br>
 <div class="section-4">
-  <label class="label-theme">Fond d'ecran :</label>
-  <div>
+  <div class="imgChoice">
+    <label class="label-theme">Fond d'ecran :</label>
+    <div class="imgChoice-input" >
     <input formControlName="imgChoice" type="radio" id="sableImgChoice" name="imgChoice" value="sable"
            ng-model="configInput">
-    <label for="sableImgChoice"><span class="choice">Sable</span></label>
-  </div>
-  <div>
+    <label for="sableImgChoice"><span class="choice">Sable</span></label></div>
+    <div class="imgChoice-input" >
     <input formControlName="imgChoice" type="radio" id="corailImgChoice" name="imgChoice" value="corail" ng-model="configInput">
-    <label for="corailImgChoice"><span class="choice">Corail</span></label>
-  </div>
-  <div>
+    <label class="imgChoice-input" for="corailImgChoice"><span class="choice">Corail</span></label></div>
+    <div class="imgChoice-input" >
     <input formControlName="imgChoice" type="radio" id="algueImgChoice" name="imgChoice" value="algue" ng-model="configInput">
-    <label for="algueImgChoice"><span class="choice">Algue</span></label>
+    <label class="imgChoice-input" for="algueImgChoice"><span class="choice">Algue</span></label></div>
   </div>
-
+  <div class="img">
+    <img id="img" [src]='this.imgToShow' width="200px" height="150px">
+  </div>
 </div>
-
 </div>
   </div>
   <div class="button-line">
   <button id="apply" class="button-exitConfig" type="button" [ngClass]="this.cursorApplyClass" (mouseout)="cursorApplyOut()" (mouseover)="cursorApplyIn()" (click)="onSubmit()">
-    <span>Appliquer</span>
+    <span class="span-button">Appliquer</span>
   </button>
   <button id="exit" class="button-exitConfig" [ngClass]="this.cursorExitClass" (mouseout)="cursorExitOut()" (mouseover)="cursorExitIn()" (click)="exitConfig()">
-    <span>Quitter</span>
+    <span class="span-button">Quitter</span>
   </button>
 </div>
 </form>

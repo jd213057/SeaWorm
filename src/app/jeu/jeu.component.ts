@@ -20,7 +20,7 @@ export class JeuComponent implements OnInit {
   controlPressed = false;
   displayRate;
   wormSpeed = this.gameService.getLevel();
-  clickStartSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
+  eatSound = new Audio('.\\assets\\sounds\\eat.mp3');
   clickExitSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   buttonClass = 'no-focus';
 
@@ -33,6 +33,10 @@ export class JeuComponent implements OnInit {
     this.placeWorm();
     this.placeFood();
     this.displayGame();
+  }
+
+  ngOnDestroy(): void {
+  clearInterval(this.displayRate);
   }
 
   cursorIn() {
@@ -156,15 +160,21 @@ for (let x = 0; x <= 9; x++) {
     if (this.isBitten == false) {
    this.moveWorm(this.seaWorm);
    if (this.food.getCase().getId() == this.seaWorm.getCases()[0].getId()) {
-    this.food.getBonus() == true ? this.shrinkWorm() : this.growWorm();
-    this.placeAgainFood();
-    this.getScore();
-    this.increaseWormSpeed();
+  this.playEatSound();
+  this.food.getBonus() == true ? this.shrinkWorm() : this.growWorm();
+  this.placeAgainFood();
+  this.getScore();
+  this.increaseWormSpeed();
 }
    this.showPixels(this.seaWorm);
   } else {
     this.storeScore();
   }
+  }
+
+  playEatSound(): void {
+    this.eatSound.currentTime = 0;
+    this.eatSound.play();
   }
 
   checkBites(): boolean {
@@ -301,9 +311,10 @@ case Direction.bas:
 
   storeScore(): void {
     let nbRecord = 0;
-    if (!!localStorage.getItem('nbRecord')) {
-        nbRecord = parseInt(JSON.parse(localStorage.getItem('nbRecord')), 10);
-        nbRecord ++;
+    if (localStorage.getItem(nbRecord.toString()) !== null) {
+      nbRecord = this.gameService.checkLastRecord();
+      console.log(nbRecord);
+      nbRecord ++;
       }
     console.log(nbRecord);
     const saveDay = new Date();
@@ -315,15 +326,18 @@ case Direction.bas:
     const sec = saveDay.getUTCSeconds().toString();
     const fullDate = year + '/' + month + '/' + day + '-' + hour + ':' + min + ':' + sec;
     const save = {time: fullDate , score:  this.food.getCount().toString()};
+    console.log(save);
+    console.log(JSON.stringify(save));
     localStorage.setItem(nbRecord.toString(), JSON.stringify(save));
     console.log(localStorage);
   }
 
   exitGame(): void {
-  this.clickExitSound.play();
-  this.storeScore();
-  clearInterval(this.displayRate);
-  this.displayParty.emit();
+    this.clickExitSound.volume = 0.7;
+    this.clickExitSound.play();
+    this.storeScore();
+    clearInterval(this.displayRate);
+    this.displayParty.emit();
   }
 
 }

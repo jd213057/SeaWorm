@@ -149,4 +149,28 @@ saveParamsInLocalStorage(): void {
   this.NOBULLSHIT == true ? localStorage.setItem('NOBULLSHIT', 'true') : localStorage.setItem('NOBULLSHIT', 'false');
 }
 
+checkLastRecord(): number {
+  const listOfKeys = [];
+  const listOfRecords = [];
+  const length = localStorage.length - 1;
+  console.log(length);
+  for (let i = 0; i <= length; i++) {
+    console.log(localStorage.key(i));
+    listOfKeys.push(parseInt(localStorage.key(i), 10));
+  }
+  for (const value of listOfKeys) {
+    console.log(value);
+    console.log(isNaN(value) == true);
+    if (isNaN(value) == false) {
+      listOfRecords.push(value);
+    }
+  }
+  console.log(listOfRecords);
+  listOfRecords.sort((a, b) => {
+    return a - b;
+  });
+  console.log(listOfRecords);
+  return listOfRecords.length - 1;
+}
+
 }

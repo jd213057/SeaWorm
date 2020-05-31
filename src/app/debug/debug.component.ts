@@ -75,6 +75,7 @@ this.gameService.setCode1(true);
     }
 
     exitDebug(): void {
+      this.clickSound.volume = 0.7;
       this.clickSound.play();
       this.displayDebug.emit();
     }

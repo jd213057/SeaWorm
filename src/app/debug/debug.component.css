@@ -8,12 +8,16 @@
  }
 
  .cursor-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 4 12, auto;
-  background-color: lightslategray;
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  background-color: red !important;
 }
 
 .no-focus {
   background-color: none;
+}
+
+span, label {
+  opacity: 100% !important;
 }
 
 .game-panel {
@@ -54,6 +58,7 @@
   padding-left: 60px;
   padding-top: 13px;
   margin-top: 10px;
+  background-color: gold;
 }
 
 .panel-text {

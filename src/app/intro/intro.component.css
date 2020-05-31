@@ -13,7 +13,7 @@
    opacity: 100%;
  }
 
-10% {
+8% {
  opacity: 100%;
  margin-top:30%;
  animation-play-state: paused;
@@ -36,7 +36,7 @@
    opacity: 100%;
  }
 
-5% {
+4.5% {
  opacity: 100%;
  margin-top:30%;
  animation-play-state: paused;
@@ -98,7 +98,7 @@ font-size: 68px;
 font-family: "Pirate Game";
 color: gold;
 animation-duration: 10s;
-animation-delay: 0.5s;
+animation-delay: 0.2s;
 animation-name: slidein;
 padding-left: 350px;
 }
@@ -109,7 +109,7 @@ padding-left: 350px;
  font-family: "Pirate Game";
  color: gold;
  animation-duration: 10s;
-animation-delay: 0.9s;
+animation-delay: 0.6s;
 animation-name: slidein;
 
 }
@@ -120,7 +120,7 @@ animation-name: slidein;
  font-family: "Pirate Game";
  color: gold;
  animation-duration: 10s;
-animation-delay: 1.3s;
+animation-delay: 1s;
 animation-name: slidein;
 
 }
@@ -131,7 +131,7 @@ animation-name: slidein;
  font-family: "Pirate Game";
  color: gold;
  animation-duration: 10s;
-animation-delay: 1.7s;
+animation-delay: 1.4s;
 animation-name: slidein;
 
 }
@@ -142,7 +142,7 @@ animation-name: slidein;
  font-family: "Pirate Game";
  color: gold;
  animation-duration: 10s;
- animation-delay: 2.1s;
+ animation-delay: 1.8s;
  animation-name: slidein;
 }
 
@@ -152,7 +152,7 @@ animation-name: slidein;
  font-family: "Pirate Game";
  color: gold;
  animation-duration: 10s;
-animation-delay: 2.5s;
+animation-delay: 2.2s;
 animation-name: slidein;
 
 }
@@ -163,7 +163,7 @@ animation-name: slidein;
  font-family: "Pirate Game";
  color: gold;
  animation-duration: 10s;
-animation-delay: 2.9s;
+animation-delay: 2.6s;
 animation-name: slidein;
 
 }
@@ -175,7 +175,7 @@ animation-name: slidein;
  font-family: "Pirate Game";
  color: gold;
  animation-duration: 10s;
-animation-delay: 3.2s;
+animation-delay: 3s;
 animation-name: slidein;
 
 }
@@ -186,7 +186,7 @@ animation-name: slidein;
  font-family: "Pirate Game";
  color: gold;
  animation-duration: 10s;
-animation-delay: 3.7s;
+animation-delay: 3.4s;
 animation-name: slidein;
 }
 
@@ -197,7 +197,7 @@ animation-name: slidein;
  font-family: "Pirate Game";
  color: gold;
  animation-duration: 10s;
-animation-delay: 4.5s;
+animation-delay: 4.4s;
 animation-name: slideinImg;
 }
 

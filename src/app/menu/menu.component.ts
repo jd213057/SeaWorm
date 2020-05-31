@@ -12,13 +12,14 @@ export class MenuComponent implements OnInit {
   helpRequest = false;
   configRequest = false;
   debugRequest = false;
-  exitDialog= false;
+  exitDialog = false;
   onInit = false;
   cursorClass = '';
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   oceanSound = new Audio('.\\assets\\sounds\\OceanTheme.mp3');
   bubbleSound = new Audio('.\\assets\\sounds\\bulles.mp3');
   normalFishSound = new Audio('.\\assets\\sounds\\sonar.mp3');
+  backgroundMusic = new Audio(this.getMusic());
 
   constructor(private gameService: GameService) { }
 
@@ -30,8 +31,15 @@ export class MenuComponent implements OnInit {
   }
 
   playBackgroundSound(): void {
+    this.clickSound.volume = 0.7;
+    this.oceanSound.volume = 0.4;
     this.oceanSound.play();
+    this.bubbleSound.volume = 0.4;
     this.bubbleSound.play();
+    this.backgroundMusic.addEventListener('change', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
     this.oceanSound.addEventListener('ended', function() {
       this.currentTime = 0;
       this.play();
@@ -44,8 +52,6 @@ export class MenuComponent implements OnInit {
 
   setAnimationBackground(): void {
     const normalFishImg = document.getElementById('normalFish');
-    const crabImg = document.getElementById('crab');
-    const starfishImg = document.getElementById('starfish');
     normalFishImg.addEventListener('click', () => {
       this.normalFishSound.play();
     });

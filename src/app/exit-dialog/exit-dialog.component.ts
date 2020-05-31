@@ -40,6 +40,7 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
  }
 
  closeExitDialog() {
+   this.clickSound.volume = 0.7;
    this.clickSound.play();
    this.displayExitDialog.emit();
  }

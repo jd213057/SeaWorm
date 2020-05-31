@@ -12,6 +12,7 @@ export class ConfigComponent implements OnInit {
   checkoutForm: FormGroup;
   cursorApplyClass = 'no-focus';
   cursorExitClass = 'no-focus';
+  imgToShow = this.gameService.getBackgroundImg();
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
     constructor(private formBuilder: FormBuilder, private gameService: GameService) {
@@ -23,6 +24,7 @@ export class ConfigComponent implements OnInit {
     }); }
 
     ngOnInit() {
+      this.activateInputImgChoice();
     }
 
     cursorApplyIn() {
@@ -39,6 +41,22 @@ export class ConfigComponent implements OnInit {
 
     cursorExitOut() {
       this.cursorExitClass = 'no-focus';
+    }
+
+    activateInputImgChoice(): void {
+      const sableImgChoice = document.getElementById('sableImgChoice');
+      const corailImgChoice = document.getElementById('corailImgChoice');
+      const algueImgChoice = document.getElementById('algueImgChoice');
+      const img = document.getElementById('img');
+      sableImgChoice.addEventListener('click', (event) => {
+        this.imgToShow = './assets/images/background1.jpg';
+      });
+      corailImgChoice.addEventListener('click', (event) => {
+        this.imgToShow = './assets/images/background2.png';
+      });
+      algueImgChoice.addEventListener('click', (event) => {
+        this.imgToShow = './assets/images/background3.jpg';
+      });
     }
 
     getButtonsFocus(): void {
@@ -72,6 +90,7 @@ export class ConfigComponent implements OnInit {
     }
 
     exitConfig(): void {
+      this.clickSound.volume = 0.7;
       this.clickSound.play();
       this.displayConfig.emit();
     }

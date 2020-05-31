@@ -57,6 +57,54 @@
   }
  }
 
+ @keyframes yellowFishFloatToRight {
+  from {
+    opacity: 0%;
+    margin-left: -10%;
+  }
+
+  2.5% {
+    opacity: 100%;
+  }
+
+  50% {
+    opacity: 100%;
+    transform: scaleX(1);
+    margin-left: 50%;
+  }
+
+  51% {
+    opacity: 100%;
+    transform: scaleX(-1);
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: -10%;
+    transform: scaleX(-1);
+  }
+ }
+
+ @keyframes normalFishFloatToLeft {
+  from {
+    opacity: 0%;
+    margin-left: 110%;
+  }
+
+  2.5% {
+    opacity: 100%;
+  }
+
+  30% {
+    margin-left: 50%;
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: -10%;
+  }
+ }
+
  @keyframes floatToLeft {
   from {
     opacity: 0%;
@@ -470,6 +518,10 @@ cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
 overflow: hidden !important;
 }
 
+span, label {
+  opacity: 100% !important;
+}
+
 .nav-bar {
   display: inline-flex;
   margin-left: 60px;
@@ -490,7 +542,7 @@ overflow: hidden !important;
   font-size: 24px;
   font-family: "Pirate Menu";
   background-color: rgb(244, 226, 150);
-  cursor: url("src\assets\Poker\Hand-Right.cur") 4 12, auto;
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
 }
 
 .start-icon {
@@ -560,8 +612,8 @@ transform: scaleX(-1) !important;
 .yellow-fish {
 animation-iteration-count: infinite;
 animation-timing-function: linear;
-animation-name: floatToRight;
-animation-duration: 25s;
+animation-name: yellowFishFloatToRight;
+animation-duration: 40s;
 animation-delay: 0s;
 transition: 0.5s;
 }
@@ -606,7 +658,7 @@ width: 100px;
 opacity: 0%;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
-animation-name: floatToLeft;
+animation-name: normalFishFloatToLeft;
 animation-duration: 50s;
 animation-delay: 0s;
 }

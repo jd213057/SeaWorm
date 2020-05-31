@@ -24,6 +24,7 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
   }
 
   exitHelp(): void {
+    this.clickSound.volume = 0.7;
     this.clickSound.play();
     this.displayHelp.emit();
   }
