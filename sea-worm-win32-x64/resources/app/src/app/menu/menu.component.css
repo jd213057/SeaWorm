@@ -1,0 +1,811 @@
+@font-face {
+  src: url("src\assets\fonts\TreasureMapDeadhand-yLA3.ttf");
+  font-family: "Pirate Menu";
+
+ }
+
+ @keyframes bubbleOut {
+  from {
+    opacity: 0%;
+    bottom: 15%;
+  }
+
+  2.5% {
+    opacity: 100%;
+    bottom: 17%;
+  }
+
+  97.5% {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 0%;
+    bottom: 95%;
+  }
+ }
+
+ @keyframes jellyFish {
+  from {
+    top: 2%;
+  }
+
+  50% {
+    top: 40%;
+    transform: rotate(-20deg);
+  }
+
+  to {
+    top: 2%;
+    transform: rotate(+20deg);
+  }
+ }
+
+ @keyframes floatToRight {
+  from {
+    opacity: 0%;
+    margin-left: -10%;
+  }
+
+  2.5% {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: 110%;
+  }
+ }
+
+ @keyframes yellowFishFloatToRight {
+  from {
+    opacity: 0%;
+    margin-left: -10%;
+  }
+
+  2.5% {
+    opacity: 100%;
+  }
+
+  50% {
+    opacity: 100%;
+    transform: scaleX(1);
+    margin-left: 50%;
+  }
+
+  51% {
+    opacity: 100%;
+    transform: scaleX(-1);
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: -10%;
+    transform: scaleX(-1);
+  }
+ }
+
+ @keyframes normalFishFloatToLeft {
+  from {
+    opacity: 0%;
+    margin-left: 110%;
+  }
+
+  2.5% {
+    opacity: 100%;
+  }
+
+  30% {
+    margin-left: 50%;
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: -10%;
+  }
+ }
+
+ @keyframes floatToLeft {
+  from {
+    opacity: 0%;
+    margin-left: 110%;
+  }
+
+  2.5% {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: -10%;
+  }
+ }
+
+ @keyframes clownFishSwim {
+  from {
+    opacity: 100%;
+    transform: scaleX(-1);
+    margin-left: 75%;
+  }
+
+  50% {
+    opacity: 100%;
+    transform: scaleX(-1);
+    margin-left: 25%;
+  }
+
+  51% {
+    opacity: 100%;
+    transform: scaleX(1);
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: 75%;
+  }
+ }
+
+ @keyframes walkLeft {
+  from {
+    opacity: 0%;
+    margin-left: 110%;
+  }
+
+  2.5% {
+    opacity: 100%;
+    transform: rotate(-5deg);
+  }
+
+  5% {
+    transform: rotate(+10deg);
+  }
+
+  7.5% {
+    transform: rotate(-10deg);
+  }
+
+  10% {
+    transform: rotate(+10deg);
+  }
+
+  12.5% {
+    transform: rotate(-10deg);
+  }
+
+  15% {
+    transform: rotate(+10deg);
+  }
+
+  17.5% {
+    transform: rotate(-10deg);
+  }
+
+  20% {
+    transform: rotate(+10deg);
+  }
+
+  22.5% {
+    transform: rotate(-10deg);
+  }
+
+  25% {
+    transform: rotate(+10deg);
+  }
+
+  27.5% {
+    transform: rotate(-10deg);
+  }
+
+  30% {
+    transform: rotate(+10deg);
+  }
+
+  32.5% {
+    transform: rotate(-10deg);
+  }
+
+  35% {
+    transform: rotate(+10deg);
+  }
+
+  37.5% {
+    transform: rotate(-10deg);
+  }
+
+  40% {
+    transform: rotate(+10deg);
+  }
+
+  42.5% {
+    transform: rotate(-10deg);
+  }
+
+  45% {
+    transform: rotate(+10deg);
+  }
+
+  47.5% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(+10deg);
+  }
+
+  52.5% {
+    transform: rotate(-10deg);
+  }
+
+  55% {
+    transform: rotate(+10deg);
+  }
+
+  57.5% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(+10deg);
+  }
+
+  62.5% {
+    transform: rotate(-10deg);
+  }
+
+  65% {
+    transform: rotate(+10deg);
+  }
+
+  67.5% {
+    transform: rotate(-10deg);
+  }
+
+  70% {
+    transform: rotate(+10deg);
+  }
+
+  72.5% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(+10deg);
+  }
+
+  77.5% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(+10deg);
+  }
+
+  82.5% {
+    transform: rotate(-10deg);
+  }
+
+  85% {
+    transform: rotate(+10deg);
+  }
+
+  87.5% {
+    transform: rotate(-10deg);
+  }
+
+  90% {
+    transform: rotate(+10deg);
+  }
+
+  92.5% {
+    transform: rotate(-10deg);
+  }
+
+  95% {
+    transform: rotate(+10deg);
+  }
+
+  97.5% {
+    transform: rotate(-10deg);
+  }
+
+  to {
+    opacity: 100%;
+    margin-left: -10%;
+    transform: rotate(+10deg);
+  }
+ }
+
+ @keyframes seaHorseWalk {
+  from {
+    transform: scaleX(1);
+    margin-left: 200%;
+  }
+
+  2.5% {
+    transform: rotate(-5deg);
+  }
+
+  5% {
+    transform: rotate(+10deg);
+  }
+
+  7.5% {
+    transform: rotate(-10deg);
+  }
+
+  10% {
+    transform: rotate(+10deg);
+  }
+
+  12.5% {
+    transform: rotate(-10deg);
+  }
+
+  15% {
+    transform: rotate(+10deg);
+  }
+
+  17.5% {
+    transform: rotate(-10deg);
+  }
+
+  20% {
+    transform: rotate(+10deg);
+  }
+
+  22.5% {
+    transform: rotate(-10deg);
+  }
+
+  25% {
+    transform: rotate(+10deg);
+  }
+
+  27.5% {
+    transform: rotate(-10deg);
+  }
+
+  30% {
+    transform: rotate(+10deg);
+  }
+
+  32.5% {
+    transform: rotate(-10deg);
+  }
+
+  35% {
+    transform: rotate(+10deg);
+  }
+
+  37.5% {
+    transform: rotate(-10deg);
+  }
+
+  40% {
+    transform: rotate(+10deg);
+  }
+
+  42.5% {
+    transform: rotate(-10deg);
+  }
+
+  45% {
+    transform: rotate(+10deg);
+  }
+
+  47.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(1);
+  }
+
+  50% {
+    transform: rotate(+10deg);
+    margin-left: 1000%;
+    transform: scaleX(1);
+  }
+
+  50.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  55% {
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+
+  57.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  60% {
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+
+  62.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  65% {
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+
+  67.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  70% {
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+
+  72.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  75% {
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+
+  77.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  80% {
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+
+  82.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  85% {
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+
+  87.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  90% {
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+
+  92.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  95% {
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+
+  97.5% {
+    transform: rotate(-10deg);
+    transform: scaleX(-1);
+  }
+
+  99% {
+    transform: scaleX(-1);
+  }
+
+  to {
+    margin-left: 200%;
+    transform: rotate(+10deg);
+    transform: scaleX(-1);
+  }
+ }
+
+html {
+z-index: 1;
+background-size: cover;
+height: 735px;
+cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
+overflow: hidden !important;
+}
+
+span, label {
+  opacity: 100% !important;
+}
+
+.nav-bar {
+  display: inline-flex;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+.button-menu {
+  z-index: 30;
+  display: inline-flex;
+  padding-top: 10px;
+  opacity: 80%;
+  color: black;
+  width: 220px;
+  height: 70px;;
+  margin-left: 20px;
+  border-radius: 50% 20% / 10% 90%;
+  border-color: darkblue;
+  font-size: 24px;
+  font-family: "Pirate Menu";
+  background-color: rgb(244, 226, 150);
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+}
+
+.start-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  background-image: url("src\assets\images\icons8-pirates-des-caraïbes-32.png");
+}
+
+.config-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  background-image: url("src\assets\images\icons8-gouvernail-de-bateau-32.png");
+}
+
+.help-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  background-image: url("src\assets\images\icons8-carte-au-trésor-32.png");
+}
+
+.debug-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  background-image: url("src\assets\images\icons8-coffre-au-trésor-32.png");
+}
+
+.exit-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  background-image: url("src\assets\images\icons8-pont-roulant-32.png");
+}
+
+.button-text {
+  padding-top: 5px;
+  margin-left: 13px;
+}
+
+.party-panel{
+z-index: 30;
+position: absolute;
+top: 100px;
+opacity: 70%;
+margin-left: 70px;
+margin-top: 40px;
+}
+
+.debug-panel {
+  z-index: 30;
+  position: absolute !important;
+  top: 50px;
+  opacity: 70%;
+  margin-top: 200px;
+  margin-left: 120px;
+}
+
+.exit {
+z-index: 30;
+position: absolute !important;
+top: 50px;
+opacity: 70%;
+margin-top: 200px;
+margin-left: 250px;
+}
+
+
+.right {
+transform: scaleX(-1) !important;
+  }
+
+
+.yellow-fish {
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-name: yellowFishFloatToRight;
+animation-duration: 40s;
+animation-delay: 0s;
+transition: 0.5s;
+}
+
+.yellow-fish:hover {
+  transform: scale(2);
+  }
+
+.salmon-fish {
+z-index: 10;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-name: floatToRight;
+animation-duration: 35s;
+animation-delay: 0s;
+transition: 3s;
+}
+
+.salmon-fish:hover {
+  transform: translateX(-500px);
+  }
+
+.blue-fish {
+opacity: 0%;
+z-index: 10;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-name: floatToRight;
+animation-duration: 45s;
+animation-delay: 5s;
+transition: 3s;
+}
+
+.blue-fish:hover {
+  transform: rotate(360deg);
+  }
+
+.normal-fish {
+z-index: 10;
+height: 100px;
+width: 100px;
+opacity: 0%;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-name: normalFishFloatToLeft;
+animation-duration: 50s;
+animation-delay: 0s;
+}
+
+.clown-fish {
+z-index: 10;
+position: absolute;
+bottom: 20%;
+height: 100px;
+width: 100px;
+opacity: 0%;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-name: clownFishSwim;
+animation-duration: 60s;
+animation-delay: 0s;
+transition: 3s;
+}
+
+.clown-fish:hover {
+transform: scale(0.25);
+}
+
+.crab {
+z-index: 10;
+height: 100px;
+width: 100px;
+opacity: 0%;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-name: walkLeft;
+animation-duration: 60s;
+animation-delay: 0s;
+}
+
+.starfish {
+z-index: 1;
+position: absolute;
+height: 78px;
+width: 78px;
+margin-left: 75%;
+bottom: 2.7%;
+transition: 10s;
+}
+
+.starfish:hover {
+  transform: rotate(-360deg);
+}
+
+.bottle {
+position: absolute;
+height: 100px;
+width: 100px;
+bottom: 2.7%;
+margin-left: 10%;
+}
+
+.sea-horse {
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-name: seaHorseWalk;
+animation-duration: 45s;
+animation-delay: 0s;
+}
+
+
+.baseline {
+  display: inline-flex;
+}
+
+.bubble-1 {
+z-index: 20;
+position: absolute;
+height: 30px;
+width: 30px;
+left: 15%;
+bottom: 20%;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-name: bubbleOut;
+animation-duration: 5s;
+animation-delay: 0s;
+}
+
+.bubble-2 {
+  z-index: 20;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  left: 17%;
+  bottom: 23%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: bubbleOut;
+  animation-duration: 9s;
+  animation-delay: 0.5s;
+  }
+
+  .bubble-3 {
+  z-index: 20;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  left: 15%;
+  bottom: 19%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: bubbleOut;
+  animation-duration: 7.5s;
+  animation-delay: 0.5s;
+    }
+
+  .bubble-4 {
+  z-index: 20;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  left: 17%;
+  bottom: 23%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: bubbleOut;
+  animation-duration: 4s;
+  animation-delay: 0s;
+      }
+
+.jelly-fish {
+  z-index: 0;
+  position: absolute;
+  height: 96px;
+  width: 96px;
+  right: 17%;
+  top: -15%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: jellyFish;
+  animation-duration: 20s;
+  animation-delay: 0s;
+}
+
+

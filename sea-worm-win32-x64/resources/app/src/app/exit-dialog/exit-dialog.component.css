@@ -1,0 +1,56 @@
+ @font-face {
+   src: url("src\assets\fonts\Blackpearl-vPxA.ttf");
+   font-family: "Pirate Game";
+ }
+
+ .cursor-in {
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  background-color: red;
+  color: yellowgreen !important;
+}
+
+.no-focus {
+  background-color: white;
+}
+
+span, label {
+  opacity: 100% !important;
+}
+
+.exit-dialog {
+  text-align: center;
+  width: 800px;
+  height: 150px;
+  background-color: black;
+  border-radius: 30px;
+  border-color: white;
+  border: solid;
+  border-width: 7px;
+  padding-top: 10px;
+  cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
+}
+
+.dialog-text {
+  font-size: 35px;
+  font-family: "Pirate Game";
+  color: greenyellow;
+}
+
+.button-exit {
+  display: inline-flex;
+  color: red;
+  width: 220px;
+  height: 70px;;
+  padding-top: 13px;
+  margin-left: 20px;
+  border-radius: 15px;
+  border-color: white;
+  font-size: 30px;
+  font-family: "Pirate Game";
+  padding-left: 85px;
+  margin-top: 10px;
+}
+
+.span-button {
+margin-left: -10px;
+}

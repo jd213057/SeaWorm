@@ -1,0 +1,86 @@
+@font-face {
+  src: url("src\assets\fonts\TreasureMapDeadhand-yLA3.ttf");
+  font-family: "Pirate Menu";
+ }
+ @font-face {
+   src: url("src\assets\fonts\Blackpearl-vPxA.ttf");
+   font-family: "Pirate Game";
+ }
+
+ .cursor-in {
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  background-color: red !important;
+}
+
+.no-focus {
+  background-color: none;
+}
+
+span, label {
+  opacity: 100% !important;
+}
+
+.game-panel {
+  text-align: center;
+  width: 1100px;
+  height: 150px;
+  background-color: black;
+  border-radius: 30px;
+  border-color: black;
+  border: solid;
+  border-width: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
+}
+
+.panel-title {
+  font-size: 30px;
+  font-family: "Pirate Game";
+  color: gold;
+}
+
+.button-exitDebug {
+  display: inline-flex;
+  color: black;
+  width: 220px;
+  height: 50px;;
+  margin-left: 20px;
+  border-radius: 15px;
+  border-color: black;
+  font-style: italic;
+  font-size: 30px;
+  font-family: "Pirate Menu";
+  padding-left: 60px;
+  padding-top: 2px;
+  margin-top: 10px;
+  background-color: gold;
+}
+
+.panel-text {
+  display: inline-block;
+  text-align: left;
+  width: 1000px;
+  height: 60px;
+  padding: 0px 10px 0px 10px;
+  color: gold;
+  font-family: "Pirate Game";
+  font-size: 30px;
+  background-color: black;
+  border-radius: 30px;
+}
+
+.input {
+  height: 60px;
+  width: 1000px;
+  font-family: "Pirate Game";
+  font-size: 50px;
+  text-align: center;
+  border-radius: 30px;
+  border: 3px solid gold;
+  background-color: dodgerblue;
+}
+
+.button-line {
+  display: inline-flex;
+}

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cards' Game</title>
+  </head>
+  <body>
+    <app-intro *ngIf="showIntro" (closeIntro)="displayApps()"></app-intro>
+    <app-menu *ngIf="showGame"></app-menu>
+  </body>
+</html>
+<router-outlet></router-outlet>

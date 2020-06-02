@@ -1,0 +1,170 @@
+@font-face {
+  src: url("src\assets\fonts\TreasureMapDeadhand-yLA3.ttf");
+  font-family: "Pirate Menu";
+ }
+ @font-face {
+   src: url("src\assets\fonts\Blackpearl-vPxA.ttf");
+   font-family: "Pirate Game";
+ }
+
+ input {
+  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+ }
+
+ .cursor-in {
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  background-color: red !important;
+  color: yellowgreen !important;
+}
+
+.no-focus {
+  background-color: none;
+}
+
+.game-panel {
+  text-align: center;
+  width: 1200px;
+  height: 450px;
+  background-color: black;
+  border-radius: 30px;
+  border-color: yellowgreen;
+  border: solid;
+  border-width: 7px;
+  padding-top: 10px;
+  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+}
+
+.panel-title {
+  font-size: 35px;
+  font-family: "Pirate Menu";
+  font-style: italic;
+  color: yellowgreen;
+}
+
+.label-panel-1 {
+  color: yellowgreen;
+  text-decoration: underline;
+}
+
+.label-panel-2 {
+  color: yellowgreen;
+  text-decoration: underline;
+}
+
+.label-theme {
+text-decoration: underline;
+}
+
+.box-1 {
+  width: 345px;
+  padding-left: 90px;
+  border-color: yellowgreen;
+  border-right-style: dashed;
+  border-width: 5px;
+}
+
+.box-2 {
+  padding-left: 50px;
+  padding-top: 15px;
+}
+
+.section-1 {
+  margin-bottom: -20px;
+}
+
+.section-2 {
+  margin-bottom: -10px;
+}
+
+.section-3 {
+display: inline-flex;
+margin-bottom: 20px;
+}
+
+.section-4 {
+  display: inline-flex;
+}
+
+.imgChoice {
+  width: 290px;
+  display: grid;
+}
+
+.imgChoice-input {
+display: inline-flex;
+}
+
+.img {
+  border-radius: 15px;
+  border: 2px solid red;
+  margin-top: 15px;
+  height: 145px;
+  overflow: hidden;
+}
+
+.choice {
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.button-exitConfig {
+  display: inline-flex;
+  color: red;
+  width: 220px;
+  height: 70px;;
+  margin-left: 20px;
+  border-radius: 15px;
+  border-color: red;
+  border-width: 2px;
+  background-color: rgb(244, 226, 150);;
+  font-style: italic;
+  font-size: 30px;
+  font-family: "Pirate Menu";
+  padding-top: 13px;
+  padding-left: 60px;
+  margin-top: 10px;
+}
+
+.panel-text {
+  display: inline-flex;
+    text-align: left;
+    width: 1000px;
+    height: 295px;
+    padding: 0px 10px 0px 10px;
+    color: yellowgreen;
+    font-family: "Pirate Game";
+    font-size: 30px;
+    background-color: black;
+    border-radius: 25px;
+    border-color: black;
+    border-width: 4px;
+    border: solid;
+}
+
+.input {
+  margin-top: 40px;
+  margin-left: 250px;
+  height: 40px;
+  width: 500px;
+  font-family: "Pirate Game";
+  font-size: 50px;
+  text-align: center;
+}
+
+.button-line {
+  display: inline-flex;
+}
+
+span, label {
+  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  opacity: 100% !important;
+}
+
+.span-button {
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto !important;
+}
+
+.background-view {
+  width: 200px;
+  height: 150px;;
+}

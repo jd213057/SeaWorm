@@ -1,0 +1,16 @@
+<div class="game-panel">
+  <span class="panel-title">Mode d'emploi</span> <br>
+  <div class="panel-text">
+    <label class="label-panel">But du jeu :</label><br><br>
+<span>
+  Dans SeaWorm, vous contrôlez un vers marin à la
+  recherche de nourriture. Plus vous attraperez de
+  nourriture, plus vous grandirez. Le but du jeu est
+  de trouver un maximum de nourriture sans vous mordre
+  la queue! Y arriverez-vous ?
+</span>
+  </div>
+  <button class="button-exitHelp" [ngClass] = "this.cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="exitHelp()">
+    <span class="span-button"> J'ai compris !</span>
+  </button>
+  </div>

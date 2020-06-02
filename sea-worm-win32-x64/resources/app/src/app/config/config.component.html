@@ -1,0 +1,83 @@
+<div class="game-panel">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <span class="panel-title">Configuration</span> <br>
+  <div class="panel-text">
+<div class="box-1">
+    <label class="label-panel-1">Audio :</label><br>
+    <div class="section-1">
+    <div>
+      <input formControlName="audio" type="radio" id="audioOn" name="audio" value="audioOn"
+             ng-model="configInput">
+      <label for="audioOn"><span class="choice">Activer</span></label>
+    </div>
+    <div>
+      <input formControlName="audio" type="radio" id="audioOff" name="audio" value="audioOff" ng-model="configInput">
+      <label for="audioOff"><span class="choice">Desactiver</span></label>
+    </div>
+  </div>
+    <br>
+    <div class="section-2">
+    <label class="label-theme">Theme musicale :</label>
+    <div>
+      <input formControlName="themeChoice" type="radio" id="lava" name="themeChoice" value="lava"
+             ng-model="configInput">
+      <label for="jazzChoice"><span class="choice">Lava</span></label>
+    </div>
+    <div>
+      <input formControlName="themeChoice" type="radio" id="pirate" name="themeChoice" value="pirate" ng-model="configInput">
+      <label for="pirate"><span class="choice">Pirate</span></label>
+    </div>
+    <div>
+      <input formControlName="themeChoice" type="radio" id="ocean" name="themeChoice" value="ocean" ng-model="configInput">
+      <label for="retro"><span class="choice">Ocean</span></label>
+    </div>
+  </div>
+  </div>
+<div class="box-2">
+  <label class="label-panel-2">Niveau :</label><br>
+  <div class="section-3">
+    <div>
+      <input formControlName="level" type="radio" id="Facile" name="level" value=400
+             ng-model="configInput">
+      <label for="Facile"><span class="choice">Facile</span></label>
+    </div>
+    <div>
+      <input formControlName="level" type="radio" id="Moyen" name="level" value=250 ng-model="configInput">
+      <label for="Moyen"><span class="choice">Moyen</span></label>
+    </div>
+    <div>
+      <input formControlName="level" type="radio" id="Difficile" name="level" value=100 ng-model="configInput">
+      <label for="Difficile"><span class="choice">Difficile</span></label>
+    </div>
+  </div>
+<br>
+<div class="section-4">
+  <div class="imgChoice">
+    <label class="label-theme">Fond d'ecran :</label>
+    <div class="imgChoice-input" >
+    <input formControlName="imgChoice" type="radio" id="sableImgChoice" name="imgChoice" value="sable"
+           ng-model="configInput">
+    <label for="sableImgChoice"><span class="choice">Sable</span></label></div>
+    <div class="imgChoice-input" >
+    <input formControlName="imgChoice" type="radio" id="corailImgChoice" name="imgChoice" value="corail" ng-model="configInput">
+    <label class="imgChoice-input" for="corailImgChoice"><span class="choice">Corail</span></label></div>
+    <div class="imgChoice-input" >
+    <input formControlName="imgChoice" type="radio" id="algueImgChoice" name="imgChoice" value="algue" ng-model="configInput">
+    <label class="imgChoice-input" for="algueImgChoice"><span class="choice">Algue</span></label></div>
+  </div>
+  <div class="img">
+    <img id="img" [src]='this.imgToShow' width="200px" height="150px">
+  </div>
+</div>
+</div>
+  </div>
+  <div class="button-line">
+  <button id="apply" class="button-exitConfig" type="button" [ngClass]="this.cursorApplyClass" (mouseout)="cursorApplyOut()" (mouseover)="cursorApplyIn()" (click)="onSubmit()">
+    <span class="span-button">Appliquer</span>
+  </button>
+  <button id="exit" class="button-exitConfig" [ngClass]="this.cursorExitClass" (mouseout)="cursorExitOut()" (mouseover)="cursorExitIn()" (click)="exitConfig()">
+    <span class="span-button">Quitter</span>
+  </button>
+</div>
+</form>
+</div>

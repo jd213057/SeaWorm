@@ -1,0 +1,17 @@
+<div class="game-panel">
+  <label class="panel-title">Entrer la combinaison :</label> <br>
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+  <div class="panel-text">
+<input id="inputValue" formControlName="inputValue" class="input" type="text" autocomplete="off" ng-model="debugInput">
+  </div>
+  <div class="button-line">
+  <button id="apply" class="button-exitDebug" type="submit" [ngClass]="this.cursorApplyClass" (mouseout)="cursorApplyOut()" (mouseover)="cursorApplyIn()" (click)="onSubmit()">
+    <span>Appliquer</span>
+  </button>
+  <button id="exit" class="button-exitDebug" [ngClass]="this.cursorExitClass" (mouseout)="cursorExitOut()" (mouseover)="cursorExitIn()" (click)="exitDebug()">
+    <span>Quitter</span>
+  </button>
+</div>
+</form>
+</div>

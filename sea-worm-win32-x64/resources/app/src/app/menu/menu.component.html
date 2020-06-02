@@ -1,0 +1,56 @@
+<html id="page" [ngStyle]="{'background-image': 'url(' + getBackgroundImg() + ')'}">
+<head>
+<meta charset="utf-8">
+<title>Menu</title>
+</head>
+<body>
+<div id ="navBar" class="nav-bar">
+<button id = "start" class="button-menu" [ngClass]="this.cursorClass" (click)="startButton()">
+  <div id = "start" class="start-icon"></div>
+  <span id = 'start' class="button-text"><b>Jouer</b></span>
+</button>
+<button id = "help" class="button-menu" [ngClass]="this.cursorClass" (click)="helpButton()">
+  <div class="help-icon"></div>
+  <span class="button-text"><b>Mode d'emploi</b></span>
+</button>
+<button id = "config" class="button-menu" [ngClass]="this.cursorClass" (click)="configButton()">
+  <div class="config-icon"></div>
+  <span class="button-text"><b>Configuration</b></span>
+</button>
+<button id = "debug" class="button-menu" [ngClass]="this.cursorClass">
+  <div class="debug-icon"></div>
+  <span class="button-text"><b>DebugMode</b></span>
+</button>
+<button id = "exit" class="button-menu" [ngClass]="this.cursorClass" (click)="exitButton()">
+  <div class="exit-icon"></div>
+  <span class="button-text"><b>Fermer</b></span>
+</button>
+</div>
+<div class="background-animation">
+  <img class="salmon-fish" src="./assets/images/icons8-poisson-clown-100.png"><br>
+  <img id="normalFish" class="normal-fish right" src="./assets/images/icons8-nourriture-pour-poisson-200.png"><br>
+  <img class="yellow-fish"  src="./assets/images/icons8-poisson-96.png"><br>
+  <img class="blue-fish" src="./assets/images/icons8-poisson-80.png"><br>
+  <img id="crab" class="crab right" src="./assets/images/icons8-crabe-96.png"><br>
+  <div class="baseline">
+  <img id="bottle" class="bottle" src="./assets/images/icons8-message-dans-une-bouteille-verte-64.png">
+  <div class="sea-horse"><img src="./assets/images/icons8-hippocampe-96.png"></div>
+  <img id="starfish" class="starfish" src="./assets/images/icons8-étoile-de-mer-96.png">
+</div>
+<img class="clown-fish" src="./assets/images/icons8-poisson-clown-96.png">
+<img class="jelly-fish" src="./assets/images/icons8-méduse-96.png">
+<img class="bubble-1" src="./assets/images/icons8-bulle-64.png">
+<img class="bubble-2" src="./assets/images/icons8-bulles-64.png">
+<img class="bubble-3" src="./assets/images/icons8-bulle-64.png">
+<img class="bubble-4" src="./assets/images/icons8-bulles-64.png">
+</div>
+<div class="party-panel" *ngIf="runningParty"> <app-jeu (displayParty)="displayParty()"></app-jeu> </div>
+<div class="party-panel" *ngIf="helpRequest"><app-help (displayHelp)="displayHelp()" ></app-help></div>
+<div class="party-panel" *ngIf="configRequest"><app-config (displayConfig)="displayConfig()" ></app-config></div>
+<div class="debug-panel" *ngIf="debugRequest"><app-debug (displayDebug)="displayDebug()" ></app-debug></div>
+<div class="exit" *ngIf="exitDialog"><app-exit-dialog (displayExitGame)="shutdownGame()" (displayExitDialog)="displayExitDialog()" ></app-exit-dialog></div>
+</body>
+<footer>
+  <audio [src]='this.getMusic()' autoplay loop></audio>
+</footer>
+</html>
