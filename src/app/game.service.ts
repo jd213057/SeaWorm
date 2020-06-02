@@ -31,7 +31,7 @@ NOBULLSHIT: boolean;
     } else {
       this.audio = 'audioOn';
       this.themeChoice = 'lava';
-      this.level = 500;
+      this.level = 400;
       this.imgChoice = 'corail';
       this.YOUAREDEAD = false;
       this.AGAINSTALLODDS = false;
@@ -89,7 +89,7 @@ getLevel(): number {
 }
 
 setLevel(valueInput: number): void {
-  if (valueInput == 500 || valueInput == 250 || valueInput == 100) {
+  if (valueInput == 400 || valueInput == 250 || valueInput == 100) {
       this.level = valueInput;
   }
 }
@@ -153,23 +153,17 @@ checkLastRecord(): number {
   const listOfKeys = [];
   const listOfRecords = [];
   const length = localStorage.length - 1;
-  console.log(length);
   for (let i = 0; i <= length; i++) {
-    console.log(localStorage.key(i));
     listOfKeys.push(parseInt(localStorage.key(i), 10));
   }
   for (const value of listOfKeys) {
-    console.log(value);
-    console.log(isNaN(value) == true);
     if (isNaN(value) == false) {
       listOfRecords.push(value);
     }
   }
-  console.log(listOfRecords);
   listOfRecords.sort((a, b) => {
     return a - b;
   });
-  console.log(listOfRecords);
   return listOfRecords.length - 1;
 }
 

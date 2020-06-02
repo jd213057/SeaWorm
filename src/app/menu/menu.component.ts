@@ -28,6 +28,7 @@ export class MenuComponent implements OnInit {
     this.playBackgroundSound();
     this.setAnimationBackground();
     this.getNavBarFocus();
+    this.activateDebugPanel();
   }
 
   playBackgroundSound(): void {
@@ -120,6 +121,15 @@ getNavBarFocus() {
     }, false);
   }
 
+  activateDebugPanel(): void {
+    document.body.onkeydown = (e) => {
+      if (e.ctrlKey && e.keyCode === 32 &&  this.runningParty == false && this.helpRequest == false &&  this.configRequest == false) {
+        this.clickSound.play();
+        this.debugButton();
+      }
+          };
+  }
+
 startButton()  {
     this.clickSound.play();
     this.helpRequest = false;
@@ -149,7 +159,7 @@ debugButton(): void {
     this.runningParty = false;
     this.helpRequest = false;
     this.configRequest = false;
-    this.debugRequest = true;
+    this.debugRequest = !this.debugRequest;
   }
 
 displayParty(): void {

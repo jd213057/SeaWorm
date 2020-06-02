@@ -1,8 +1,8 @@
 <div class="game-panel">
+  <label class="panel-title">Entrer la combinaison :</label> <br>
   <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-  <span class="panel-title">DebugMode</span> <br>
+
   <div class="panel-text">
-    <label class="label-panel">Entrer la combinaison :</label><br><br>
 <input id="inputValue" formControlName="inputValue" class="input" type="text" autocomplete="off" ng-model="debugInput">
   </div>
   <div class="button-line">

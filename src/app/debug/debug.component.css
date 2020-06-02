@@ -22,33 +22,29 @@ span, label {
 
 .game-panel {
   text-align: center;
-  width: 1200px;
-  height: 450px;
+  width: 1100px;
+  height: 150px;
   background-color: black;
   border-radius: 30px;
   border-color: black;
   border: solid;
   border-width: 7px;
-  padding-top: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
 }
 
 .panel-title {
-  font-size: 35px;
-  font-family: "Pirate Menu";
-  font-style: italic;
-}
-
-.label-panel {
-  margin-left: 300px;
-  text-decoration: underline;
+  font-size: 30px;
+  font-family: "Pirate Game";
+  color: gold;
 }
 
 .button-exitDebug {
   display: inline-flex;
   color: black;
   width: 220px;
-  height: 70px;;
+  height: 50px;;
   margin-left: 20px;
   border-radius: 15px;
   border-color: black;
@@ -56,7 +52,7 @@ span, label {
   font-size: 30px;
   font-family: "Pirate Menu";
   padding-left: 60px;
-  padding-top: 13px;
+  padding-top: 2px;
   margin-top: 10px;
   background-color: gold;
 }
@@ -65,26 +61,24 @@ span, label {
   display: inline-block;
   text-align: left;
   width: 1000px;
-  height: 280px;
-  padding: 22px 10px 0px 10px;
+  height: 60px;
+  padding: 0px 10px 0px 10px;
   color: gold;
   font-family: "Pirate Game";
   font-size: 30px;
   background-color: black;
   border-radius: 30px;
-  border-color: lightslategray;
-  border-width: 4px;
-  border: solid;
 }
 
 .input {
-  margin-top: 40px;
-  margin-left: 250px;
-  height: 40px;
-  width: 500px;
+  height: 60px;
+  width: 1000px;
   font-family: "Pirate Game";
   font-size: 50px;
   text-align: center;
+  border-radius: 30px;
+  border: 3px solid gold;
+  background-color: dodgerblue;
 }
 
 .button-line {

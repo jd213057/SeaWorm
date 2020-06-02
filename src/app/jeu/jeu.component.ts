@@ -198,7 +198,9 @@ for (let x = 0; x <= 9; x++) {
     const wormShrinked =
      this.seaWorm.getCases().slice(0 , this.seaWorm.getCases().length - 2);
     this.seaWorm.setCases(wormShrinked);
-    this.food.setCount(this.food.getCount() + 1);
+    if (!this.gameService.getCode1()) {
+      this.food.setCount(this.food.getCount() + 1);
+    }
     this.food.setBonus(false);
   }
 
@@ -236,13 +238,27 @@ case Direction.bas:
     }
     bigWorm.push(pixelToAdd);
     this.seaWorm.setCases(bigWorm);
+    if (this.gameService.getCode1()) {
+      this.extraGrowWorm();
+    }
   }
 
+  extraGrowWorm(): void {
+    const bigWorm = this.seaWorm.getCases();
+    const lastPixel = bigWorm[bigWorm.length - 1];
+    const beforeLastPixelWorm = this.seaWorm.getCases()[this.seaWorm.getCases().length - 2];
+    const  pixelToAdd = new Case(State.worm,
+      lastPixel.getPositionX() - (beforeLastPixelWorm.getPositionX() - lastPixel.getPositionX()),
+      lastPixel.getPositionY() - (beforeLastPixelWorm.getPositionY() - lastPixel.getPositionY()));
+    bigWorm.push(pixelToAdd);
+    this.seaWorm.setCases(bigWorm);
+  }
 
   showPixels(worm: Worm): void {
     let pixelToShow;
     for (const pixel of this.grid) {
     pixelToShow = document.getElementById(pixel.getId());
+    pixelToShow.style.opacity = 1;
     pixelToShow.style.backgroundColor = 'cornflowerblue';
     if (pixel.getId() == this.food.getCase().getId()) {
       pixelToShow.style.backgroundColor = this.food.getBonus() == false ? 'yellowgreen' : 'red';
@@ -250,7 +266,32 @@ case Direction.bas:
   }
     for (const wormPixel of this.seaWorm.getCases()) {
       pixelToShow = document.getElementById(wormPixel.getId());
-      pixelToShow.style.backgroundColor = 'darkblue';
+      if (!this.gameService.getCode2()) {
+        pixelToShow.style.backgroundColor = 'darkblue';
+      } else if (this.gameService.getCode2()) {
+        const colorRandom = Math.floor(Math.random() * 5);
+        pixelToShow.style.opacity = 0.8;
+        switch (colorRandom) {
+case 0:
+  pixelToShow.style.backgroundColor = 'red';
+  break;
+case 1:
+  pixelToShow.style.backgroundColor = 'orange';
+  break;
+case 2:
+  pixelToShow.style.backgroundColor = 'yellow';
+  break;
+case 3:
+  pixelToShow.style.backgroundColor = 'green';
+  break;
+case 4:
+  pixelToShow.style.backgroundColor = 'darkblue';
+  break;
+case 5:
+  pixelToShow.style.backgroundColor = 'purple';
+  break;
+        }
+      }
 }
   }
 
@@ -313,10 +354,8 @@ case Direction.bas:
     let nbRecord = 0;
     if (localStorage.getItem(nbRecord.toString()) !== null) {
       nbRecord = this.gameService.checkLastRecord();
-      console.log(nbRecord);
       nbRecord ++;
       }
-    console.log(nbRecord);
     const saveDay = new Date();
     const year = saveDay.getUTCFullYear().toString();
     const month = saveDay.getUTCMonth().toString();
@@ -326,9 +365,9 @@ case Direction.bas:
     const sec = saveDay.getUTCSeconds().toString();
     const fullDate = year + '/' + month + '/' + day + '-' + hour + ':' + min + ':' + sec;
     const save = {time: fullDate , score:  this.food.getCount().toString()};
-    console.log(save);
-    console.log(JSON.stringify(save));
+    localStorage.removeItem(nbRecord.toString());
     localStorage.setItem(nbRecord.toString(), JSON.stringify(save));
+    console.log(nbRecord);
     console.log(localStorage);
   }
 
