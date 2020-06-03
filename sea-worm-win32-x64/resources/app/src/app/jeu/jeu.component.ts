@@ -16,6 +16,9 @@ export class JeuComponent implements OnInit {
   seaWorm: Worm;
   food: Food;
   score: number;
+  compteur = '3';
+  onGame = false;
+  endGame = false;
   isBitten = false;
   controlPressed = false;
   displayRate;
@@ -28,6 +31,7 @@ export class JeuComponent implements OnInit {
   constructor(private gameService: GameService) { }
 
   ngOnInit() {
+    this.countdownTimer();
     this.buildGrid();
     this.setControls();
     this.placeWorm();
@@ -39,16 +43,35 @@ export class JeuComponent implements OnInit {
   clearInterval(this.displayRate);
   }
 
+  countdownTimer(): void {
+    let count = 3;
+    const startSound = new Audio('.\\assets\\sounds\\start-sound.mp3');
+    startSound.volume = 0.6;
+    startSound.play();
+    const timer = setInterval(() => {
+  count--;
+  this.compteur = count.toString();
+  if (count <= 0) {
+    this.compteur = 'Go';
+    setTimeout(() => {
+  clearInterval(timer);
+  this.onGame = true;
+}, 1000);
+  }
+}, 1000);
+  }
+
+  getCount(): string {
+    this.compteur = this.compteur;
+    return this.compteur;
+  }
+
   cursorIn() {
     this.buttonClass = 'cursor-in';
   }
 
   cursorOut() {
     this.buttonClass = 'no-focus';
-  }
-
-  getExitButtonClass(): string {
-    return ' ' + this.buttonClass;
   }
 
   getCaseClass(): string {
@@ -169,6 +192,7 @@ for (let x = 0; x <= 9; x++) {
    this.showPixels(this.seaWorm);
   } else {
     this.storeScore();
+    this.looseGame();
   }
   }
 
@@ -258,19 +282,19 @@ case Direction.bas:
     let pixelToShow;
     for (const pixel of this.grid) {
     pixelToShow = document.getElementById(pixel.getId());
-    pixelToShow.style.opacity = 1;
-    pixelToShow.style.backgroundColor = 'cornflowerblue';
+    pixelToShow.style.backgroundColor = 'dodgerblue';
     if (pixel.getId() == this.food.getCase().getId()) {
       pixelToShow.style.backgroundColor = this.food.getBonus() == false ? 'yellowgreen' : 'red';
+      pixelToShow.style.opacity = 1;
     }
   }
     for (const wormPixel of this.seaWorm.getCases()) {
       pixelToShow = document.getElementById(wormPixel.getId());
+      pixelToShow.style.opacity = 1;
       if (!this.gameService.getCode2()) {
         pixelToShow.style.backgroundColor = 'darkblue';
       } else if (this.gameService.getCode2()) {
         const colorRandom = Math.floor(Math.random() * 5);
-        pixelToShow.style.opacity = 0.8;
         switch (colorRandom) {
 case 0:
   pixelToShow.style.backgroundColor = 'red';
@@ -367,8 +391,25 @@ case 5:
     const save = {time: fullDate , score:  this.food.getCount().toString()};
     localStorage.removeItem(nbRecord.toString());
     localStorage.setItem(nbRecord.toString(), JSON.stringify(save));
-    console.log(nbRecord);
-    console.log(localStorage);
+  }
+
+  endPanelClass(): string {
+   return this.endGame ? 'end-panel' : '';
+  }
+
+  getEndGameClass(): string {
+    return this.endGame ? 'score-endGame' : '';
+  }
+
+  looseGame(): void {
+    const gameOverSound = new Audio ('.\\assets\\sounds\\gameover.mp3');
+    gameOverSound.play();
+    this.onGame = false;
+    this.endGame = true;
+    clearInterval(this.displayRate);
+    setTimeout(() => {
+      this.displayParty.emit();
+    }, 10000);
   }
 
   exitGame(): void {

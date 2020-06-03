@@ -1,8 +1,11 @@
-<div class="game-panel">
-  <span class="panel-title">SeaWorm</span><br>
-  <span class="panel-title">{{getScore()}}</span>
-<div class="grid">
+<div *ngIf="!onGame && !endGame" class="countdown">
+  {{getCount()}}
+  </div>
+  <div *ngIf="onGame || endGame" class="game-panel" [ngClass]="endPanelClass()">
+  <div class="panel-title"><span>SeaWorm</span></div><br>
+  <div  class="score-title" [ngClass]="getEndGameClass()"><span>{{getScore()}}</span></div>
 
+<div *ngIf="onGame && !endGame" class="grid">
   <div class="line">
     <div id="0-0" class="blank" [ngClass]="getCaseClass()"></div>
     <div id="1-0" class="blank" [ngClass]="getCaseClass()"></div>
@@ -123,11 +126,12 @@
     <div id="8-9" class="blank" [ngClass]="getCaseClass()"></div>
     <div id="9-9" class="blank" [ngClass]="getCaseClass()"></div>
   </div>
-
-
-
 </div>
-<button [ngClass]="getExitButtonClass()" (mouseout)="cursorOut()" (mouseover)="cursorIn()" (click)="exitGame()">
+<div *ngIf="endGame" class="end-panel">
+  <img src="https://media.giphy.com/media/107gPMgIBBleA8/giphy.gif" (mouseover)="$event.stopPropagation()">
+</div>
+<button *ngIf="onGame" (click)="exitGame()">
   <span class = "exit-button-title">Sortir</span>
 </button>
+<div class="exit-msg" *ngIf="endGame"><span>Perdu...</span></div>
 </div>

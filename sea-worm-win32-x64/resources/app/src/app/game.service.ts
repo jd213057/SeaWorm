@@ -89,7 +89,7 @@ getLevel(): number {
 }
 
 setLevel(valueInput: number): void {
-  if (valueInput == 400 || valueInput == 250 || valueInput == 100) {
+  if (valueInput == 250 || valueInput == 175 || valueInput == 100) {
       this.level = valueInput;
   }
 }
