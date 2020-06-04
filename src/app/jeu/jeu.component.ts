@@ -375,22 +375,7 @@ case 5:
   }
 
   storeScore(): void {
-    let nbRecord = 0;
-    if (localStorage.getItem(nbRecord.toString()) !== null) {
-      nbRecord = this.gameService.checkLastRecord();
-      nbRecord ++;
-      }
-    const saveDay = new Date();
-    const year = saveDay.getUTCFullYear().toString();
-    const month = saveDay.getUTCMonth().toString();
-    const day = saveDay.getUTCDay().toString();
-    const hour = saveDay.getUTCHours().toString();
-    const min = saveDay.getUTCMinutes().toString();
-    const sec = saveDay.getUTCSeconds().toString();
-    const fullDate = year + '/' + month + '/' + day + '-' + hour + ':' + min + ':' + sec;
-    const save = {time: fullDate , score:  this.food.getCount().toString()};
-    localStorage.removeItem(nbRecord.toString());
-    localStorage.setItem(nbRecord.toString(), JSON.stringify(save));
+    this.gameService.saveRecord(this.food.getCount(), this.gameService.getCode1(), this.gameService.getCode2());
   }
 
   endPanelClass(): string {

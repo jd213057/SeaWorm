@@ -1,0 +1,12 @@
+<div class="game-panel">
+  <span class="panel-title">Liste des Scores:</span> <br>
+  <div class="panel-text">
+    <label class="label-panel">But du jeu :</label><br><br>
+    <ul>
+<li *ngFor="let record of records">{{record.id}}{{record.score}}{{record.code1}}{{record.code2}}{{record.date}}</li>
+</ul>
+  </div>
+  <button class="button-exitHelp" [ngClass] = "this.cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="exitHelp()">
+    <span class="span-button"> J'ai compris !</span>
+  </button>
+  </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Save } from './classes/Save';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,14 @@ imgChoice: string;
 YOUAREDEAD: boolean;
 AGAINSTALLODDS: boolean;
 NOBULLSHIT: boolean;
+records: Save[] = [];
 
   constructor() {
     this.loadLocalStorageParam();
   }
 
   loadLocalStorageParam(): void {
-    if (localStorage.length >= 7) {
+    if (localStorage.length == 8) {
       this.audio = localStorage.getItem('audio');
       this.themeChoice = localStorage.getItem('themeChoice');
       this.level = parseInt(localStorage.getItem('level'), 10);
@@ -30,12 +32,20 @@ NOBULLSHIT: boolean;
       this.NOBULLSHIT = booleanString == 'true' ? true : false;
     } else {
       this.audio = 'audioOn';
-      this.themeChoice = 'lava';
-      this.level = 400;
+      localStorage.setItem('audio', this.audio);
       this.imgChoice = 'corail';
+      localStorage.setItem('imgChoice',  this.imgChoice);
+      this.themeChoice = 'lava';
+      localStorage.setItem('themeChoice', this.themeChoice);
+      this.level = 175;
+      localStorage.setItem('level', this.level.toString());
       this.YOUAREDEAD = false;
+      localStorage.setItem('YOUAREDEAD', 'false');
       this.AGAINSTALLODDS = false;
+      localStorage.setItem('AGAINSTALLODDS', 'false');
       this.NOBULLSHIT = false;
+      localStorage.setItem('NOBULLSHIT', 'false');
+      localStorage.setItem('records', JSON.stringify(this.records));
     }
   }
 
@@ -139,6 +149,10 @@ setCode3(valueInput: boolean): void {
   }
 }
 
+getRecords(): Save[] {
+  return this.records;
+}
+
 saveParamsInLocalStorage(): void {
   localStorage.setItem('audio', this.audio);
   localStorage.setItem('themeChoice', this.themeChoice);
@@ -149,22 +163,36 @@ saveParamsInLocalStorage(): void {
   this.NOBULLSHIT == true ? localStorage.setItem('NOBULLSHIT', 'true') : localStorage.setItem('NOBULLSHIT', 'false');
 }
 
-checkLastRecord(): number {
-  const listOfKeys = [];
-  const listOfRecords = [];
-  const length = localStorage.length - 1;
-  for (let i = 0; i <= length; i++) {
-    listOfKeys.push(parseInt(localStorage.key(i), 10));
-  }
-  for (const value of listOfKeys) {
-    if (isNaN(value) == false) {
-      listOfRecords.push(value);
-    }
-  }
-  listOfRecords.sort((a, b) => {
-    return a - b;
-  });
-  return listOfRecords.length - 1;
+saveRecord(score: number, code1: boolean, code2: boolean): void {
+  let lastIdNb = 0;
+  let recordToSave: Save;
+  const records = localStorage.getItem('records');
+  if (localStorage.length != null && records != '[]') {
+    this.records = JSON.parse(records);
+    lastIdNb = this.records[this.records.length - 1].id;
+    lastIdNb ++;
+}
+  recordToSave = new Save(lastIdNb, score, code1, code2);
+  this.records.push(recordToSave);
+  const newRecordsList = JSON.stringify(this.records);
+  localStorage.setItem('records', newRecordsList);
 }
 
+sortScoreAscend(): Save[] {
+  const scoreSortedAsc: Save[] = [];
+  const scoreList = [];
+  const recordsList: Save[] = JSON.parse(localStorage.getItem('records'));
+  for (const save of recordsList) {
+    scoreList.push(save.score);
+}
+// A developper !!!!
+  return scoreSortedAsc;
+}
+
+eraseDataMemory(): void {
+  localStorage.set('records', '[]');
+}
+
+cleanLocalStorage(): void {
+  localStorage.clear(); }
 }

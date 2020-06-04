@@ -566,11 +566,11 @@ span, label {
   background-image: url("src\assets\images\icons8-carte-au-trésor-32.png");
 }
 
-.debug-icon {
+.score-icon {
   width: 32px;
   height: 32px;
   margin-left: 10px;
-  background-image: url("src\assets\images\icons8-coffre-au-trésor-32.png");
+  background-image: url("src\assets\images\load_icon.png");
 }
 
 .exit-icon {

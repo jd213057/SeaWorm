@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
   helpRequest = false;
   configRequest = false;
   debugRequest = false;
+  scoreRequest = false;
   exitDialog = false;
   onInit = false;
   cursorClass = '';
@@ -77,7 +78,7 @@ getNavBarFocus() {
     const startButton = document.getElementById('start');
     const helpButton = document.getElementById('help');
     const configButton = document.getElementById('config');
-    const debugButton = document.getElementById('debug');
+    const scoreButton = document.getElementById('score');
     const exitButton = document.getElementById('exit');
     startButton.addEventListener('mouseenter', ( event ) => {
     const e = event.target as HTMLElement;
@@ -103,11 +104,11 @@ getNavBarFocus() {
       const e = event.target as HTMLElement;
       e.style.backgroundColor = '';
     }, false);
-    debugButton.addEventListener('mouseenter', ( event ) => {
+    scoreButton.addEventListener('mouseenter', ( event ) => {
       const e = event.target as HTMLElement;
       e.style.backgroundColor  = 'cyan';
     }, false);
-    debugButton.addEventListener('mouseleave', (event) => {
+    scoreButton.addEventListener('mouseleave', (event) => {
       const e = event.target as HTMLElement;
       e.style.backgroundColor = '';
     }, false);
@@ -135,6 +136,7 @@ startButton()  {
     this.helpRequest = false;
     this.configRequest = false;
     this.debugRequest = false;
+    this.scoreRequest = false;
     this.runningParty = true;
   }
 
@@ -143,6 +145,7 @@ helpButton(): void {
     this.runningParty = false;
     this.configRequest = false;
     this.debugRequest = false;
+    this.scoreRequest = false;
     this.helpRequest = true;
   }
 
@@ -151,6 +154,7 @@ configButton(): void {
     this.runningParty = false;
     this.helpRequest = false;
     this.debugRequest = false;
+    this.scoreRequest = false;
     this.configRequest = true;
   }
 
@@ -159,7 +163,17 @@ debugButton(): void {
     this.runningParty = false;
     this.helpRequest = false;
     this.configRequest = false;
+    this.scoreRequest = false;
     this.debugRequest = !this.debugRequest;
+  }
+
+  scoreButton(): void {
+    this.clickSound.play();
+    this.runningParty = false;
+    this.helpRequest = false;
+    this.configRequest = false;
+    this.debugRequest = false;
+    this.scoreRequest = true;
   }
 
 displayParty(): void {
@@ -176,6 +190,10 @@ displayConfig(): void {
 
 displayDebug(): void {
     this.debugRequest = false;
+  }
+
+  displayScore(): void {
+    this.scoreRequest = false;
   }
 
 displayExitDialog(): void {
