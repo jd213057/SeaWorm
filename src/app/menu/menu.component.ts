@@ -202,12 +202,13 @@ displayExitDialog(): void {
 
 exitButton() {
     this.clickSound.play();
-    if (!this.runningParty && !this.helpRequest && !this.configRequest && !this.debugRequest) {
+    if (!this.runningParty && !this.helpRequest && !this.configRequest && !this.debugRequest && !this.scoreRequest) {
       this.exitDialog = true;
     }
     this.runningParty = false;
     this.helpRequest = false;
     this.configRequest = false;
+    this.scoreRequest = false;
     this.debugRequest = false;
   }
 

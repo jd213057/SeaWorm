@@ -167,30 +167,207 @@ saveRecord(score: number, code1: boolean, code2: boolean): void {
   let lastIdNb = 0;
   let recordToSave: Save;
   const records = localStorage.getItem('records');
-  if (localStorage.length != null && records != '[]') {
+  if (records != null && records !== '[]') {
     this.records = JSON.parse(records);
     lastIdNb = this.records[this.records.length - 1].id;
     lastIdNb ++;
 }
-  recordToSave = new Save(lastIdNb, score, code1, code2);
+  const level = this.getLevel();
+  let levelString;
+  console.log(level);
+  switch (level) {
+    case 100:
+      console.log('saved');
+      levelString = 'Difficile';
+      break;
+  case 175:
+    console.log('saved');
+    levelString = 'Moyen';
+    break;
+    case 250:
+      console.log('saved');
+      levelString = 'Facile';
+      break;
+}
+  console.log(levelString);
+  recordToSave = new Save(lastIdNb, score, levelString, code1, code2);
   this.records.push(recordToSave);
   const newRecordsList = JSON.stringify(this.records);
   localStorage.setItem('records', newRecordsList);
 }
 
-sortScoreAscend(): Save[] {
-  const scoreSortedAsc: Save[] = [];
-  const scoreList = [];
+getRecordListSortedAsc(): Save[] {
+  let scoreSortedAsc: Save[] = [];
+  const scoreList: Save[] = [];
   const recordsList: Save[] = JSON.parse(localStorage.getItem('records'));
   for (const save of recordsList) {
-    scoreList.push(save.score);
+    scoreList.push(save);
 }
-// A developper !!!!
+  scoreList.sort((a, b) => {
+    if (a.score == b.score) {
+      let aLevel: number;
+      let bLevel: number;
+      const levelA = a.level;
+      const levelB = b.level;
+      switch (levelA) {
+        case 'Facile':
+          aLevel = 1;
+          break;
+        case 'Moyen':
+          aLevel = 2;
+          break;
+        case 'Difficile':
+          aLevel = 3;
+          break;
+      }
+      switch (levelB) {
+        case 'Facile':
+          bLevel = 1;
+          break;
+        case 'Moyen':
+          bLevel = 2;
+          break;
+        case 'Difficile':
+          bLevel = 3;
+          break;
+      }
+      if (a.level == b.level) {
+        const aCode1 = a.code1.toString();
+        const bCode1 = b.code1.toString();
+        let aCode1Num;
+        let bCode1Num;
+        switch (aCode1) {
+  case 'true':
+    aCode1Num = 1;
+    break;
+    case 'false':
+      aCode1Num = 0;
+}
+        switch (bCode1) {
+  case 'true':
+    bCode1Num = 1;
+    break;
+    case 'false':
+      bCode1Num = 0;
+}
+        if (b.code1 == a.code1) {
+  const aCode2 = a.code2.toString();
+  const bCode2 = b.code2.toString();
+  let aCode2Num;
+  let bCode2Num;
+  switch (aCode2) {
+case 'true':
+aCode2Num = 1;
+break;
+case 'false':
+aCode2Num = 0;
+}
+  switch (bCode1) {
+case 'true':
+bCode2Num = 1;
+break;
+case 'false':
+bCode2Num = 0;
+}
+  return aCode2Num - bCode2Num;
+}
+        return aCode1Num - bCode1Num;
+      }
+      return aLevel - bLevel;
+    }
+    return a.score - b.score;
+});
+  scoreSortedAsc = scoreList;
   return scoreSortedAsc;
 }
 
+getRecordListSortedDsc(): Save[] {
+  let scoreSortedDsc: Save[] = [];
+  const scoreList: Save[] = [];
+  const recordsList: Save[] = JSON.parse(localStorage.getItem('records'));
+  for (const save of recordsList) {
+    scoreList.push(save);
+}
+  scoreList.sort((a, b) => {
+    if (a.score == b.score) {
+      let aLevel: number;
+      let bLevel: number;
+      const levelA = a.level;
+      const levelB = b.level;
+      switch (levelA) {
+        case 'Facile':
+          aLevel = 1;
+          break;
+        case 'Moyen':
+          aLevel = 2;
+          break;
+        case 'Difficile':
+          aLevel = 3;
+          break;
+      }
+      switch (levelB) {
+        case 'Facile':
+          bLevel = 1;
+          break;
+        case 'Moyen':
+          bLevel = 2;
+          break;
+        case 'Difficile':
+          bLevel = 3;
+          break;
+      }
+      if (a.level == b.level) {
+        const aCode1 = a.code1.toString();
+        const bCode1 = b.code1.toString();
+        let aCode1Num;
+        let bCode1Num;
+        switch (aCode1) {
+  case 'true':
+    aCode1Num = 1;
+    break;
+    case 'false':
+      aCode1Num = 0;
+}
+        switch (bCode1) {
+  case 'true':
+    bCode1Num = 1;
+    break;
+    case 'false':
+      bCode1Num = 0;
+}
+        if (b.code1 == a.code1) {
+  const aCode2 = a.code2.toString();
+  const bCode2 = b.code2.toString();
+  let aCode2Num;
+  let bCode2Num;
+  switch (aCode2) {
+case 'true':
+aCode2Num = 1;
+break;
+case 'false':
+aCode2Num = 0;
+}
+  switch (bCode1) {
+case 'true':
+bCode2Num = 1;
+break;
+case 'false':
+bCode2Num = 0;
+}
+  return bCode2Num - aCode2Num;
+}
+        return bCode1Num - aCode1Num;
+      }
+      return bLevel - aLevel;
+    }
+    return b.score - a.score;
+});
+  scoreSortedDsc = scoreList;
+  return scoreSortedDsc;
+}
+
 eraseDataMemory(): void {
-  localStorage.set('records', '[]');
+  localStorage.setItem('records', '[]');
 }
 
 cleanLocalStorage(): void {

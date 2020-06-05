@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { GameService } from 'sea-worm-win32-x64/resources/app/src/app/game.service';
 import { Save } from '../classes/Save';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-score',
@@ -10,10 +10,15 @@ import { Save } from '../classes/Save';
 export class ScoreComponent implements OnInit {
   @Output() displayScore = new EventEmitter();
   cursorClass = 'no-focus';
+  cursorClassClear = 'no-focus';
+  cursorClassOk = 'no-focus';
   records: Save[];
+  displayDsc = true;
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
-    constructor(public gameService: GameService) {}
+    constructor(public gameService: GameService) {
+      this.clickSound.volume = 0.7;
+    }
 
     ngOnInit() {
       this.records = this.getRecordList();
@@ -24,6 +29,24 @@ export class ScoreComponent implements OnInit {
       return  this.records;
     }
 
+    getRecordListSortedAsc(): void {
+      this.clickSound.play();
+      this.displayDsc = ! this.displayDsc;
+      this.records =  this.gameService.getRecordListSortedAsc();
+    }
+
+    getRecordListSortedDsc(): void {
+      this.clickSound.play();
+      this.displayDsc = ! this.displayDsc;
+      this.records = this.gameService.getRecordListSortedDsc();
+    }
+
+    clearRecords(): void {
+      this.clickSound.play();
+      this.gameService.eraseDataMemory();
+      this.records = [];
+    }
+
     cursorIn() {
       this.cursorClass = 'cursor-in';
     }
@@ -32,8 +55,23 @@ export class ScoreComponent implements OnInit {
       this.cursorClass = 'no-focus';
     }
 
-    exitHelp(): void {
-      this.clickSound.volume = 0.7;
+    cursorInClear() {
+      this.cursorClassClear = 'cursor-in';
+    }
+
+    cursorOutClear() {
+      this.cursorClassClear = 'no-focus';
+    }
+
+    cursorInOk() {
+      this.cursorClassOk = 'cursor-in';
+    }
+
+    cursorOutOk() {
+      this.cursorClassOk = 'no-focus';
+    }
+
+    exitScore(): void {
       this.clickSound.play();
       this.displayScore.emit();
     }
