@@ -566,11 +566,11 @@ span, label {
   background-image: url("src\assets\images\icons8-carte-au-trésor-32.png");
 }
 
-.debug-icon {
+.score-icon {
   width: 32px;
   height: 32px;
   margin-left: 10px;
-  background-image: url("src\assets\images\icons8-coffre-au-trésor-32.png");
+  background-image: url("src\assets\images\load_icon.png");
 }
 
 .exit-icon {
@@ -590,7 +590,7 @@ z-index: 30;
 position: absolute;
 top: 100px;
 opacity: 70%;
-margin-left: 70px;
+margin-left: 60px;
 margin-top: 40px;
 }
 
@@ -598,7 +598,7 @@ margin-top: 40px;
   z-index: 30;
   position: absolute;
   top: 100px;
-  margin-left: 70px;
+  margin-left: 60px;
   margin-top: 40px;
   }
 
@@ -770,8 +770,8 @@ animation-delay: 0s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-name: bubbleOut;
-  animation-duration: 9s;
-  animation-delay: 0.5s;
+  animation-duration: 6s;
+  animation-delay: 0.75s;
   }
 
   .bubble-3 {
@@ -784,8 +784,8 @@ animation-delay: 0s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-name: bubbleOut;
-  animation-duration: 7.5s;
-  animation-delay: 0.5s;
+  animation-duration: 5s;
+  animation-delay: 1.5s;
     }
 
   .bubble-4 {
@@ -798,8 +798,8 @@ animation-delay: 0s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-name: bubbleOut;
-  animation-duration: 3s;
-  animation-delay: 1s;
+  animation-duration: 6s;
+  animation-delay: 2.25s;
       }
 
 .jelly-fish {

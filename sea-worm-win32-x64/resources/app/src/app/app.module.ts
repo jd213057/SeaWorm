@@ -11,6 +11,7 @@ import { GameService } from './game.service';
 import { IntroComponent } from './intro/intro.component';
 import { ExitDialogComponent } from './exit-dialog/exit-dialog.component';
 import { JeuComponent } from './jeu/jeu.component';
+import { ScoreComponent } from './score/score.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { JeuComponent } from './jeu/jeu.component';
     DebugComponent,
     IntroComponent,
     ExitDialogComponent,
-    JeuComponent
+    JeuComponent,
+    ScoreComponent
   ],
   imports: [
     ReactiveFormsModule,

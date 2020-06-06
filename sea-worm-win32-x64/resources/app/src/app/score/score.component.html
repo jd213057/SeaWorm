@@ -1,0 +1,37 @@
+<div class="game-panel">
+  <span class="panel-title">Liste des Scores</span> <br>
+  <div class="panel-text">
+    <div class="info-table">
+      <span class="id">Id</span>
+      <span class="score">Score</span>
+      <span class="level">Niv</span>
+      <span class="code1">Code 1</span>
+      <span class="code2">Code 2</span>
+      <span class="date">Date</span>
+    </div>
+    <ul>
+<li *ngFor="let record of records">
+  <div class="li-record">
+  <div class="li-id">{{record.id}}</div>
+  <div class="li-score">{{record.score}}</div>
+  <div class="li-level">{{record.level}}</div>
+  <div class="li-code1">{{record.code1}}</div>
+  <div class="li-code2">{{record.code2}}</div>
+  <div class="li-date">{{record.date}}</div>
+</div>
+</li>
+</ul>
+  </div>
+  <button class="button-clearScore" [ngClass] = "cursorClassClear" (mouseout) = "cursorOutClear()" (mouseover) = "cursorInClear()" (click)="clearRecords()">
+    <span class="span-button"> Effacer </span>
+  </button>
+  <button *ngIf="this.displayDsc" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedDsc()">
+    <span class="span-button"> Trier	</span> <span class="span-button-sort">&#10138;</span>
+  </button>
+  <button *ngIf="!this.displayDsc" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedAsc()">
+    <span class="span-button"> Trier	</span> <span class="span-button-sort">&#10136;</span>
+  </button>
+  <button class="button-exitScore" [ngClass] = "cursorClassOk" (mouseout) = "cursorOutOk()" (mouseover) = "cursorInOk()" (click)="exitScore()">
+    <span class="span-button"> Ok </span>
+  </button>
+  </div>

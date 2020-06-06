@@ -19,9 +19,10 @@ export class ConfigComponent implements OnInit {
       this.checkoutForm = this.formBuilder.group({
       audio: this.gameService.getAudioPref(),
       themeChoice: this.gameService.getThemePref(),
-      level: this.gameService.getLevelPref(),
+      level: this.gameService.getLevelPref().toString(),
       imgChoice: this.gameService.getImgPref()
-    }); }
+    });
+   }
 
     ngOnInit() {
       this.activateInputImgChoice();
@@ -84,7 +85,7 @@ export class ConfigComponent implements OnInit {
       this.clickSound.play();
       this.gameService.setAudio(this.checkoutForm.get('audio').value);
       this.gameService.setThemeChoice(this.checkoutForm.get('themeChoice').value);
-      this.gameService.setLevel(this.checkoutForm.get('level').value);
+      this.gameService.setLevel(this.checkoutForm.get('level').value.toString());
       this.gameService.setBackgroundImg(this.checkoutForm.get('imgChoice').value);
       this.gameService.saveParamsInLocalStorage();
     }

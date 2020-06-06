@@ -3,7 +3,7 @@
   <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
 
   <div class="panel-text">
-<input id="inputValue" formControlName="inputValue" class="input" type="text" autocomplete="off" ng-model="debugInput">
+<input id="inputValue" formControlName="inputValue" class="input" type="text" autocomplete="off" ng-model="debugInput" (input)="this.clickSound.play()">
   </div>
   <div class="button-line">
   <button id="apply" class="button-exitDebug" type="submit" [ngClass]="this.cursorApplyClass" (mouseout)="cursorApplyOut()" (mouseover)="cursorApplyIn()" (click)="onSubmit()">

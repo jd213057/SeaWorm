@@ -66,10 +66,13 @@ export class DebugComponent implements OnInit {
       this.clickSound.play();
       if (this.checkoutForm.value.inputValue == this.code1) {
 this.gameService.setCode1(true);
+localStorage.setItem('YOUAREDEAD', 'true');
 } else if (this.checkoutForm.value.inputValue == this.code2) {
   this.gameService.setCode2(true);
+  localStorage.setItem('AGAINSTALLODDS', 'true');
 } else if (this.checkoutForm.value.inputValue == this.code3) {
   this.gameService.setCode3(true);
+  localStorage.setItem('NOBULLSHIT', 'true');
 }
       return;
     }
