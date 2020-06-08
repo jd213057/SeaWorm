@@ -22,7 +22,21 @@ records: Save[] = [];
     if (localStorage.length == 8) {
       this.audio = localStorage.getItem('audio');
       this.themeChoice = localStorage.getItem('themeChoice');
-      this.level = parseInt(localStorage.getItem('level'), 10);
+      switch (localStorage.getItem('level')) {
+        case 'Facile':
+          this.level = 250;
+          break;
+          case 'Moyen':
+            this.level = 175;
+            break;
+            case 'Difficile':
+          this.level = 100;
+          break;
+        default:
+          console.log('level data load error');
+          this.level = 175;
+          break;
+      }
       this.imgChoice = localStorage.getItem('imgChoice');
       let booleanString = localStorage.getItem('YOUAREDEAD');
       this.YOUAREDEAD = booleanString == 'true' ? true : false;
@@ -156,7 +170,19 @@ getRecords(): Save[] {
 saveParamsInLocalStorage(): void {
   localStorage.setItem('audio', this.audio);
   localStorage.setItem('themeChoice', this.themeChoice);
-  localStorage.setItem('level', this.level.toString());
+  let levelStringified;
+  switch(this.level.toString()) {
+    case '250':
+      levelStringified = 'Facile';
+      break;
+    case '175':
+      levelStringified = 'Moyen';
+      break;
+    case '100':
+      levelStringified = 'Difficile';
+      break;
+  }
+  localStorage.setItem('level', levelStringified);
   localStorage.setItem('imgChoice',  this.imgChoice);
   this.YOUAREDEAD == true ? localStorage.setItem('YOUAREDEAD', 'true') : localStorage.setItem('YOUAREDEAD', 'false');
   this.AGAINSTALLODDS == true ? localStorage.setItem('AGAINSTALLODDS', 'true') : localStorage.setItem('AGAINSTALLODDS', 'false');
@@ -174,22 +200,15 @@ saveRecord(score: number, code1: boolean, code2: boolean): void {
 }
   const level = this.getLevel();
   let levelString;
-  console.log(level);
-  switch (level) {
-    case 100:
-      console.log('saved');
-      levelString = 'Difficile';
-      break;
-  case 175:
-    console.log('saved');
+  if (level == 100) {
+    levelString = 'Difficile';
+  }
+  if (level == 175) {
     levelString = 'Moyen';
-    break;
-    case 250:
-      console.log('saved');
-      levelString = 'Facile';
-      break;
-}
-  console.log(levelString);
+  }
+  if (level == 250) {
+    levelString = 'Facile';
+  }
   recordToSave = new Save(lastIdNb, score, levelString, code1, code2);
   this.records.push(recordToSave);
   const newRecordsList = JSON.stringify(this.records);

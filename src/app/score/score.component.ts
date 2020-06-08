@@ -14,6 +14,7 @@ export class ScoreComponent implements OnInit {
   cursorClassOk = 'no-focus';
   records: Save[];
   displayDsc = true;
+  firstClickButton = true;
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
     constructor(public gameService: GameService) {
@@ -31,19 +32,22 @@ export class ScoreComponent implements OnInit {
 
     getRecordListSortedAsc(): void {
       this.clickSound.play();
-      this.displayDsc = ! this.displayDsc;
+      this.displayDsc = !this.displayDsc;
       this.records =  this.gameService.getRecordListSortedAsc();
     }
 
     getRecordListSortedDsc(): void {
       this.clickSound.play();
-      this.displayDsc = ! this.displayDsc;
+      this.displayDsc = !this.displayDsc;
       this.records = this.gameService.getRecordListSortedDsc();
+      if (this.firstClickButton) {
+        this.firstClickButton = false;
+      }
     }
 
     clearRecords(): void {
       this.clickSound.play();
-      this.gameService.eraseDataMemory();
+      this.gameService.cleanLocalStorage();
       this.records = [];
     }
 
