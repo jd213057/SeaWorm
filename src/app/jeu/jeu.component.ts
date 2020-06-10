@@ -32,15 +32,14 @@ export class JeuComponent implements OnInit {
 
   ngOnInit() {
     this.countdownTimer();
-    this.buildGrid();
-    this.setControls();
-    this.placeWorm();
-    this.placeFood();
-    this.displayGame();
+    const launcher = setTimeout(() => {
+      this.initGame();
+    }, 4000);
   }
 
   ngOnDestroy(): void {
   clearInterval(this.displayRate);
+  clearTimeout();
   }
 
   countdownTimer(): void {
@@ -59,6 +58,14 @@ export class JeuComponent implements OnInit {
 }, 1000);
   }
 }, 1000);
+  }
+
+  initGame(): void {
+    this.buildGrid();
+    this.setControls();
+    this.placeWorm();
+    this.placeFood();
+    this.displayGame();
   }
 
   getCount(): string {

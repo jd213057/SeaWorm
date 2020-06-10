@@ -512,7 +512,7 @@
 
 html {
 z-index: 1;
-background-size: cover;
+background-size: contain;
 height: 735px;
 cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
 overflow: hidden !important;
