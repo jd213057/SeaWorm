@@ -46,7 +46,9 @@ export class JeuComponent implements OnInit {
     let count = 3;
     const startSound = new Audio('.\\assets\\sounds\\start-sound.mp3');
     startSound.volume = 0.6;
-    startSound.play();
+    if (this.gameService.getAudio()) {
+      startSound.play();
+    }
     const timer = setInterval(() => {
   count--;
   this.compteur = count.toString();
@@ -205,7 +207,9 @@ for (let x = 0; x <= 9; x++) {
 
   playEatSound(): void {
     this.eatSound.currentTime = 0;
-    this.eatSound.play();
+    if (this.gameService.getAudio()) {
+      this.eatSound.play();
+    }
   }
 
   checkBites(): boolean {
@@ -395,7 +399,9 @@ case 5:
 
   looseGame(): void {
     const gameOverSound = new Audio ('.\\assets\\sounds\\gameover.mp3');
-    gameOverSound.play();
+    if (this.gameService.getAudio()) {
+      gameOverSound.play();
+    }
     this.onGame = false;
     this.endGame = true;
     clearInterval(this.displayRate);
@@ -406,7 +412,9 @@ case 5:
 
   exitGame(): void {
     this.clickExitSound.volume = 0.7;
-    this.clickExitSound.play();
+    if (this.gameService.getAudio()) {
+      this.clickExitSound.play();
+    }
     this.storeScore();
     clearInterval(this.displayRate);
     this.displayParty.emit();

@@ -82,7 +82,9 @@ export class ConfigComponent implements OnInit {
     }
 
     onSubmit() {
-      this.clickSound.play();
+      if (this.gameService.getAudio()){
+        this.clickSound.play();
+      }
       this.gameService.setAudio(this.checkoutForm.get('audio').value);
       this.gameService.setThemeChoice(this.checkoutForm.get('themeChoice').value);
       this.gameService.setLevel(this.checkoutForm.get('level').value.toString());
@@ -92,7 +94,9 @@ export class ConfigComponent implements OnInit {
 
     exitConfig(): void {
       this.clickSound.volume = 0.7;
-      this.clickSound.play();
+      if (this.gameService.getAudio()){
+        this.clickSound.play();
+      }
       this.displayConfig.emit();
     }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-exit-dialog',
@@ -13,7 +13,7 @@ cursorExitClass = '';
 cursorCancelClass = '';
 clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
-  constructor() { }
+  constructor(protected gameService: GameService) { }
 
   ngOnInit() {
   }
@@ -35,13 +35,17 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
   }
 
  closeApp(): void {
-   this.clickSound.play();
+  if (this.gameService.getAudio()){
+    this.clickSound.play();
+  }
    this.displayExitGame.emit();
  }
 
  closeExitDialog() {
    this.clickSound.volume = 0.7;
-   this.clickSound.play();
+   if (this.gameService.getAudio()){
+    this.clickSound.play();
+  }
    this.displayExitDialog.emit();
  }
 

@@ -63,7 +63,9 @@ export class DebugComponent implements OnInit {
     }
 
     onSubmit() {
-      this.clickSound.play();
+      if (this.gameService.getAudio()){
+        this.clickSound.play();
+      }
       if (this.checkoutForm.value.inputValue == this.code1) {
 this.gameService.setCode1(true);
 localStorage.setItem('YOUAREDEAD', 'true');
@@ -79,7 +81,9 @@ localStorage.setItem('YOUAREDEAD', 'true');
 
     exitDebug(): void {
       this.clickSound.volume = 0.7;
-      this.clickSound.play();
+      if (this.gameService.getAudio()){
+        this.clickSound.play();
+      }
       this.displayDebug.emit();
     }
 }

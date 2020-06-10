@@ -52,6 +52,8 @@
 <div class="debug-panel" *ngIf="debugRequest"><app-debug (displayDebug)="displayDebug()" ></app-debug></div>
 </body>
 <footer>
-  <audio [src]='this.getMusic()' autoplay loop></audio>
+  <audio *ngIf="this.gameService.getAudio()" [src]='this.getMusic()' autoplay loop></audio>
+  <audio  *ngIf="this.gameService.getAudio()" [src]="this.getOceanSound()"  autoplay loop></audio>
+  <audio  *ngIf="this.gameService.getAudio()" [src]="this.getBubbleSound()"  autoplay loop></audio>
 </footer>
 </html>

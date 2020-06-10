@@ -1,0 +1,9 @@
+body {
+  margin: 0px 0px 0px 0px !important;
+  width: 1366px;
+  height: 768px;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  scrollbar-width: none;
+  overflow: hidden !important;
+}

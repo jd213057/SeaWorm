@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output , EventEmitter} from '@angular/core';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-help',
@@ -10,7 +11,7 @@ export class HelpComponent implements OnInit {
 cursorClass = 'no-focus';
 clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
-  constructor() { }
+  constructor(protected gameService: GameService) { }
 
   ngOnInit() {
   }
@@ -25,7 +26,11 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
 
   exitHelp(): void {
     this.clickSound.volume = 0.7;
-    this.clickSound.play();
+    console.log('cliqué');
+      console.log(this.gameService.getAudio());
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
+    }
     this.displayHelp.emit();
   }
 

@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
   normalFishSound = new Audio('.\\assets\\sounds\\sonar.mp3');
   backgroundMusic = new Audio(this.getMusic());
 
-  constructor(private gameService: GameService) { }
+  constructor(public gameService: GameService) { }
 
   ngOnInit() {
     this.onInit = true;
@@ -34,10 +34,6 @@ export class MenuComponent implements OnInit {
 
   playBackgroundSound(): void {
     this.clickSound.volume = 0.7;
-    this.oceanSound.volume = 0.4;
-    this.oceanSound.play();
-    this.bubbleSound.volume = 0.4;
-    this.bubbleSound.play();
     this.backgroundMusic.addEventListener('change', function() {
     this.currentTime = 0;
     this.play();
@@ -52,13 +48,25 @@ export class MenuComponent implements OnInit {
 }, false);
   }
 
+  getOceanSound(): string {
+    return ".\\assets\\sounds\\OceanTheme.mp3";
+  }
+
+  getBubbleSound(): string {
+    return ".\\assets\\sounds\\bulles.mp3";
+  }
+
   setAnimationBackground(): void {
     const normalFishImg = document.getElementById('normalFish');
     normalFishImg.addEventListener('click', () => {
-      this.normalFishSound.play();
+      if (this.gameService.getAudio()) {
+        this.normalFishSound.play();
+      }
     });
     normalFishImg.addEventListener('dblclick', () => {
-      this.normalFishSound.pause();
+      if (this.gameService.getAudio()) {
+        this.normalFishSound.pause();
+      }
     });
   }
 
@@ -125,50 +133,62 @@ getNavBarFocus() {
   activateDebugPanel(): void {
     document.body.onkeydown = (e) => {
       if (e.ctrlKey && e.keyCode === 32 &&  this.runningParty == false && this.helpRequest == false &&  this.configRequest == false) {
-        this.clickSound.play();
+        if (this.gameService.getAudio()) {
+          this.clickSound.play();
+        }
         this.debugButton();
       }
           };
   }
 
 startButton()  {
+  if (this.gameService.getAudio()) {
     this.clickSound.play();
-    this.helpRequest = false;
-    this.configRequest = false;
-    this.debugRequest = false;
-    this.scoreRequest = false;
-    this.runningParty = true;
+  }
+  this.helpRequest = false;
+  this.configRequest = false;
+  this.debugRequest = false;
+  this.scoreRequest = false;
+  this.runningParty = true;
   }
 
 helpButton(): void {
+  if (this.gameService.getAudio()) {
     this.clickSound.play();
-    this.runningParty = false;
-    this.configRequest = false;
-    this.debugRequest = false;
-    this.scoreRequest = false;
-    this.helpRequest = true;
+  }
+  this.runningParty = false;
+  this.configRequest = false;
+  this.debugRequest = false;
+  this.scoreRequest = false;
+  this.helpRequest = true;
   }
 
 configButton(): void {
+  if (this.gameService.getAudio()) {
     this.clickSound.play();
-    this.runningParty = false;
-    this.helpRequest = false;
-    this.debugRequest = false;
-    this.scoreRequest = false;
-    this.configRequest = true;
+  }
+  this.runningParty = false;
+  this.helpRequest = false;
+  this.debugRequest = false;
+  this.scoreRequest = false;
+  this.configRequest = true;
   }
 
 debugButton(): void {
+  if (this.gameService.getAudio()) {
     this.clickSound.play();
-    this.runningParty = false;
-    this.helpRequest = false;
-    this.configRequest = false;
-    this.scoreRequest = false;
-    this.debugRequest = !this.debugRequest;
+  }
+  this.runningParty = false;
+  this.helpRequest = false;
+  this.configRequest = false;
+  this.scoreRequest = false;
+  this.debugRequest = !this.debugRequest;
   }
 
   scoreButton(): void {
-    this.clickSound.play();
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
+    }
     this.runningParty = false;
     this.helpRequest = false;
     this.configRequest = false;
@@ -201,15 +221,17 @@ displayExitDialog(): void {
 }
 
 exitButton() {
+  if (this.gameService.getAudio()) {
     this.clickSound.play();
-    if (!this.runningParty && !this.helpRequest && !this.configRequest && !this.debugRequest && !this.scoreRequest) {
+  }
+  if (!this.runningParty && !this.helpRequest && !this.configRequest && !this.debugRequest && !this.scoreRequest) {
       this.exitDialog = true;
     }
-    this.runningParty = false;
-    this.helpRequest = false;
-    this.configRequest = false;
-    this.scoreRequest = false;
-    this.debugRequest = false;
+  this.runningParty = false;
+  this.helpRequest = false;
+  this.configRequest = false;
+  this.scoreRequest = false;
+  this.debugRequest = false;
   }
 
 shutdownGame(): void {

@@ -31,13 +31,17 @@ export class ScoreComponent implements OnInit {
     }
 
     getRecordListSortedAsc(): void {
-      this.clickSound.play();
+      if (this.gameService.getAudio()) {
+        this.clickSound.play();
+      }
       this.displayDsc = !this.displayDsc;
       this.records =  this.gameService.getRecordListSortedAsc();
     }
 
     getRecordListSortedDsc(): void {
-      this.clickSound.play();
+      if (this.gameService.getAudio()) {
+        this.clickSound.play();
+      }
       this.displayDsc = !this.displayDsc;
       this.records = this.gameService.getRecordListSortedDsc();
       if (this.firstClickButton) {
@@ -76,7 +80,9 @@ export class ScoreComponent implements OnInit {
     }
 
     exitScore(): void {
-      this.clickSound.play();
+      if (this.gameService.getAudio()) {
+        this.clickSound.play();
+      }
       this.displayScore.emit();
     }
   }

@@ -25,10 +25,13 @@
   <button class="button-clearScore" [ngClass] = "cursorClassClear" (mouseout) = "cursorOutClear()" (mouseover) = "cursorInClear()" (click)="clearRecords()">
     <span class="span-button"> Effacer </span>
   </button>
-  <button *ngIf="this.displayDsc" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedDsc()">
+  <button *ngIf="this.firstClickButton" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedDsc()">
+    <span class="span-button"> Trier	</span>
+  </button>
+  <button *ngIf="this.displayDsc && !firstClickButton" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedDsc()">
     <span class="span-button"> Trier	</span> <span class="span-button-sort">&#10138;</span>
   </button>
-  <button *ngIf="!this.displayDsc" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedAsc()">
+  <button *ngIf="!this.displayDsc && !firstClickButton" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedAsc()">
     <span class="span-button"> Trier	</span> <span class="span-button-sort">&#10136;</span>
   </button>
   <button class="button-exitScore" [ngClass] = "cursorClassOk" (mouseout) = "cursorOutOk()" (mouseover) = "cursorInOk()" (click)="exitScore()">
