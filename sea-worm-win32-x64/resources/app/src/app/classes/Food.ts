@@ -3,12 +3,12 @@ import { Case } from './Case';
 export class Food {
   case: Case;
   count: number;
-  bonus: boolean;
+  type: TYPE;
 
   constructor(caseFood: Case) {
 this.case =  caseFood;
 this.count = 0;
-this.bonus = false;
+this.type = TYPE.yellowgreen;
   }
 
   getCase(): Case {
@@ -27,11 +27,20 @@ this.bonus = false;
     this.count = countFood;
   }
 
-  getBonus(): boolean {
-    return this.bonus;
+  getType(): TYPE {
+    return this.type;
   }
 
-  setBonus(bonus: boolean): void {
-    this.bonus = bonus;
+  setType(type: TYPE): void {
+    this.type = type;
   }
+}
+
+export  enum TYPE {
+'yellowgreen',
+'red',
+'purple',
+'green',
+'orange',
+'darkblue'
 }

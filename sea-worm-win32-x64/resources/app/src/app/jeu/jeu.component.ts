@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Worm, Direction } from '../classes/Worm';
-import { Food } from '../classes/Food';
+import { Food, TYPE } from '../classes/Food';
 import { Case, State } from '../classes/Case';
 import { GameService } from '../game.service';
 
@@ -175,10 +175,6 @@ for (let x = 0; x <= 9; x++) {
     }} while (restart == true);
     this.food.getCase().setPositionX(positionX);
     this.food.getCase().setPositionY(positionY);
-    this.food.setCount(this.food.getCount() + 1);
-    if (this.food.getCount() % 6 == 0) {
-      this.food.setBonus(true);
-          }
   }
 
   displayGame(): void {
@@ -193,10 +189,14 @@ for (let x = 0; x <= 9; x++) {
    this.moveWorm(this.seaWorm);
    if (this.food.getCase().getId() == this.seaWorm.getCases()[0].getId()) {
   this.playEatSound();
-  this.food.getBonus() == true ? this.shrinkWorm() : this.growWorm();
+  this.getFoodEffect(this.food.getType());
   this.placeAgainFood();
+  this.setFoodType();
   this.getScore();
   this.increaseWormSpeed();
+}
+   if (this.food.getType() == TYPE.orange) {
+  this.growWorm();
 }
    this.showPixels(this.seaWorm);
   } else {
@@ -209,6 +209,52 @@ for (let x = 0; x <= 9; x++) {
     this.eatSound.currentTime = 0;
     if (this.gameService.getAudio()) {
       this.eatSound.play();
+    }
+  }
+
+  getFoodEffect(foodtype: TYPE): void {
+    switch (foodtype) {
+case TYPE.yellowgreen:
+this.growWorm();
+if (!this.gameService.getCode1()) {
+  this.food.setCount(this.food.getCount() + 1);
+}
+break;
+case TYPE.red:
+  this.shrinkWorm();
+  if (!this.gameService.getCode1()) {
+    this.food.setCount(this.food.getCount() + 2);
+  }
+  break;
+  case TYPE.green:
+  this.extraShrinkWorm();
+  if (!this.gameService.getCode1()) {
+    this.food.setCount(this.food.getCount() + 100);
+  }
+  break;
+  case TYPE.orange:
+    this.food.setType(TYPE.yellowgreen);
+    this.food.setCount(this.food.getCount() + 1);
+    break;
+  case TYPE.purple:
+    this.multiplyFood();
+    this.food.setCount(this.food.getCount() + 1);
+    }
+    // this.food.setType(TYPE.yellowgreen);
+  }
+
+  setFoodType(): void {
+    if (this.food.getCount() % 7 == 0) {
+      this.food.setType(TYPE.red);
+    }
+    if (this.food.getCount() % 13 == 0) {
+      this.food.setType(TYPE.purple);
+    }
+    if (this.food.getCount() % 47 == 0) {
+      this.food.setType(TYPE.orange);
+    }
+    if (this.food.getCount() % 101 == 0) {
+      this.food.setType(TYPE.green);
     }
   }
 
@@ -229,14 +275,25 @@ for (let x = 0; x <= 9; x++) {
   return this.food.getCount();
   }
 
-  shrinkWorm(): void {
+  multiplyFood(): void {
+    // A Etudier
+    // Devra permettre l'instanciation de trois autres cases Food
+  }
+
+  extraShrinkWorm(): void {
     const wormShrinked =
-     this.seaWorm.getCases().slice(0 , this.seaWorm.getCases().length - 2);
+    this.seaWorm.getCases().slice(0 , 1);
     this.seaWorm.setCases(wormShrinked);
-    if (!this.gameService.getCode1()) {
-      this.food.setCount(this.food.getCount() + 1);
+    this.food.setType(TYPE.yellowgreen);
+  }
+
+  shrinkWorm(): void {
+    if (this.seaWorm.getCases().length > 4) {
+      const wormShrinked =
+      this.seaWorm.getCases().slice(0 , this.seaWorm.getCases().length - 2);
+      this.seaWorm.setCases(wormShrinked);
     }
-    this.food.setBonus(false);
+    this.food.setType(TYPE.yellowgreen);
   }
 
   growWorm(): void {
@@ -295,8 +352,24 @@ case Direction.bas:
     pixelToShow = document.getElementById(pixel.getId());
     pixelToShow.style.backgroundColor = 'dodgerblue';
     if (pixel.getId() == this.food.getCase().getId()) {
-      pixelToShow.style.backgroundColor = this.food.getBonus() == false ? 'yellowgreen' : 'red';
       pixelToShow.style.opacity = 1;
+      switch (this.food.getType()) {
+        case TYPE.yellowgreen:
+          pixelToShow.style.backgroundColor = 'yellowgreen';
+          break;
+        case TYPE.red:
+          pixelToShow.style.backgroundColor = 'red';
+          break;
+        case TYPE.green:
+          pixelToShow.style.backgroundColor = 'green';
+          break;
+          case TYPE.orange:
+          pixelToShow.style.backgroundColor = 'orangered';
+          break;
+          case TYPE.purple:
+          pixelToShow.style.backgroundColor = 'rebeccapurple';
+          break;
+      }
     }
   }
     for (const wormPixel of this.seaWorm.getCases()) {
