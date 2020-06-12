@@ -53,5 +53,6 @@ setState(state: State) {
 export enum State {
   'clear',
   'food',
-  'worm'
+  'worm',
+  'poison'
 }
