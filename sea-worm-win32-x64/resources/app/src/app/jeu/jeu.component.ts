@@ -3,6 +3,7 @@ import { Worm, Direction } from '../classes/Worm';
 import { Food, TYPE } from '../classes/Food';
 import { Case, State } from '../classes/Case';
 import { GameService } from '../game.service';
+import { Poison } from '../classes/Poison';
 
 
 @Component({
@@ -15,6 +16,9 @@ export class JeuComponent implements OnInit {
   grid: Case[] = [];
   seaWorm: Worm;
   food: Food;
+  poison1: Poison;
+  poison2: Poison;
+  poison3: Poison;
   score: number;
   compteur = '3';
   onGame = false;
@@ -22,6 +26,7 @@ export class JeuComponent implements OnInit {
   isBitten = false;
   controlPressed = false;
   displayRate;
+  foodTimer;
   wormSpeed = this.gameService.getLevel();
   eatSound = new Audio('.\\assets\\sounds\\eat.mp3');
   clickExitSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
@@ -67,6 +72,7 @@ export class JeuComponent implements OnInit {
     this.setControls();
     this.placeWorm();
     this.placeFood();
+    this.placePoisonsOnStart();
     this.displayGame();
   }
 
@@ -177,6 +183,31 @@ for (let x = 0; x <= 9; x++) {
     this.food.getCase().setPositionY(positionY);
   }
 
+  getPoisonPosition(): Case {
+    let restart = false;
+    let positionX: number;
+    let positionY: number;
+    do {
+    restart = false;
+    positionX = Math.round(Math.random() * 9);
+    positionY = Math.round(Math.random() * 9);
+    const idToCheck = positionY.toString() + '-' + positionX.toString();
+    for (const pixel of this.seaWorm.getCases()) {
+        if (pixel.getId() == idToCheck) {
+          restart = true;
+        }
+        if (idToCheck == this.food.getCase().getId()) {
+          restart = true;
+        }
+        if (idToCheck == this.poison1.getCase().getId() ||
+         idToCheck == this.poison2.getCase().getId() ||
+          idToCheck == this.poison3.getCase().getId() ) {
+          restart = true;
+        }
+    }} while (restart == true);
+    return new Case(State.poison, positionX, positionY);
+  }
+
   displayGame(): void {
       this.displayRate = setInterval((run) => {
           this.runGameCycle();
@@ -237,8 +268,18 @@ case TYPE.red:
     this.food.setCount(this.food.getCount() + 1);
     break;
   case TYPE.purple:
-    this.multiplyFood();
-    this.food.setCount(this.food.getCount() + 1);
+    this.mediumShrinkWorm();
+    this.food.setCount(this.food.getCount() + 3);
+    this.removePoisons();
+    this.food.setType(TYPE.yellowgreen);
+    break;
+    case TYPE.darkblue:
+      if (this.foodTimer != null || this.foodTimer != undefined) {
+        clearTimeout(this.foodTimer);
+      }
+      this.mediumShrinkWorm();
+      this.food.setCount(this.food.getCount() + 3);
+      break;
     }
     // this.food.setType(TYPE.yellowgreen);
   }
@@ -249,6 +290,11 @@ case TYPE.red:
     }
     if (this.food.getCount() % 13 == 0) {
       this.food.setType(TYPE.purple);
+      this.multiplyFood();
+    }
+    if (this.food.getCount() % 17 == 0) {
+      this.food.setType(TYPE.darkblue);
+      this.launchFoodTimer();
     }
     if (this.food.getCount() % 47 == 0) {
       this.food.setType(TYPE.orange);
@@ -267,6 +313,11 @@ case TYPE.red:
           return true;
         }
       }
+      if (head.getId() == this.poison1.getCase().getId() && this.poison1.getToShow() ||
+       head.getId() == this.poison2.getCase().getId() && this.poison2.getToShow() ||
+        head.getId() == this.poison3.getCase().getId() && this.poison3.getToShow()) {
+return true;
+        }
     }
     return false;
   }
@@ -275,15 +326,73 @@ case TYPE.red:
   return this.food.getCount();
   }
 
+  placePoisonsOnStart(): void {
+    for (let i = 0; i <= 2; i++) {
+      const poisonPosition = new Case(State.poison, 0, 0);
+      switch (i) {
+        case 0:
+          this.poison1 = new Poison(poisonPosition);
+          this.poison1.setToShow(false);
+          break;
+        case 1:
+          this.poison2 = new Poison(poisonPosition);
+          this.poison2.setToShow(false);
+          break;
+        case 2:
+          this.poison3 = new Poison(poisonPosition);
+          this.poison3.setToShow(false);
+          break;
+      }
+    }
+  }
+
   multiplyFood(): void {
-    // A Etudier
-    // Devra permettre l'instanciation de trois autres cases Food
+    for (let i = 0; i <= 2; i++) {
+      const poisonPosition = this.getPoisonPosition();
+      switch (i) {
+        case 0:
+          this.poison1.setCase(poisonPosition) ;
+          this.poison1.setToShow(true);
+          break;
+        case 1:
+          this.poison2.setCase(poisonPosition);
+          this.poison2.setToShow(true);
+          break;
+        case 2:
+          this.poison3.setCase(poisonPosition);
+          this.poison3.setToShow(true);
+          break;
+      }
+    }
+  }
+
+  removePoisons(): void {
+    this.poison1.removePoison();
+    this.poison2.removePoison();
+    this.poison3.removePoison();
+  }
+
+  launchFoodTimer(): void {
+    const initialFoodCount = this.food.getCount();
+    this.foodTimer = setTimeout(() => {
+  this.food.setType(TYPE.yellowgreen);
+  clearTimeout(this.foodTimer);
+}, 3000);
   }
 
   extraShrinkWorm(): void {
     const wormShrinked =
     this.seaWorm.getCases().slice(0 , 1);
     this.seaWorm.setCases(wormShrinked);
+    this.food.setType(TYPE.yellowgreen);
+  }
+
+  mediumShrinkWorm(): void {
+    if (this.seaWorm.getCases().length > 6) {
+      const wormShrinked =
+      this.seaWorm.getCases().slice(0 , this.seaWorm.getCases().length - 3);
+      this.seaWorm.setCases(wormShrinked);
+    }
     this.food.setType(TYPE.yellowgreen);
   }
 
@@ -351,8 +460,13 @@ case Direction.bas:
     for (const pixel of this.grid) {
     pixelToShow = document.getElementById(pixel.getId());
     pixelToShow.style.backgroundColor = 'dodgerblue';
+    if (this.poison1 != undefined && this.poison2 != undefined && this.poison3 != undefined &&
+        (pixel.getId() == this.poison1.getCase().getId() && this.poison1.getToShow()) ||
+     (pixel.getId() == this.poison2.getCase().getId() && this.poison2.getToShow())  ||
+     (pixel.getId() == this.poison3.getCase().getId() && this.poison3.getToShow()) ) {
+      pixelToShow.style.backgroundColor = 'purple';
+     }
     if (pixel.getId() == this.food.getCase().getId()) {
-      pixelToShow.style.opacity = 1;
       switch (this.food.getType()) {
         case TYPE.yellowgreen:
           pixelToShow.style.backgroundColor = 'yellowgreen';
@@ -369,12 +483,14 @@ case Direction.bas:
           case TYPE.purple:
           pixelToShow.style.backgroundColor = 'rebeccapurple';
           break;
+          case TYPE.darkblue:
+          pixelToShow.style.backgroundColor = 'darkblue';
+          break;
       }
     }
   }
     for (const wormPixel of this.seaWorm.getCases()) {
       pixelToShow = document.getElementById(wormPixel.getId());
-      pixelToShow.style.opacity = 1;
       if (!this.gameService.getCode2()) {
         pixelToShow.style.backgroundColor = 'darkblue';
       } else if (this.gameService.getCode2()) {

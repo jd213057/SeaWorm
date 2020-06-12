@@ -776,9 +776,9 @@ animation-delay: 0s;
   left: 16%;
   bottom: 23%;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation-timing-function: ease-in-out;
   animation-name: bubbleOut;
-  animation-duration: 5s;
+  animation-duration: 6s;
   animation-delay: 1s;
   }
 
@@ -793,7 +793,7 @@ animation-delay: 0s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-name: bubbleOut;
-  animation-duration: 4s;
+  animation-duration: 5s;
   animation-delay: 4s;
     }
 
@@ -806,9 +806,9 @@ animation-delay: 0s;
   left: 17%;
   bottom: 22%;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation-timing-function: ease-in-out;
   animation-name: bubbleOut;
-  animation-duration: 4s;
+  animation-duration: 6s;
   animation-delay: 5s;
       }
 
