@@ -60,6 +60,10 @@ display: inline-flex;
  margin-top: 1.25%;
 }
 
+.button-next {
+  padding-left: 65px !important;
+}
+
 .panel-text {
   display: inline-block;
   text-align: left;
@@ -81,4 +85,59 @@ display: inline-flex;
   font-size: 30px;
 }
 
+.food-line {
+  display: inline-flex;
+  padding-left: 20px;
+}
 
+.food-yellow {
+  height: 30px;
+  width: 30px;
+  border: 1px solid red;
+  background-color: yellowgreen;
+  margin-right: 10px;
+}
+
+.food-red {
+  height: 30px;
+  width: 30px;
+  border: 1px solid red;
+  background-color: red;
+  margin-right: 10px;
+}
+
+.food-purple {
+  height: 30px;
+  width: 30px;
+  border: 1px solid red;
+  background-color: rebeccapurple;
+  margin-right: 10px;
+}
+
+.food-blue {
+  height: 30px;
+  width: 30px;
+  border: 1px solid red;
+  background-color: darkblue;
+  margin-right: 10px;
+}
+
+.food-orange {
+  height: 30px;
+  width: 30px;
+  border: 1px solid red;
+  background-color: orange;
+  margin-right: 10px;
+}
+
+.food-green {
+  height: 30px;
+  width: 30px;
+  border: 1px solid red;
+  background-color: green;
+  margin-right: 10px;
+}
+
+.second-line {
+  margin-left: 40px;
+}

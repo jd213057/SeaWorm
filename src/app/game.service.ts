@@ -33,7 +33,6 @@ records: Save[] = [];
           this.level = 100;
           break;
         default:
-          console.log('level data load error');
           this.level = 175;
           break;
       }

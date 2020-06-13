@@ -1,16 +1,60 @@
 <div class="game-panel">
   <span class="panel-title">Mode d'emploi</span> <br>
   <div class="panel-text">
-    <label class="label-panel">But du jeu :</label><br><br>
-<span>
-  Dans SeaWorm, vous contrôlez un vers marin à la
-  recherche de nourriture. Plus vous attraperez de
-  nourriture, plus vous grandirez. Le but du jeu est
-  de trouver un maximum de nourriture sans vous mordre
-  la queue! Y arriverez-vous ?
-</span>
+    <label class="label-panel">{{getTitleWording()}}</label><br><br>
+<div *ngIf="this.step == 0">
+ <span>
+  Dans SeaWorm, vous contrôlez un vers marin à la recherche de nourriture.
+  Plus vous attraperez de nourriture, plus vous grandirez.
+  Le but du jeu est de trouver un maximum de nourriture sans vous mordre la queue!
+  Y arriverez-vous ?
+ </span>
+</div>
+<div *ngIf="this.step == 1">
+
+
+  <div class="food-line">
+  <div class="food-yellow">
   </div>
-  <button class="button-exitHelp" [ngClass] = "this.cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="exitHelp()">
-    <span class="span-button"> J'ai compris !</span>
+  <span>Jaune :  +1pt, +1px</span>
+</div><br><br>
+
+<div class="food-line">
+  <div class="food-red">
+  </div>
+  <span>Rouge : +2pts, -1px</span>
+</div><br><br>
+
+<div class="food-line">
+  <div class="food-purple">
+  </div>
+  <span>Violette : +3pts, -2px</span>
+</div><br>
+ </div>
+
+ <div *ngIf="this.step == 2">
+  <div class="food-line">
+    <div class="food-blue">
+    </div>
+    <span>Bleu : +3pts, -2px, apparait durant 3s</span>
+  </div><br>
+  <div class="food-line">
+    <div class="food-orange">
+    </div>
+    <span> Orange : +1pt, le SeaWorm grandit tant qu’il n’a pas</span>
+  </div><br>
+  <div class="food-line">
+  <span class="second-line"> mangé la nourriture.</span>
+</div>
+    <div class="food-line">
+    <div class="food-green">
+    </div>
+    <span>Verte : +100pts, le SeaWorm est réduit à 1px</span>
+  </div><br>
+
+ </div>
+  </div>
+  <button class="button-exitHelp" [ngClass]="getHelpButtonClass()" (mouseout)="cursorOut()" (mouseover)="cursorIn()" (click)="clickHelpButton()">
+    <span class="span-button"> {{getHelpButtonWording()}}</span>
   </button>
   </div>
