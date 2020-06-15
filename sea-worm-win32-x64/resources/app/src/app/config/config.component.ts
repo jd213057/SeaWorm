@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { GameService } from '../game.service';
 
@@ -12,7 +12,7 @@ export class ConfigComponent implements OnInit {
   checkoutForm: FormGroup;
   cursorApplyClass = 'no-focus';
   cursorExitClass = 'no-focus';
-  imgToShow = this.gameService.getBackgroundImg();
+  @Input() imgToShow = this.gameService.getBackgroundImg();
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
     constructor(private formBuilder: FormBuilder, private gameService: GameService) {
@@ -44,6 +44,10 @@ export class ConfigComponent implements OnInit {
       this.cursorExitClass = 'no-focus';
     }
 
+    playClickSound(): void {
+      this.clickSound.play();
+    }
+
     activateInputImgChoice(): void {
       const sableImgChoice = document.getElementById('sableImgChoice');
       const corailImgChoice = document.getElementById('corailImgChoice');
@@ -51,12 +55,15 @@ export class ConfigComponent implements OnInit {
       const img = document.getElementById('img');
       sableImgChoice.addEventListener('click', (event) => {
         this.imgToShow = './assets/images/background1.jpg';
+        this.gameService.setImgBackgroundTemp(this.imgToShow);
       });
       corailImgChoice.addEventListener('click', (event) => {
         this.imgToShow = './assets/images/background2.png';
+        this.gameService.setImgBackgroundTemp(this.imgToShow);
       });
       algueImgChoice.addEventListener('click', (event) => {
         this.imgToShow = './assets/images/background3.jpg';
+        this.gameService.setImgBackgroundTemp(this.imgToShow);
       });
     }
 
@@ -97,6 +104,7 @@ export class ConfigComponent implements OnInit {
       if (this.gameService.getAudio()){
         this.clickSound.play();
       }
+      this.gameService.setImgBackgroundTemp(null);
       this.displayConfig.emit();
     }
 

@@ -158,7 +158,7 @@ getNavBarFocus() {
 
   activateDebugPanel(): void {
     document.body.onkeydown = (e) => {
-      if (e.ctrlKey && e.keyCode === 32 &&  this.runningParty == false && this.helpRequest == false &&  this.configRequest == false) {
+      if (e.ctrlKey && e.keyCode === 32 ) {
         if (this.gameService.getAudio()) {
           this.clickSound.play();
         }

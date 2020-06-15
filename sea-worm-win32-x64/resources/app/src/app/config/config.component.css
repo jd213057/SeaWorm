@@ -56,11 +56,8 @@ text-decoration: underline;
 }
 
 .box-1 {
-  width: 345px;
-  padding-left: 90px;
-  border-color: yellowgreen;
-  border-right-style: dashed;
-  border-width: 5px;
+  padding-top: 15px;
+  width: 445px;
 }
 
 .box-2 {
@@ -69,10 +66,11 @@ text-decoration: underline;
 }
 
 .section-1 {
-  margin-bottom: -20px;
+  display: inline-flex;
 }
 
 .section-2 {
+  margin-top: 20px;
   margin-bottom: -10px;
 }
 
@@ -98,7 +96,8 @@ display: inline-flex;
   border-radius: 15px;
   border: 2px solid red;
   margin-top: 15px;
-  height: 145px;
+  height: 135px;
+  width:200px;
   overflow: hidden;
 }
 
@@ -166,5 +165,5 @@ span, label {
 
 .background-view {
   width: 200px;
-  height: 150px;;
+  height: 135px;;
 }

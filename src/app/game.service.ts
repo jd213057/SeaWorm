@@ -9,6 +9,7 @@ audio: string;
 themeChoice: string;
 level: number;
 imgChoice: string;
+backgroundImgTemp: string;
 YOUAREDEAD: boolean;
 AGAINSTALLODDS: boolean;
 NOBULLSHIT: boolean;
@@ -134,6 +135,17 @@ setBackgroundImg(valueInput: string): void {
   }
 }
 
+getImgBackgroundTemp(): string {
+  if (this.backgroundImgTemp == null || this.backgroundImgTemp == undefined) {
+    return this.getBackgroundImg();
+  }
+  return this.backgroundImgTemp;
+}
+
+setImgBackgroundTemp(img: string) {
+  this.backgroundImgTemp = img;
+}
+
 getCode1(): boolean {
   return this.YOUAREDEAD;
 }
@@ -170,7 +182,7 @@ saveParamsInLocalStorage(): void {
   localStorage.setItem('audio', this.audio);
   localStorage.setItem('themeChoice', this.themeChoice);
   let levelStringified;
-  switch(this.level.toString()) {
+  switch (this.level.toString()) {
     case '250':
       levelStringified = 'Facile';
       break;

@@ -29,7 +29,7 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
     if (this.step == 0) {
       return 'But du jeu :';
     } else if (this.step == 1) {
-      return 'Types de Nourriture:';
+      return 'Type de Nourriture:';
     } else if (this.step == 2) {
       return 'Type de Nourriture (suite):';
     }

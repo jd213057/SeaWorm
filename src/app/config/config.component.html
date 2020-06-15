@@ -7,11 +7,11 @@
     <div class="section-1">
     <div>
       <input formControlName="audio" type="radio" id="audioOn" name="audio" value="audioOn"
-             ng-model="configInput">
+             ng-model="configInput" (click)="playClickSound()">
       <label for="audioOn"><span class="choice">Activer</span></label>
     </div>
     <div>
-      <input formControlName="audio" type="radio" id="audioOff" name="audio" value="audioOff" ng-model="configInput">
+      <input formControlName="audio" type="radio" id="audioOff" name="audio" value="audioOff" ng-model="configInput" (click)="playClickSound()">
       <label for="audioOff"><span class="choice">Desactiver</span></label>
     </div>
   </div>
@@ -20,15 +20,15 @@
     <label class="label-theme">Theme musicale :</label>
     <div>
       <input formControlName="themeChoice" type="radio" id="lava" name="themeChoice" value="lava"
-             ng-model="configInput">
+             ng-model="configInput" (click)="playClickSound()">
       <label for="jazzChoice"><span class="choice">Lava</span></label>
     </div>
     <div>
-      <input formControlName="themeChoice" type="radio" id="pirate" name="themeChoice" value="pirate" ng-model="configInput">
+      <input formControlName="themeChoice" type="radio" id="pirate" name="themeChoice" value="pirate" ng-model="configInput" (click)="playClickSound()">
       <label for="pirate"><span class="choice">Pirate</span></label>
     </div>
     <div>
-      <input formControlName="themeChoice" type="radio" id="ocean" name="themeChoice" value="ocean" ng-model="configInput">
+      <input formControlName="themeChoice" type="radio" id="ocean" name="themeChoice" value="ocean" ng-model="configInput" (click)="playClickSound()">
       <label for="retro"><span class="choice">Ocean</span></label>
     </div>
   </div>
@@ -38,15 +38,15 @@
   <div class="section-3">
     <div>
       <input formControlName="level" type="radio" id="Facile" name="level" value='250'
-             ng-model="configInput">
+             ng-model="configInput" (click)="playClickSound()">
       <label for="Facile"><span class="choice">Facile</span></label>
     </div>
     <div>
-      <input formControlName="level" type="radio" id="Moyen" name="level" value='175' ng-model="configInput" checked>
+      <input formControlName="level" type="radio" id="Moyen" name="level" value='175' ng-model="configInput" (click)="playClickSound()" checked>
       <label for="Moyen"><span class="choice">Moyen</span></label>
     </div>
     <div>
-      <input formControlName="level" type="radio" id="Difficile" name="level" value='100' ng-model="configInput">
+      <input formControlName="level" type="radio" id="Difficile" name="level" value='100' ng-model="configInput" (click)="playClickSound()">
       <label for="Difficile"><span class="choice">Difficile</span></label>
     </div>
   </div>
@@ -56,17 +56,17 @@
     <label class="label-theme">Fond d'ecran :</label>
     <div class="imgChoice-input" >
     <input formControlName="imgChoice" type="radio" id="sableImgChoice" name="imgChoice" value="sable"
-           ng-model="configInput">
+           ng-model="configInput" (click)="playClickSound()">
     <label for="sableImgChoice"><span class="choice">Sable</span></label></div>
     <div class="imgChoice-input" >
-    <input formControlName="imgChoice" type="radio" id="corailImgChoice" name="imgChoice" value="corail" ng-model="configInput">
+    <input formControlName="imgChoice" type="radio" id="corailImgChoice" name="imgChoice" value="corail" ng-model="configInput" (click)="playClickSound()">
     <label class="imgChoice-input" for="corailImgChoice"><span class="choice">Corail</span></label></div>
     <div class="imgChoice-input" >
-    <input formControlName="imgChoice" type="radio" id="algueImgChoice" name="imgChoice" value="algue" ng-model="configInput">
+    <input formControlName="imgChoice" type="radio" id="algueImgChoice" name="imgChoice" value="algue" ng-model="configInput" (click)="playClickSound()">
     <label class="imgChoice-input" for="algueImgChoice"><span class="choice">Algue</span></label></div>
   </div>
   <div class="img">
-    <img id="img" [src]='this.imgToShow' width="200px" height="150px">
+    <app-menu-template (imgToShow)="imgToShow"></app-menu-template>
   </div>
 </div>
 </div>
