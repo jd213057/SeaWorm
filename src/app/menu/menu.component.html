@@ -50,6 +50,11 @@
 <div class="other-panel" *ngIf="scoreRequest"><app-score (displayScore)="displayScore()" ></app-score></div>
 <div class="exit" *ngIf="exitDialog"><app-exit-dialog (displayExitGame)="shutdownGame()" (displayExitDialog)="displayExitDialog()" ></app-exit-dialog></div>
 <div class="debug-panel" *ngIf="debugRequest"><app-debug (displayDebug)="displayDebug()" ></app-debug></div>
+<div class="screensaver" *ngIf="!gameActive">
+  <img class="screensaver-img" src="./assets/images/icons8-lune-et-étoiles-100.png">
+  <div class="screensaver-text-1">Mode Nuit</div>
+  <div class="screensaver-text-2">Bougez la souris pour en sortir</div>
+</div>
 </body>
 <footer>
   <audio *ngIf="this.gameService.getAudio()" [src]='this.getMusic()' autoplay loop></audio>
