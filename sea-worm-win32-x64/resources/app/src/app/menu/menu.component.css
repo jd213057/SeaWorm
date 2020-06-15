@@ -826,4 +826,31 @@ animation-delay: 0s;
   animation-delay: 0s;
 }
 
+.screensaver {
+  position: absolute;
+  font-size: 62px;
+  font-family: "Pirate Menu";
+  color: rgb(244, 226, 150);
+  background-color: darkblue;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  width: 1366px;
+  height: 768px;
+  opacity: 0.65;
+}
+
+.screensaver-img {
+  margin-top: 150px;
+  margin-left: 633px;
+}
+
+.screensaver-text-1 {
+margin-left: 560px;
+}
+
+.screensaver-text-2 {
+margin-left: 355px;
+}
+
 

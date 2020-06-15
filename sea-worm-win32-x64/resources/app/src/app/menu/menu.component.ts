@@ -15,21 +15,47 @@ export class MenuComponent implements OnInit {
   scoreRequest = false;
   exitDialog = false;
   onInit = false;
+  gameActive = true;
+  userEvent = true;
   cursorClass = '';
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   oceanSound = new Audio('.\\assets\\sounds\\OceanTheme.mp3');
   bubbleSound = new Audio('.\\assets\\sounds\\bulles.mp3');
   normalFishSound = new Audio('.\\assets\\sounds\\sonar.mp3');
   backgroundMusic = new Audio(this.getMusic());
+  screenSaverTimer;
 
   constructor(public gameService: GameService) { }
 
   ngOnInit() {
     this.onInit = true;
+    this.getControlsChecker();
+    this.screenSaverTimer = this.getScreenSaver();
     this.playBackgroundSound();
     this.setAnimationBackground();
     this.getNavBarFocus();
     this.activateDebugPanel();
+  }
+
+  getControlsChecker(): void {
+    const menu = document.getElementById('page');
+    menu.addEventListener('click', (e) => {
+      this.userEvent = true;
+      this.gameActive = true;
+    });
+    menu.addEventListener('mousemove', (e) => {
+ this.userEvent = true;
+ this.gameActive = true;
+                });
+  }
+
+  getScreenSaver(): void {
+      const timer = setInterval((t) => {
+        if (!this.userEvent && !this.runningParty) {
+          this.gameActive = false;
+        }
+        this.userEvent = false;
+            }, 15000);
   }
 
   playBackgroundSound(): void {
@@ -49,11 +75,11 @@ export class MenuComponent implements OnInit {
   }
 
   getOceanSound(): string {
-    return ".\\assets\\sounds\\OceanTheme.mp3";
+    return '.\\assets\\sounds\\OceanTheme.mp3';
   }
 
   getBubbleSound(): string {
-    return ".\\assets\\sounds\\bulles.mp3";
+    return '.\\assets\\sounds\\bulles.mp3';
   }
 
   setAnimationBackground(): void {
