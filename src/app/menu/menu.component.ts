@@ -158,11 +158,15 @@ getNavBarFocus() {
 
   activateDebugPanel(): void {
     document.body.onkeydown = (e) => {
-      if (e.ctrlKey && e.keyCode === 32 ) {
+      if (e.ctrlKey && e.altKey) {
         if (this.gameService.getAudio()) {
           this.clickSound.play();
         }
-        this.debugButton();
+        if (this.gameActive) {
+          this.debugButton();
+        }
+        this.userEvent = true;
+        this.gameActive = true;
       }
           };
   }
@@ -204,10 +208,10 @@ debugButton(): void {
   if (this.gameService.getAudio()) {
     this.clickSound.play();
   }
-  this.runningParty = false;
-  this.helpRequest = false;
-  this.configRequest = false;
-  this.scoreRequest = false;
+  this.displayParty();
+  this.displayHelp();
+  this.displayConfig();
+  this.displayScore();
   this.debugRequest = !this.debugRequest;
   }
 

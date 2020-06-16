@@ -14,9 +14,15 @@
 }
 
  .cursor-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto !important;
   color: yellowgreen !important;
   background-color: red !important;
+}
+
+.cursor-dialog-in {
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto !important;
+  color: black !important;
+  background-color: plum !important;
 }
 
 .no-focus {
@@ -89,7 +95,7 @@ ul {
    background-color: yellowgreen;
    font-size: 1.25em;
    font-family: "Pirate Game";
-   padding-left: 3.5%;
+   padding-left: 3%;
    margin-top: 1.25%;
    margin-right: 1.5%;
    cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
@@ -105,7 +111,7 @@ ul {
      background-color: yellowgreen;
      font-size: 1.25em;
      font-family: "Pirate Game";
-     padding-left: 3.5%;
+     padding-left: 4%;
      margin-top: 1.25%;
      margin-right: 1.5%;
      cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
@@ -121,10 +127,78 @@ ul {
        background-color: yellowgreen;
        font-size: 1.25em;
        font-family: "Pirate Game";
-       padding-left: 7%;
+       padding-left: 6.5%;
        margin-top: 1.25%;
        cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
       }
+
+.clear-dialog {
+  position: absolute;
+    width: 524px;
+    height: 130px;
+    background-color: red;
+    border: 3px solid plum !important;
+    border-radius: 30px;
+    left: 350px;
+    top: 185px;
+}
+
+.noclear-dialog {
+  position: absolute;
+    width: 524px;
+    height: 130px;
+    background-color: red;
+    border: 3px solid plum !important;
+    border-radius: 30px;
+    left: 350px;
+    top: 185px;
+}
+
+.clear-dialog-text {
+  font-family: "Pirate Game";
+  font-size: 2.25em;
+  color: black;
+  margin-left: 50px;
+}
+
+.noclear-dialog-text {
+  font-family: "Pirate Game";
+  font-size: 2.25em;
+  color: black;
+  margin-left: 125px;
+}
+
+.clear-dialog-button {
+  display: inline-flex;
+  color: red;
+  width: 35%;
+  height: 42%;
+  border-radius: 0.5em;
+  border-color: black;
+  background-color: yellowgreen;
+  font-size: 2.25em;
+  font-family: "Pirate Game";
+  padding-left: 10%;
+  margin-top: 2.25%;
+  margin-left: 10%;
+  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+}
+
+.noclear-dialog-button {
+  display: inline-flex;
+  color: red;
+  width: 35%;
+  height: 42%;
+  border-radius: 0.5em;
+  border-color: black;
+  background-color: yellowgreen;
+  font-size: 2.25em;
+  font-family: "Pirate Game";
+  padding-left: 10%;
+  margin-top: 2.25%;
+  margin-left: 30%;
+  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+}
 
 .span-button {
   margin-top: 9px;

@@ -178,6 +178,10 @@ getRecords(): Save[] {
   return this.records;
 }
 
+setRecords(records: Save[]): void {
+  this.records = records;
+}
+
 saveParamsInLocalStorage(): void {
   localStorage.setItem('audio', this.audio);
   localStorage.setItem('themeChoice', this.themeChoice);
@@ -401,5 +405,6 @@ eraseDataMemory(): void {
 }
 
 cleanLocalStorage(): void {
+  this.eraseDataMemory();
   localStorage.clear(); }
 }

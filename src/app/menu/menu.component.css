@@ -838,6 +838,7 @@ animation-delay: 0s;
   width: 1366px;
   height: 768px;
   opacity: 0.65;
+  cursor: none;
 }
 
 .screensaver-img {

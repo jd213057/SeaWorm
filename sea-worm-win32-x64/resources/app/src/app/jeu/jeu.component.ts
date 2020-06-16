@@ -281,27 +281,48 @@ case TYPE.red:
       this.food.setCount(this.food.getCount() + 3);
       break;
     }
-    // this.food.setType(TYPE.yellowgreen);
   }
 
   setFoodType(): void {
-    if (this.food.getCount() % 7 == 0) {
-      this.food.setType(TYPE.red);
-    }
-    if (this.food.getCount() % 13 == 0) {
-      this.food.setType(TYPE.purple);
-      this.multiplyFood();
-    }
-    if (this.food.getCount() % 17 == 0) {
-      this.food.setType(TYPE.darkblue);
-      this.launchFoodTimer();
-    }
-    if (this.food.getCount() % 47 == 0) {
-      this.food.setType(TYPE.orange);
-    }
-    if (this.food.getCount() % 101 == 0) {
-      this.food.setType(TYPE.green);
-    }
+const moduloValue = this.food.getCount() % 101;
+switch (moduloValue) {
+  case 7:
+  case 15:
+  case 23:
+  case 27:
+  case 43:
+  case 53:
+  case 59:
+  case 73:
+  case 77:
+    this.food.setType(TYPE.red);
+    break;
+  case 11:
+  case 31:
+  case 71:
+  case 97:
+    this.food.setType(TYPE.orange);
+    break;
+  case 13:
+  case 37:
+  case 47:
+  case 67:
+  case 83:
+    this.food.setType(TYPE.darkblue);
+    this.launchFoodTimer();
+    break;
+  case 19:
+  case 41:
+  case 49:
+  case 63:
+  case 89:
+    this.food.setType(TYPE.purple);
+    this.multiplyFood();
+    break;
+  case 0:
+    this.food.setType(TYPE.green);
+    break;
+}
   }
 
   checkBites(): boolean {

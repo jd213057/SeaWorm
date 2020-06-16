@@ -141,3 +141,31 @@ display: inline-flex;
 .second-line {
   margin-left: 40px;
 }
+
+.help-video {
+  margin-left: 16px;
+  margin-top: -80px;
+}
+
+video {
+  border: 3px solid rebeccapurple;
+  border-radius: 15px;
+  width: 260px;
+  height: 262px;
+}
+
+.last-button {
+  width: 45% !important;
+  margin-top: 0.65em !important;
+}
+
+.last-panel {
+width: 390px !important;
+margin-left: 415px;
+border: 3px solid plum !important;
+}
+
+.last-panel-text {
+width: 300px !important;
+background-color: plum !important;
+}

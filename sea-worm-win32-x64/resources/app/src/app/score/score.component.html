@@ -22,19 +22,28 @@
 </li>
 </ul>
   </div>
-  <button class="button-clearScore" [ngClass] = "cursorClassClear" (mouseout) = "cursorOutClear()" (mouseover) = "cursorInClear()" (click)="clearRecords()">
+  <button class="button-clearScore" [ngClass]="cursorClassClear" (mouseout)="cursorOutClear()" (mouseover)="cursorInClear()" (click)="askClearRecords()">
     <span class="span-button"> Effacer </span>
   </button>
-  <button *ngIf="this.firstClickButton" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedDsc()">
+  <button *ngIf="this.firstClickButton" class="button-sortScore" [ngClass]="cursorClass" (mouseout)="cursorOut()" (mouseover)="cursorIn()" (click)="getRecordListSortedDsc()">
     <span class="span-button"> Trier	</span>
   </button>
-  <button *ngIf="this.displayDsc && !firstClickButton" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedDsc()">
+  <button *ngIf="this.displayDsc && !firstClickButton" class="button-sortScore" [ngClass]="cursorClass" (mouseout)="cursorOut()" (mouseover)="cursorIn()" (click)="getRecordListSortedDsc()">
     <span class="span-button"> Trier	</span> <span class="span-button-sort">&#10138;</span>
   </button>
-  <button *ngIf="!this.displayDsc && !firstClickButton" class="button-sortScore" [ngClass] = "cursorClass" (mouseout) = "cursorOut()" (mouseover) = "cursorIn()" (click)="getRecordListSortedAsc()">
+  <button *ngIf="!this.displayDsc && !firstClickButton" class="button-sortScore" [ngClass]="cursorClass" (mouseout)="cursorOut()" (mouseover)="cursorIn()" (click)="getRecordListSortedAsc()">
     <span class="span-button"> Trier	</span> <span class="span-button-sort">&#10136;</span>
   </button>
-  <button class="button-exitScore" [ngClass] = "cursorClassOk" (mouseout) = "cursorOutOk()" (mouseover) = "cursorInOk()" (click)="exitScore()">
+  <button class="button-exitScore" [ngClass]="cursorClassOk" (mouseout)="cursorOutOk()" (mouseover)="cursorInOk()" (click)="exitScore()">
     <span class="span-button"> Ok </span>
   </button>
   </div>
+  <div *ngIf="displayClearMsg" class="clear-dialog">
+    <span class="clear-dialog-text">Effacer les scores ?</span>
+  <button class="clear-dialog-button" [ngClass]="cursorClassOui" (mouseout)="cursorOutOui()" (mouseover)="cursorInOui()" (click)="confirmClearRecords()">Oui</button>
+  <button class="clear-dialog-button" [ngClass]="cursorClassNon" (mouseout)="cursorOutNon()" (mouseover)="cursorInNon()" (click)="cancelClearRecords()">Non</button>
+</div>
+<div *ngIf="displayNoClearMsg" class="noclear-dialog">
+<span class="noclear-dialog-text">Memoire vide</span>
+  <button class="noclear-dialog-button" [ngClass]="cursorClassNoRec" (mouseout)="cursorOutNoRec()" (mouseover)="cursorInNoRec()" (click)="okNoRecords()">Oui</button>
+</div>

@@ -1,7 +1,7 @@
-<div class="game-panel">
-  <span class="panel-title">Mode d'emploi</span> <br>
-  <div class="panel-text">
-    <label class="label-panel">{{getTitleWording()}}</label><br><br>
+<div class="game-panel" [ngClass]="getPanelClass()" >
+  <span class="panel-title">{{getMainTitleWording()}}</span> <br>
+  <div class="panel-text" [ngClass]="getPanelTextClass()" >
+    <label *ngIf="step!=3" class="label-panel">{{getTitleWording()}}</label><br><br>
 <div *ngIf="this.step == 0">
  <span>
   Dans SeaWorm, vous contrôlez un vers marin à la recherche de nourriture.
@@ -46,6 +46,13 @@
     </div>
     <span>Verte : +100pts, le SeaWorm est réduit à 1px</span>
   </div><br>
+
+ </div>
+ <div class="help-video" *ngIf="this.step == 3">
+  <video muted loop autoplay height="262" width="260">
+    <source src="./assets/videos/VideoHelpGame.mp4"
+            type="video/mp4">
+  </video>
 
  </div>
   </div>
