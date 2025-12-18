@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { GameService } from '../game.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { GameService } from '../game.service';
 })
 export class DebugComponent implements OnInit {
   @Output() displayDebug = new EventEmitter();
-  checkoutForm: FormGroup;
+  checkoutForm: UntypedFormGroup;
   code1 = 'YOUAREDEAD';
   code2 = 'AGAINSTALLODDS';
   code3 = 'NOBULLSHIT';
@@ -17,7 +17,7 @@ export class DebugComponent implements OnInit {
   cursorExitClass = 'no-focus';
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
-    constructor(private formBuilder: FormBuilder, private gameService: GameService) {
+    constructor(private formBuilder: UntypedFormBuilder, private gameService: GameService) {
       this.checkoutForm = this.formBuilder.group({
       inputValue: ''
     }); }
