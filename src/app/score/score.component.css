@@ -1,26 +1,26 @@
 @font-face {
-  src: url("src\assets\fonts\TreasureMapDeadhand-yLA3.ttf");
+  src: url("/assets/fonts/TreasureMapDeadhand-yLA3.ttf");
   font-family: "Pirate Menu";
  }
  @font-face {
-   src: url("src\assets\fonts\Blackpearl-vPxA.ttf");
+   src: url("/assets/fonts/Blackpearl-vPxA.ttf");
    font-family: "Pirate Game";
  }
 
  @counter-style sharks {
   system: fixed;
-  symbols: url("src\assets\images\icons8-shark-32.png");
+  symbols: url("/assets/images/icons8-shark-32.png");
   suffix: " ";
 }
 
  .cursor-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto !important;
+  cursor: url("/assets/Poker/Hand-Right.cur") 0 0, auto !important;
   color: yellowgreen !important;
   background-color: red !important;
 }
 
 .cursor-dialog-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto !important;
+  cursor: url("/assets/Poker/Hand-Right.cur") 0 0, auto !important;
   color: black !important;
   background-color: plum !important;
 }
@@ -52,7 +52,7 @@ ul {
   border: solid;
   border-width: 7px;
   padding-top: 10px;
-  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  cursor: url("/assets/images/starfishcur.cur") 0 0, auto;
 }
 
 .panel-title {
@@ -98,7 +98,7 @@ ul {
    padding-left: 3%;
    margin-top: 1.25%;
    margin-right: 1.5%;
-   cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  cursor: url("/assets/images/starfishcur.cur") 0 0, auto;
   }
 
   .button-sortScore {
@@ -114,7 +114,7 @@ ul {
      padding-left: 4%;
      margin-top: 1.25%;
      margin-right: 1.5%;
-     cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+    cursor: url("/assets/images/starfishcur.cur") 0 0, auto;
     }
 
     .button-exitScore {
@@ -129,7 +129,7 @@ ul {
        font-family: "Pirate Game";
        padding-left: 6.5%;
        margin-top: 1.25%;
-       cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+      cursor: url("/assets/images/starfishcur.cur") 0 0, auto;
       }
 
 .clear-dialog {
@@ -181,7 +181,7 @@ ul {
   padding-left: 10%;
   margin-top: 2.25%;
   margin-left: 10%;
-  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  cursor: url("/assets/images/starfishcur.cur") 0 0, auto;
 }
 
 .noclear-dialog-button {
@@ -197,7 +197,7 @@ ul {
   padding-left: 10%;
   margin-top: 2.25%;
   margin-left: 30%;
-  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  cursor: url("/assets/images/starfishcur.cur") 0 0, auto;
 }
 
 .span-button {

@@ -1,10 +1,10 @@
  @font-face {
-   src: url("src\assets\fonts\Blackpearl-vPxA.ttf");
+  src: url("/assets/fonts/Blackpearl-vPxA.ttf");
    font-family: "Pirate Game";
  }
 
  .cursor-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  cursor: url("/assets/Poker/Hand-Right.cur") 0 0, auto;
   background-color: red;
   color: yellowgreen !important;
 }
@@ -27,7 +27,7 @@ span, label {
   border: solid;
   border-width: 7px;
   padding-top: 10px;
-  cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
+  cursor: url("/assets/images/starfishcur.cur") 4 12, auto;
 }
 
 .dialog-text {

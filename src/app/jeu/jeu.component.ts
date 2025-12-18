@@ -32,20 +32,21 @@ export class JeuComponent implements OnInit {
   eatSound = new Audio('.\\assets\\sounds\\eat.mp3');
   clickExitSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   buttonClass = 'no-focus';
+  launcher: any;
 
 
   constructor(private gameService: GameService) { }
 
   ngOnInit() {
     this.countdownTimer();
-    const launcher = setTimeout(() => {
+    this.launcher = setTimeout(() => {
       this.initGame();
     }, 4000);
   }
 
   ngOnDestroy(): void {
   clearInterval(this.displayRate);
-  clearTimeout();
+  clearTimeout(this.launcher);
   }
 
   countdownTimer(): void {
