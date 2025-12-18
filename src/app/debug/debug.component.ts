@@ -1,12 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
-import { GameService } from '../game.service';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {UntypedFormBuilder, UntypedFormGroup} from '@angular/forms';
+import {GameService} from '../game.service';
 
 @Component({
-    selector: 'app-debug',
-    templateUrl: './debug.component.html',
-    styleUrls: ['./debug.component.css'],
-    standalone: false
+  selector: 'app-debug',
+  templateUrl: './debug.component.html',
+  styleUrls: ['./debug.component.css'],
+  standalone: false,
 })
 export class DebugComponent implements OnInit {
   @Output() displayDebug = new EventEmitter();
@@ -18,73 +18,92 @@ export class DebugComponent implements OnInit {
   cursorExitClass = 'no-focus';
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
-    constructor(private formBuilder: UntypedFormBuilder, private gameService: GameService) {
-      this.checkoutForm = this.formBuilder.group({
-      inputValue: ''
-    }); }
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private gameService: GameService
+  ) {
+    this.checkoutForm = this.formBuilder.group({
+      inputValue: '',
+    });
+  }
 
-    ngOnInit() {
-    }
+  ngOnInit() {}
 
-    cursorApplyIn() {
-      this.cursorApplyClass = 'cursor-in';
-    }
+  cursorApplyIn() {
+    this.cursorApplyClass = 'cursor-in';
+  }
 
-    cursorApplyOut() {
-      this.cursorApplyClass = 'no-focus';
-    }
+  cursorApplyOut() {
+    this.cursorApplyClass = 'no-focus';
+  }
 
-    cursorExitIn() {
-      this.cursorExitClass = 'cursor-in';
-    }
+  cursorExitIn() {
+    this.cursorExitClass = 'cursor-in';
+  }
 
-    cursorExitOut() {
-      this.cursorExitClass = 'no-focus';
-    }
+  cursorExitOut() {
+    this.cursorExitClass = 'no-focus';
+  }
 
-    getButtonsFocus(): void {
-      const applyButton = document.getElementById('apply');
-      const exitButton = document.getElementById('exit');
-      applyButton.addEventListener('mouseenter', ( event ) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor = 'lightslategray';
-      }, false);
-      applyButton.addEventListener('mouseleave', (event) => {
-        const e = event.target as HTMLElement;
-        e.style.backgroundColor = '';
-      }, false);
-      exitButton.addEventListener('mouseenter', ( event ) => {
+  getButtonsFocus(): void {
+    const applyButton = document.getElementById('apply');
+    const exitButton = document.getElementById('exit');
+    applyButton.addEventListener(
+      'mouseenter',
+      event => {
         const e = event.target as HTMLElement;
         e.style.backgroundColor = 'lightslategray';
-        }, false);
-      exitButton.addEventListener('mouseleave', (event) => {
-          const e = event.target as HTMLElement;
-          e.style.backgroundColor = '';
-        }, false);
-    }
+      },
+      false
+    );
+    applyButton.addEventListener(
+      'mouseleave',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = '';
+      },
+      false
+    );
+    exitButton.addEventListener(
+      'mouseenter',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = 'lightslategray';
+      },
+      false
+    );
+    exitButton.addEventListener(
+      'mouseleave',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = '';
+      },
+      false
+    );
+  }
 
-    onSubmit() {
-      if (this.gameService.getAudio()){
-        this.clickSound.play();
-      }
-      if (this.checkoutForm.value.inputValue == this.code1) {
-this.gameService.setCode1(true);
-localStorage.setItem('YOUAREDEAD', 'true');
-} else if (this.checkoutForm.value.inputValue == this.code2) {
-  this.gameService.setCode2(true);
-  localStorage.setItem('AGAINSTALLODDS', 'true');
-} else if (this.checkoutForm.value.inputValue == this.code3) {
-  this.gameService.setCode3(true);
-  localStorage.setItem('NOBULLSHIT', 'true');
-}
-      return;
+  onSubmit() {
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
     }
+    if (this.checkoutForm.value.inputValue == this.code1) {
+      this.gameService.setCode1(true);
+      localStorage.setItem('YOUAREDEAD', 'true');
+    } else if (this.checkoutForm.value.inputValue == this.code2) {
+      this.gameService.setCode2(true);
+      localStorage.setItem('AGAINSTALLODDS', 'true');
+    } else if (this.checkoutForm.value.inputValue == this.code3) {
+      this.gameService.setCode3(true);
+      localStorage.setItem('NOBULLSHIT', 'true');
+    }
+    return;
+  }
 
-    exitDebug(): void {
-      this.clickSound.volume = 0.7;
-      if (this.gameService.getAudio()){
-        this.clickSound.play();
-      }
-      this.displayDebug.emit();
+  exitDebug(): void {
+    this.clickSound.volume = 0.7;
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
     }
+    this.displayDebug.emit();
+  }
 }

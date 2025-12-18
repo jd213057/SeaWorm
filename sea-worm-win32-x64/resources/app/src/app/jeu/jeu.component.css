@@ -1,13 +1,14 @@
 @font-face {
-  src: url("/assets/fonts/TreasureMapDeadhand-yLA3.ttf");
-  font-family: "Pirate Menu";
+  src: url('/assets/fonts/TreasureMapDeadhand-yLA3.ttf');
+  font-family: 'Pirate Menu';
 }
- @font-face {
-   src: url("/assets/fonts/Blackpearl-vPxA.ttf");
-   font-family: "Pirate Game";
- }
+@font-face {
+  src: url('/assets/fonts/Blackpearl-vPxA.ttf');
+  font-family: 'Pirate Game';
+}
 
-span, label {
+span,
+label {
   opacity: 100% !important;
 }
 
@@ -20,13 +21,15 @@ span, label {
   border: solid;
   margin-left: 130%;
   border-width: 7px;
-  cursor: url("/assets/images/starfishcur.cur") 0 0, auto;
+  cursor:
+    url('/assets/images/starfishcur.cur') 0 0,
+    auto;
   opacity: 75%;
 }
 
 .panel-title {
   font-size: 3em;
-  font-family: "Pirate Menu";
+  font-family: 'Pirate Menu';
   color: yellow;
   margin-bottom: -8%;
 }
@@ -34,7 +37,7 @@ span, label {
 .score-title {
   margin-bottom: 2%;
   font-size: 3em;
-  font-family: "Pirate Menu";
+  font-family: 'Pirate Menu';
   color: yellow;
 }
 
@@ -47,8 +50,10 @@ span, label {
 }
 
 button {
-  z-index: 50;;
-  cursor: url("/assets/Poker/Hand-Right.cur") 0 0, auto;
+  z-index: 50;
+  cursor:
+    url('/assets/Poker/Hand-Right.cur') 0 0,
+    auto;
   display: inline-flex;
   color: black;
   width: 250px;
@@ -56,7 +61,7 @@ button {
   border-radius: 0% 0% 140px 140px;
   border-color: black;
   font-size: 24px;
-  font-family: "Pirate Game";
+  font-family: 'Pirate Game';
   padding-top: 10px;
   padding-left: 34px;
   margin-top: 2%;
@@ -65,9 +70,11 @@ button {
 }
 
 button:hover {
-cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
-background-color: red !important;
-color: rgb(244, 226, 150) !important;
+  cursor:
+    url('src\assets\Poker\Hand-Right.cur') 0 0,
+    auto;
+  background-color: red !important;
+  color: rgb(244, 226, 150) !important;
 }
 
 .exit-button-title {
@@ -93,7 +100,7 @@ color: rgb(244, 226, 150) !important;
   height: 288px;
   width: 190px;
   color: yellow;
-  font-family: "Pirate Game";
+  font-family: 'Pirate Game';
   font-size: 110px;
   padding-top: 150px;
   margin-left: 275%;
@@ -101,14 +108,14 @@ color: rgb(244, 226, 150) !important;
 }
 
 .end-panel {
-position: absolute !important;
-opacity: 87.5% !important;
-width: 700px !important;
-height: 500px !important;
-left: 250px;
-top: 30px;
-margin-left: -35%;
-margin-top: 13%;
+  position: absolute !important;
+  opacity: 87.5% !important;
+  width: 700px !important;
+  height: 500px !important;
+  left: 250px;
+  top: 30px;
+  margin-left: -35%;
+  margin-top: 13%;
 }
 
 img {
@@ -121,12 +128,8 @@ img {
 }
 
 .exit-msg {
-color: red;
-font-size: 3em;
-font-family: "Pirate Game";
-margin-top: 300px;
+  color: red;
+  font-size: 3em;
+  font-family: 'Pirate Game';
+  margin-top: 300px;
 }
-
-
-
-

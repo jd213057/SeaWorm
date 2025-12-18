@@ -1,22 +1,21 @@
-import { Component, OnInit, Input, Output , EventEmitter} from '@angular/core';
-import { GameService } from '../game.service';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {GameService} from '../game.service';
 
 @Component({
-    selector: 'app-help',
-    templateUrl: './help.component.html',
-    styleUrls: ['./help.component.css'],
-    standalone: false
+  selector: 'app-help',
+  templateUrl: './help.component.html',
+  styleUrls: ['./help.component.css'],
+  standalone: false,
 })
 export class HelpComponent implements OnInit {
-@Output() displayHelp = new EventEmitter();
-cursorClass = 'no-focus';
-step = 0;
-clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
+  @Output() displayHelp = new EventEmitter();
+  cursorClass = 'no-focus';
+  step = 0;
+  clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
-  constructor(protected gameService: GameService) { }
+  constructor(protected gameService: GameService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   cursorIn() {
     this.cursorClass = 'cursor-in';
@@ -47,7 +46,7 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
     return 'Exemple video';
   }
 
-  getTitleWording() : string {
+  getTitleWording(): string {
     if (this.step == 0) {
       return 'But du jeu :';
     } else if (this.step == 1) {
@@ -65,7 +64,9 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
   }
 
   getHelpButtonClass(): string {
-  return this.step == 0 ||  this.step == 1 || this.step == 2 ? this.cursorClass + ' button-next' : this.cursorClass + ' ' + 'last-button';
+    return this.step == 0 || this.step == 1 || this.step == 2
+      ? this.cursorClass + ' button-next'
+      : this.cursorClass + ' ' + 'last-button';
   }
 
   clickHelpButton(): void {
@@ -76,9 +77,6 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
     if (this.step == 3) {
       this.displayHelp.emit();
     }
-    this.step ++;
+    this.step++;
   }
-
-
 }
-

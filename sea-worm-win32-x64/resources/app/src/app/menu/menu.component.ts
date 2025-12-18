@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { GameService } from '../game.service';
+import {Component, OnInit} from '@angular/core';
+import {GameService} from '../game.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
   image = this.gameService.getBackgroundImg();
@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
   backgroundMusic = new Audio(this.getMusic());
   screenSaverTimer;
 
-  constructor(public gameService: GameService) { }
+  constructor(public gameService: GameService) {}
 
   ngOnInit() {
     this.onInit = true;
@@ -39,39 +39,51 @@ export class MenuComponent implements OnInit {
 
   getControlsChecker(): void {
     const menu = document.getElementById('page');
-    menu.addEventListener('click', (e) => {
+    menu.addEventListener('click', e => {
       this.userEvent = true;
       this.gameActive = true;
     });
-    menu.addEventListener('mousemove', (e) => {
- this.userEvent = true;
- this.gameActive = true;
-                });
+    menu.addEventListener('mousemove', e => {
+      this.userEvent = true;
+      this.gameActive = true;
+    });
   }
 
   getScreenSaver(): void {
-      const timer = setInterval((t) => {
-        if (!this.userEvent && !this.runningParty) {
-          this.gameActive = false;
-        }
-        this.userEvent = false;
-            }, 15000);
+    const timer = setInterval(t => {
+      if (!this.userEvent && !this.runningParty) {
+        this.gameActive = false;
+      }
+      this.userEvent = false;
+    }, 15000);
   }
 
   playBackgroundSound(): void {
     this.clickSound.volume = 0.7;
-    this.backgroundMusic.addEventListener('change', function() {
-    this.currentTime = 0;
-    this.play();
-}, false);
-    this.oceanSound.addEventListener('ended', function() {
-      this.currentTime = 0;
-      this.play();
-  }, false);
-    this.bubbleSound.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false);
+    this.backgroundMusic.addEventListener(
+      'change',
+      function () {
+        this.currentTime = 0;
+        this.play();
+      },
+      false
+    );
+    this.oceanSound.addEventListener(
+      'ended',
+      function () {
+        this.currentTime = 0;
+        this.play();
+      },
+      false
+    );
+    this.bubbleSound.addEventListener(
+      'ended',
+      function () {
+        this.currentTime = 0;
+        this.play();
+      },
+      false
+    );
   }
 
   getOceanSound(): string {
@@ -97,67 +109,107 @@ export class MenuComponent implements OnInit {
   }
 
   getBackgroundImg(): string {
-  return this.gameService.getBackgroundImg();
+    return this.gameService.getBackgroundImg();
   }
 
-getAudio(): boolean {
+  getAudio(): boolean {
     return !this.gameService.getAudio();
   }
 
-getMusic(): string {
+  getMusic(): string {
     return this.gameService.getThemeChoice();
   }
 
-getNavBarFocus() {
+  getNavBarFocus() {
     const startButton = document.getElementById('start');
     const helpButton = document.getElementById('help');
     const configButton = document.getElementById('config');
     const scoreButton = document.getElementById('score');
     const exitButton = document.getElementById('exit');
-    startButton.addEventListener('mouseenter', ( event ) => {
-    const e = event.target as HTMLElement;
-    e.style.backgroundColor = 'cyan';
-    }, false);
-    startButton.addEventListener('mouseleave', (event) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor = '';
-    }, false);
-    helpButton.addEventListener('mouseenter', ( event ) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor  = 'cyan';
-    }, false);
-    helpButton.addEventListener('mouseleave', (event) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor = '';
-    }, false);
-    configButton.addEventListener('mouseenter', ( event ) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor  = 'cyan';
-    }, false);
-    configButton.addEventListener('mouseleave', (event) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor = '';
-    }, false);
-    scoreButton.addEventListener('mouseenter', ( event ) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor  = 'cyan';
-    }, false);
-    scoreButton.addEventListener('mouseleave', (event) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor = '';
-    }, false);
-    exitButton.addEventListener('mouseenter', ( event ) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor  = 'cyan';
-    }, false);
-    exitButton.addEventListener('mouseleave', (event) => {
-      const e = event.target as HTMLElement;
-      e.style.backgroundColor = '';
-    }, false);
+    startButton.addEventListener(
+      'mouseenter',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = 'cyan';
+      },
+      false
+    );
+    startButton.addEventListener(
+      'mouseleave',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = '';
+      },
+      false
+    );
+    helpButton.addEventListener(
+      'mouseenter',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = 'cyan';
+      },
+      false
+    );
+    helpButton.addEventListener(
+      'mouseleave',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = '';
+      },
+      false
+    );
+    configButton.addEventListener(
+      'mouseenter',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = 'cyan';
+      },
+      false
+    );
+    configButton.addEventListener(
+      'mouseleave',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = '';
+      },
+      false
+    );
+    scoreButton.addEventListener(
+      'mouseenter',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = 'cyan';
+      },
+      false
+    );
+    scoreButton.addEventListener(
+      'mouseleave',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = '';
+      },
+      false
+    );
+    exitButton.addEventListener(
+      'mouseenter',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = 'cyan';
+      },
+      false
+    );
+    exitButton.addEventListener(
+      'mouseleave',
+      event => {
+        const e = event.target as HTMLElement;
+        e.style.backgroundColor = '';
+      },
+      false
+    );
   }
 
   activateDebugPanel(): void {
-    document.body.onkeydown = (e) => {
+    document.body.onkeydown = e => {
       if (e.ctrlKey && e.altKey) {
         if (this.gameService.getAudio()) {
           this.clickSound.play();
@@ -168,51 +220,51 @@ getNavBarFocus() {
         this.userEvent = true;
         this.gameActive = true;
       }
-          };
+    };
   }
 
-startButton()  {
-  if (this.gameService.getAudio()) {
-    this.clickSound.play();
-  }
-  this.helpRequest = false;
-  this.configRequest = false;
-  this.debugRequest = false;
-  this.scoreRequest = false;
-  this.runningParty = true;
-  }
-
-helpButton(): void {
-  if (this.gameService.getAudio()) {
-    this.clickSound.play();
-  }
-  this.runningParty = false;
-  this.configRequest = false;
-  this.debugRequest = false;
-  this.scoreRequest = false;
-  this.helpRequest = true;
+  startButton() {
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
+    }
+    this.helpRequest = false;
+    this.configRequest = false;
+    this.debugRequest = false;
+    this.scoreRequest = false;
+    this.runningParty = true;
   }
 
-configButton(): void {
-  if (this.gameService.getAudio()) {
-    this.clickSound.play();
-  }
-  this.runningParty = false;
-  this.helpRequest = false;
-  this.debugRequest = false;
-  this.scoreRequest = false;
-  this.configRequest = true;
+  helpButton(): void {
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
+    }
+    this.runningParty = false;
+    this.configRequest = false;
+    this.debugRequest = false;
+    this.scoreRequest = false;
+    this.helpRequest = true;
   }
 
-debugButton(): void {
-  if (this.gameService.getAudio()) {
-    this.clickSound.play();
+  configButton(): void {
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
+    }
+    this.runningParty = false;
+    this.helpRequest = false;
+    this.debugRequest = false;
+    this.scoreRequest = false;
+    this.configRequest = true;
   }
-  this.displayParty();
-  this.displayHelp();
-  this.displayConfig();
-  this.displayScore();
-  this.debugRequest = !this.debugRequest;
+
+  debugButton(): void {
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
+    }
+    this.displayParty();
+    this.displayHelp();
+    this.displayConfig();
+    this.displayScore();
+    this.debugRequest = !this.debugRequest;
   }
 
   scoreButton(): void {
@@ -226,19 +278,19 @@ debugButton(): void {
     this.scoreRequest = true;
   }
 
-displayParty(): void {
+  displayParty(): void {
     this.runningParty = false;
-      }
+  }
 
-displayHelp(): void {
+  displayHelp(): void {
     this.helpRequest = false;
   }
 
-displayConfig(): void {
+  displayConfig(): void {
     this.configRequest = false;
   }
 
-displayDebug(): void {
+  displayDebug(): void {
     this.debugRequest = false;
   }
 
@@ -246,25 +298,31 @@ displayDebug(): void {
     this.scoreRequest = false;
   }
 
-displayExitDialog(): void {
-  this.exitDialog = false;
-}
-
-exitButton() {
-  if (this.gameService.getAudio()) {
-    this.clickSound.play();
+  displayExitDialog(): void {
+    this.exitDialog = false;
   }
-  if (!this.runningParty && !this.helpRequest && !this.configRequest && !this.debugRequest && !this.scoreRequest) {
+
+  exitButton() {
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
+    }
+    if (
+      !this.runningParty &&
+      !this.helpRequest &&
+      !this.configRequest &&
+      !this.debugRequest &&
+      !this.scoreRequest
+    ) {
       this.exitDialog = true;
     }
-  this.runningParty = false;
-  this.helpRequest = false;
-  this.configRequest = false;
-  this.scoreRequest = false;
-  this.debugRequest = false;
+    this.runningParty = false;
+    this.helpRequest = false;
+    this.configRequest = false;
+    this.scoreRequest = false;
+    this.debugRequest = false;
   }
 
-shutdownGame(): void {
-  window.close();
-}
+  shutdownGame(): void {
+    window.close();
+  }
 }

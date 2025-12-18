@@ -1,4 +1,4 @@
-import { Case } from './Case';
+import {Case} from './Case';
 
 export class Worm {
   cases: Case[];
@@ -14,7 +14,7 @@ export class Worm {
   }
 
   setCases(worm: Case[]): void {
-  this.cases = worm;
+    this.cases = worm;
   }
 
   getDirection(): Direction {
@@ -30,5 +30,5 @@ export enum Direction {
   'haut',
   'bas',
   'gauche',
-  'droite'
+  'droite',
 }

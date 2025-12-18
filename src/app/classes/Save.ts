@@ -1,4 +1,4 @@
-import { GameService } from '../game.service';
+import {GameService} from '../game.service';
 
 export class Save {
   public id: number;

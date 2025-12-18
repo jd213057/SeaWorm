@@ -1,14 +1,16 @@
 @font-face {
-  src: url("/assets/fonts/TreasureMapDeadhand-yLA3.ttf");
-  font-family: "Pirate Menu";
+  src: url('/assets/fonts/TreasureMapDeadhand-yLA3.ttf');
+  font-family: 'Pirate Menu';
 }
- @font-face {
-   src: url("/assets/fonts/Blackpearl-vPxA.ttf");
-   font-family: "Pirate Game";
- }
+@font-face {
+  src: url('/assets/fonts/Blackpearl-vPxA.ttf');
+  font-family: 'Pirate Game';
+}
 
- .cursor-in {
-  cursor: url("/assets/Poker/Hand-Right.cur") 0 0, auto;
+.cursor-in {
+  cursor:
+    url('/assets/Poker/Hand-Right.cur') 0 0,
+    auto;
   color: yellowgreen !important;
   background-color: red !important;
 }
@@ -17,7 +19,8 @@
   background-color: none;
 }
 
-span, label {
+span,
+label {
   opacity: 100% !important;
 }
 
@@ -25,18 +28,20 @@ span, label {
   text-align: center;
   width: 1200px;
   height: 450px;
-  background-color:black;
+  background-color: black;
   border-radius: 30px;
   border-color: black;
   border: solid;
   border-width: 7px;
   padding-top: 10px;
-  cursor: url("/assets/images/starfishcur.cur") 0 0, auto;
+  cursor:
+    url('/assets/images/starfishcur.cur') 0 0,
+    auto;
 }
 
 .panel-title {
   font-size: 35px;
-  font-family: "Pirate Menu";
+  font-family: 'Pirate Menu';
   font-style: italic;
   color: yellowgreen;
 }
@@ -46,18 +51,18 @@ span, label {
 }
 
 .button-exitHelp {
-display: inline-flex;
- color: red;
- width: 18%;
- height: 15%;
- border-radius: 0.75em;
- border-color: black;
- background-color: yellowgreen;
- font-style: italic;
- font-size: 1.75em;
- font-family: "Pirate Menu";
- padding-left: 3.5%;
- margin-top: 1.25%;
+  display: inline-flex;
+  color: red;
+  width: 18%;
+  height: 15%;
+  border-radius: 0.75em;
+  border-color: black;
+  background-color: yellowgreen;
+  font-style: italic;
+  font-size: 1.75em;
+  font-family: 'Pirate Menu';
+  padding-left: 3.5%;
+  margin-top: 1.25%;
 }
 
 .button-next {
@@ -71,7 +76,7 @@ display: inline-flex;
   height: 280px;
   padding: 22px 10px 0px 10px;
   color: red;
-  font-family: "Pirate Game";
+  font-family: 'Pirate Game';
   font-size: 30px;
   background-color: black;
   border-radius: 30px;
@@ -160,12 +165,12 @@ video {
 }
 
 .last-panel {
-width: 390px !important;
-margin-left: 415px;
-border: 3px solid plum !important;
+  width: 390px !important;
+  margin-left: 415px;
+  border: 3px solid plum !important;
 }
 
 .last-panel-text {
-width: 300px !important;
-background-color: plum !important;
+  width: 300px !important;
+  background-color: plum !important;
 }

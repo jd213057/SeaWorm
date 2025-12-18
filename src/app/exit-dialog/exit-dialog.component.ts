@@ -1,23 +1,22 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { GameService } from '../game.service';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {GameService} from '../game.service';
 
 @Component({
-    selector: 'app-exit-dialog',
-    templateUrl: './exit-dialog.component.html',
-    styleUrls: ['./exit-dialog.component.css'],
-    standalone: false
+  selector: 'app-exit-dialog',
+  templateUrl: './exit-dialog.component.html',
+  styleUrls: ['./exit-dialog.component.css'],
+  standalone: false,
 })
 export class ExitDialogComponent implements OnInit {
-@Output() displayExitDialog = new EventEmitter();
-@Output() displayExitGame = new EventEmitter();
-cursorExitClass = '';
-cursorCancelClass = '';
-clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
+  @Output() displayExitDialog = new EventEmitter();
+  @Output() displayExitGame = new EventEmitter();
+  cursorExitClass = '';
+  cursorCancelClass = '';
+  clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
-  constructor(protected gameService: GameService) { }
+  constructor(protected gameService: GameService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   cursorExitIn() {
     this.cursorExitClass = 'cursor-in';
@@ -35,19 +34,18 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
     this.cursorCancelClass = 'no-focus';
   }
 
- closeApp(): void {
-  if (this.gameService.getAudio()){
-    this.clickSound.play();
+  closeApp(): void {
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
+    }
+    this.displayExitGame.emit();
   }
-   this.displayExitGame.emit();
- }
 
- closeExitDialog() {
-   this.clickSound.volume = 0.7;
-   if (this.gameService.getAudio()){
-    this.clickSound.play();
+  closeExitDialog() {
+    this.clickSound.volume = 0.7;
+    if (this.gameService.getAudio()) {
+      this.clickSound.play();
+    }
+    this.displayExitDialog.emit();
   }
-   this.displayExitDialog.emit();
- }
-
 }

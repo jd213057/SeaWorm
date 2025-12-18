@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ScoreComponent } from './score.component';
+import {ScoreComponent} from './score.component';
 
 describe('ScoreComponent', () => {
   let component: ScoreComponent;
@@ -8,9 +8,8 @@ describe('ScoreComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScoreComponent ]
-    })
-    .compileComponents();
+      declarations: [ScoreComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

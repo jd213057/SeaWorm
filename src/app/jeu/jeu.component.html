@@ -1,12 +1,15 @@
 @if (!onGame && !endGame) {
   <div class="countdown">
-    {{getCount()}}
+    {{ getCount() }}
   </div>
 }
 @if (onGame || endGame) {
   <div class="game-panel" [ngClass]="endPanelClass()">
-    <div class="panel-title"><span>SeaWorm</span></div><br>
-    <div  class="score-title" [ngClass]="getEndGameClass()"><span>{{getScore()}}</span></div>
+    <div class="panel-title"><span>SeaWorm</span></div
+    ><br />
+    <div class="score-title" [ngClass]="getEndGameClass()"
+      ><span>{{ getScore() }}</span></div
+    >
     @if (onGame && !endGame) {
       <div class="grid">
         <div class="line">
@@ -133,12 +136,15 @@
     }
     @if (endGame) {
       <div class="end-panel">
-        <img src="https://media.giphy.com/media/107gPMgIBBleA8/giphy.gif" (mouseover)="$event.stopPropagation()">
+        <img
+          src="https://media.giphy.com/media/107gPMgIBBleA8/giphy.gif"
+          (mouseover)="$event.stopPropagation()"
+        />
       </div>
     }
     @if (onGame) {
       <button (click)="exitGame()">
-        <span class = "exit-button-title">Sortir</span>
+        <span class="exit-button-title">Sortir</span>
       </button>
     }
     @if (endGame) {

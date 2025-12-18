@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ExitDialogComponent } from './exit-dialog.component';
+import {ExitDialogComponent} from './exit-dialog.component';
 
 describe('ExitDialogComponent', () => {
   let component: ExitDialogComponent;
@@ -8,9 +8,8 @@ describe('ExitDialogComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExitDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [ExitDialogComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

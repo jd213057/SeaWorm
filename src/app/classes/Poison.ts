@@ -1,13 +1,13 @@
-import { Case } from './Case';
+import {Case} from './Case';
 
 export class Poison {
   case: Case;
   toShow: boolean;
 
   constructor(casePoison: Case) {
-    this.case =  casePoison;
+    this.case = casePoison;
     this.toShow = true;
-      }
+  }
 
   getCase(): Case {
     return this.case;

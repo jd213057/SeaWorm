@@ -1,14 +1,16 @@
 @font-face {
-  src: url("/assets/fonts/TreasureMapDeadhand-yLA3.ttf");
-  font-family: "Pirate Menu";
+  src: url('/assets/fonts/TreasureMapDeadhand-yLA3.ttf');
+  font-family: 'Pirate Menu';
 }
- @font-face {
-   src: url("/assets/fonts/Blackpearl-vPxA.ttf");
-   font-family: "Pirate Game";
- }
+@font-face {
+  src: url('/assets/fonts/Blackpearl-vPxA.ttf');
+  font-family: 'Pirate Game';
+}
 
- .cursor-in {
-  cursor: url("/assets/Poker/Hand-Right.cur") 0 0, auto;
+.cursor-in {
+  cursor:
+    url('/assets/Poker/Hand-Right.cur') 0 0,
+    auto;
   background-color: red !important;
 }
 
@@ -16,7 +18,8 @@
   background-color: none;
 }
 
-span, label {
+span,
+label {
   opacity: 100% !important;
 }
 
@@ -31,12 +34,14 @@ span, label {
   border-width: 7px;
   padding-top: 2px;
   padding-bottom: 2px;
-  cursor: url("/assets/images/starfishcur.cur") 4 12, auto;
+  cursor:
+    url('/assets/images/starfishcur.cur') 4 12,
+    auto;
 }
 
 .panel-title {
   font-size: 30px;
-  font-family: "Pirate Game";
+  font-family: 'Pirate Game';
   color: gold;
 }
 
@@ -44,13 +49,13 @@ span, label {
   display: inline-flex;
   color: black;
   width: 220px;
-  height: 50px;;
+  height: 50px;
   margin-left: 20px;
   border-radius: 15px;
   border-color: black;
   font-style: italic;
   font-size: 30px;
-  font-family: "Pirate Menu";
+  font-family: 'Pirate Menu';
   padding-left: 60px;
   padding-top: 2px;
   margin-top: 10px;
@@ -64,7 +69,7 @@ span, label {
   height: 60px;
   padding: 0px 10px 0px 10px;
   color: gold;
-  font-family: "Pirate Game";
+  font-family: 'Pirate Game';
   font-size: 30px;
   background-color: black;
   border-radius: 30px;
@@ -73,7 +78,7 @@ span, label {
 .input {
   height: 60px;
   width: 1000px;
-  font-family: "Pirate Game";
+  font-family: 'Pirate Game';
   font-size: 50px;
   text-align: center;
   border-radius: 30px;

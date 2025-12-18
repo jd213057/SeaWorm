@@ -1,4 +1,4 @@
-import { Case } from './Case';
+import {Case} from './Case';
 
 export class Food {
   case: Case;
@@ -6,9 +6,9 @@ export class Food {
   type: TYPE;
 
   constructor(caseFood: Case) {
-this.case =  caseFood;
-this.count = 0;
-this.type = TYPE.yellowgreen;
+    this.case = caseFood;
+    this.count = 0;
+    this.type = TYPE.yellowgreen;
   }
 
   getCase(): Case {
@@ -36,11 +36,11 @@ this.type = TYPE.yellowgreen;
   }
 }
 
-export  enum TYPE {
-'yellowgreen',
-'red',
-'purple',
-'green',
-'orange',
-'darkblue'
+export enum TYPE {
+  'yellowgreen',
+  'red',
+  'purple',
+  'green',
+  'orange',
+  'darkblue',
 }

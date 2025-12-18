@@ -1,10 +1,12 @@
- @font-face {
-  src: url("/assets/fonts/Blackpearl-vPxA.ttf");
-   font-family: "Pirate Game";
- }
+@font-face {
+  src: url('/assets/fonts/Blackpearl-vPxA.ttf');
+  font-family: 'Pirate Game';
+}
 
- .cursor-in {
-  cursor: url("/assets/Poker/Hand-Right.cur") 0 0, auto;
+.cursor-in {
+  cursor:
+    url('/assets/Poker/Hand-Right.cur') 0 0,
+    auto;
   background-color: red;
   color: yellowgreen !important;
 }
@@ -13,7 +15,8 @@
   background-color: white;
 }
 
-span, label {
+span,
+label {
   opacity: 100% !important;
 }
 
@@ -27,12 +30,14 @@ span, label {
   border: solid;
   border-width: 7px;
   padding-top: 10px;
-  cursor: url("/assets/images/starfishcur.cur") 4 12, auto;
+  cursor:
+    url('/assets/images/starfishcur.cur') 4 12,
+    auto;
 }
 
 .dialog-text {
   font-size: 35px;
-  font-family: "Pirate Game";
+  font-family: 'Pirate Game';
   color: greenyellow;
 }
 
@@ -40,17 +45,17 @@ span, label {
   display: inline-flex;
   color: red;
   width: 220px;
-  height: 70px;;
+  height: 70px;
   padding-top: 13px;
   margin-left: 20px;
   border-radius: 15px;
   border-color: white;
   font-size: 30px;
-  font-family: "Pirate Game";
+  font-family: 'Pirate Game';
   padding-left: 85px;
   margin-top: 10px;
 }
 
 .span-button {
-margin-left: -10px;
+  margin-left: -10px;
 }
