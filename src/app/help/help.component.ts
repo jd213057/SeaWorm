@@ -2,9 +2,10 @@ import { Component, OnInit, Input, Output , EventEmitter} from '@angular/core';
 import { GameService } from '../game.service';
 
 @Component({
-  selector: 'app-help',
-  templateUrl: './help.component.html',
-  styleUrls: ['./help.component.css']
+    selector: 'app-help',
+    templateUrl: './help.component.html',
+    styleUrls: ['./help.component.css'],
+    standalone: false
 })
 export class HelpComponent implements OnInit {
 @Output() displayHelp = new EventEmitter();

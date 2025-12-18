@@ -7,9 +7,10 @@ import { Poison } from '../classes/Poison';
 
 
 @Component({
-  selector: 'app-jeu',
-  templateUrl: './jeu.component.html',
-  styleUrls: ['./jeu.component.css']
+    selector: 'app-jeu',
+    templateUrl: './jeu.component.html',
+    styleUrls: ['./jeu.component.css'],
+    standalone: false
 })
 export class JeuComponent implements OnInit {
   @Output() displayParty = new EventEmitter();

@@ -3,9 +3,10 @@ import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { GameService } from '../game.service';
 
 @Component({
-  selector: 'app-config',
-  templateUrl: './config.component.html',
-  styleUrls: ['./config.component.css']
+    selector: 'app-config',
+    templateUrl: './config.component.html',
+    styleUrls: ['./config.component.css'],
+    standalone: false
 })
 export class ConfigComponent implements OnInit {
   @Output() displayConfig = new EventEmitter();

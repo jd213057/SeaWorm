@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../game.service';
 
 @Component({
-  selector: 'app-menu-template',
-  templateUrl: './menu-template.component.html',
-  styleUrls: ['./menu-template.component.css']
+    selector: 'app-menu-template',
+    templateUrl: './menu-template.component.html',
+    styleUrls: ['./menu-template.component.css'],
+    standalone: false
 })
 export class MenuTemplateComponent implements OnInit {
   onInit = false;

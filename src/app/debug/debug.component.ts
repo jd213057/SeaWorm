@@ -3,9 +3,10 @@ import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { GameService } from '../game.service';
 
 @Component({
-  selector: 'app-debug',
-  templateUrl: './debug.component.html',
-  styleUrls: ['./debug.component.css']
+    selector: 'app-debug',
+    templateUrl: './debug.component.html',
+    styleUrls: ['./debug.component.css'],
+    standalone: false
 })
 export class DebugComponent implements OnInit {
   @Output() displayDebug = new EventEmitter();

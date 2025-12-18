@@ -3,9 +3,10 @@ import { Save } from '../classes/Save';
 import { GameService } from '../game.service';
 
 @Component({
-  selector: 'app-score',
-  templateUrl: './score.component.html',
-  styleUrls: ['./score.component.css']
+    selector: 'app-score',
+    templateUrl: './score.component.html',
+    styleUrls: ['./score.component.css'],
+    standalone: false
 })
 export class ScoreComponent implements OnInit {
   @Output() displayScore = new EventEmitter();

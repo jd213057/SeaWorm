@@ -2,9 +2,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../game.service';
 
 @Component({
-  selector: 'app-exit-dialog',
-  templateUrl: './exit-dialog.component.html',
-  styleUrls: ['./exit-dialog.component.css']
+    selector: 'app-exit-dialog',
+    templateUrl: './exit-dialog.component.html',
+    styleUrls: ['./exit-dialog.component.css'],
+    standalone: false
 })
 export class ExitDialogComponent implements OnInit {
 @Output() displayExitDialog = new EventEmitter();
