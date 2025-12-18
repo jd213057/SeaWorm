@@ -1,21 +1,22 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { GameService } from '../game.service';
 
 @Component({
-  selector: 'app-config',
-  templateUrl: './config.component.html',
-  styleUrls: ['./config.component.css']
+    selector: 'app-config',
+    templateUrl: './config.component.html',
+    styleUrls: ['./config.component.css'],
+    standalone: false
 })
 export class ConfigComponent implements OnInit {
   @Output() displayConfig = new EventEmitter();
-  checkoutForm: FormGroup;
+  checkoutForm: UntypedFormGroup;
   cursorApplyClass = 'no-focus';
   cursorExitClass = 'no-focus';
   @Input() imgToShow = this.gameService.getBackgroundImg();
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
 
-    constructor(private formBuilder: FormBuilder, private gameService: GameService) {
+    constructor(private formBuilder: UntypedFormBuilder, private gameService: GameService) {
       this.checkoutForm = this.formBuilder.group({
       audio: this.gameService.getAudioPref(),
       themeChoice: this.gameService.getThemePref(),

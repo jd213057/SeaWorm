@@ -1,8 +1,8 @@
 @font-face {
-  src: url("src\assets\fonts\TreasureMapDeadhand-yLA3.ttf");
+  src: url("/assets/fonts/TreasureMapDeadhand-yLA3.ttf");
   font-family: "Pirate Menu";
+}
 
- }
 
  @keyframes bubbleOut {
   from {
